@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samuel Aklashie | Researcher & Built Environment Scholar</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050a0f;
+    --surface: #0b1520;
+    --surface2: #0f1e2e;
+    --accent: #00e5c0;
+    --accent2: #0084ff;
+    --accent3: #7b5fff;
+    --text: #e8f4f0;
+    --muted: #7a9aaa;
+    --border: rgba(0, 229, 192, 0.15);
+    --glow: rgba(0, 229, 192, 0.08);
+    --font-head: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grid overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,192,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,192,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(5,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: var(--font-head);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-name span {
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--font-head);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    max-width: 580px;
+    color: #9ab8c8;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: opacity 0.2s, transform 0.2s;
+    font-family: var(--font-mono);
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--accent);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+    font-family: var(--font-mono);
+  }
+
+  .btn-outline:hover { background: var(--glow); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: #9ab8c8;
+    margin-bottom: 1.25rem;
+    font-size: 0.88rem;
+    line-height: 1.85;
+  }
+
+  .about-text p strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .detail-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .detail-card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-card-value {
+    color: var(--text);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* PUBLICATIONS */
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pub-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 2rem;
+    transition: background 0.2s, border-left-color 0.2s;
+    position: relative;
+  }
+
+  .pub-item:hover {
+    background: var(--surface2);
+    border-left-color: var(--accent2);
+  }
+
+  .pub-year {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .pub-title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .pub-journal {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+
+  .pub-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(0,229,192,0.2);
+    color: var(--muted);
+  }
+
+  .pub-tag.q1 { border-color: rgba(0,229,192,0.5); color: var(--accent); }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,229,192,0.05) 50%);
+  }
+
+  .project-card:hover {
+    border-color: rgba(0,229,192,0.4);
+    background: var(--surface2);
+  }
+
+  .project-num {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(0,229,192,0.4);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .project-title {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    border: 1px solid rgba(123,95,255,0.25);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .project-status {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .status-active { background: rgba(0,229,192,0.1); color: var(--accent); }
+  .status-ongoing { background: rgba(0,132,255,0.1); color: var(--accent2); }
+  .status-upcoming { background: rgba(123,95,255,0.1); color: var(--accent3); }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-text {
+    color: #9ab8c8;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .contact-item:hover {
+    border-color: rgba(0,229,192,0.4);
+    background: var(--surface2);
+  }
+
+  .contact-icon {
+    color: var(--accent);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .contact-detail {
+    flex: 1;
+  }
+
+  .contact-detail-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.1rem;
+  }
+
+  .contact-detail-value {
+    font-size: 0.82rem;
+    color: var(--text);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .form-input,
+  .form-textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: rgba(0,229,192,0.5);
+  }
+
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  footer span { color: var(--accent); }
+
+  /* DIVIDER */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.65rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Scroll reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">SA_</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Built Environment Researcher · Digital Construction</div>
+  <h1 class="hero-name">Samuel<br><span>Aklashie</span></h1>
+  <p class="hero-title">MPhil Candidate · Built Environment Researcher</p>
+  <p class="hero-desc">
+    Advancing sustainable construction through digital technologies — BIM, blockchain, and data-driven frameworks for the circular built environment. Based in Ghana, thinking globally.
+  </p>
+  <div class="hero-cta">
+    <a href="#publications" class="btn-primary">View Research</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3.83</div>
+      <div class="stat-label">MPhil GPA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Q1</div>
+      <div class="stat-label">Target Journals</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <div class="section-tag">Background</div>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I am a <strong>Graduate Teaching and Research Assistant</strong> at the Department of Construction Technology and Management, Kwame Nkrumah University of Science and Technology (KNUST), Ghana, completing my MPhil in Building Technology.
+      </p>
+      <p>
+        My research sits at the intersection of <strong>digital construction technologies</strong>, sustainable built environments, and circular economy — with a particular focus on how BIM, blockchain, and data-driven tools can transform construction practice in developing country contexts.
+      </p>
+      <p>
+        Beyond research, I am a practicing member of the <strong>Ghana Institute of Construction (MGIOC)</strong> and serve as UPG Sustainability Leader on campus.
+      </p>
+      <div class="tag-list">
+        <span class="tag">Circular Economy</span>
+        <span class="tag">BIM</span>
+        <span class="tag">Blockchain</span>
+        <span class="tag">Digital Twins</span>
+        <span class="tag">Sustainable Construction</span>
+        <span class="tag">PLS-SEM</span>
+        <span class="tag">Systematic Reviews</span>
+        <span class="tag">Carbon Management</span>
+      </div>
+    </div>
+    <div class="about-details reveal">
+      <div class="detail-card">
+        <div class="detail-card-label">Current Position</div>
+        <div class="detail-card-value">Graduate Teaching & Research Assistant<br>Dept. of Construction Technology & Management, KNUST, Ghana</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-label">Education</div>
+        <div class="detail-card-value">MPhil, Building Technology — KNUST (GPA 3.83/4.00)<br>BSc, Construction Technology & Management — KNUST (First Class, GPA 3.78/4.00)</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-label">Membership</div>
+        <div class="detail-card-value">Member, Ghana Institute of Construction (MGIOC)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header reveal">
+    <div class="section-tag">Scholarly Work</div>
+    <h2 class="section-title">Research & Publications</h2>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2024 — Accepted</div>
+      <div class="pub-title">Blockchain and Digital Twin Integration in Construction: A Systematic Literature Review</div>
+      <div class="pub-journal">Built Environment Project and Asset Management (BEPAM) — Emerald</div>
+      <div class="pub-tags">
+        <span class="pub-tag q1">Q1 Journal</span>
+        <span class="pub-tag">Blockchain</span>
+        <span class="pub-tag">Digital Twin</span>
+        <span class="pub-tag">SLR</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2024 — Under Revision</div>
+      <div class="pub-title">Socio-Technical Barriers to BIM Adoption: A Fuzzy Synthetic Evaluation Using the TOE Framework</div>
+      <div class="pub-journal">Engineering, Construction and Architectural Management (ECAM) — Emerald</div>
+      <div class="pub-tags">
+        <span class="pub-tag q1">Q1 Journal</span>
+        <span class="pub-tag">BIM</span>
+        <span class="pub-tag">TOE Framework</span>
+        <span class="pub-tag">Fuzzy Synthetic Evaluation</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2024 — Submitted</div>
+      <div class="pub-title">Quantity Surveyors and the Sustainable Development Goals: Roles, Perceptions, and Institutional Drivers</div>
+      <div class="pub-journal">PLOS ONE</div>
+      <div class="pub-tags">
+        <span class="pub-tag">SDGs</span>
+        <span class="pub-tag">Quantity Surveying</span>
+        <span class="pub-tag">Role Theory</span>
+        <span class="pub-tag">Institutional Isomorphism</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2024 — Submitted</div>
+      <div class="pub-title">Design for Greater Efficiency Awareness: A Critical Assessment of Ghana's Design Professionals</div>
+      <div class="pub-journal">Building Research & Information / BEPAM Special Issue</div>
+      <div class="pub-tags">
+        <span class="pub-tag">PLS-SEM</span>
+        <span class="pub-tag">Design Professionals</span>
+        <span class="pub-tag">Ghana</span>
+        <span class="pub-tag">Diffusion of Innovations</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2024 — In Progress</div>
+      <div class="pub-title">Digital Product Passport Implementation in Construction: A Systematic Review of Technologies, Frameworks, and Adoption Challenges</div>
+      <div class="pub-journal">Automation in Construction (Target) — Elsevier</div>
+      <div class="pub-tags">
+        <span class="pub-tag q1">Q1 Target</span>
+        <span class="pub-tag">DPP</span>
+        <span class="pub-tag">BIM-Blockchain</span>
+        <span class="pub-tag">Circular Economy</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">2023–2024</div>
+      <div class="pub-title">IoT Applications in Carbon Management for Construction</div>
+      <div class="pub-journal">Peer-reviewed journal article</div>
+      <div class="pub-tags">
+        <span class="pub-tag">IoT</span>
+        <span class="pub-tag">Carbon Management</span>
+        <span class="pub-tag">Smart Construction</span>
+      </div>
+    </div>
+
+    <div class="pub-item reveal">
+      <div class="pub-year">Book Chapter</div>
+      <div class="pub-title">Circular Economy in the Built Environment</div>
+      <div class="pub-journal">Edward Elgar Book Chapter Series on Circular Economy</div>
+      <div class="pub-tags">
+        <span class="pub-tag">Circular Economy</span>
+        <span class="pub-tag">Built Environment</span>
+        <span class="pub-tag">Book Chapter</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-tag">Current & Upcoming Work</div>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <div class="project-status status-active">Active · 2024</div>
+      <div class="project-title">Industrial Symbiosis in Construction: A Bibliometric and Content Analysis</div>
+      <div class="project-desc">Revisiting industrial symbiosis in the construction industry through an extensive systematic review across five research questions — conceptual foundations, resource exchange dynamics, stakeholder governance, digital technologies, and emerging research gaps.</div>
+      <div class="project-tech">
+        <span class="tech-tag">VOSviewer</span>
+        <span class="tech-tag">Bibliometrix</span>
+        <span class="tech-tag">Industrial Symbiosis</span>
+        <span class="tech-tag">Content Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <div class="project-status status-active">Active · 2024</div>
+      <div class="project-title">Nature-Based Solutions for Climate and Health in MEA</div>
+      <div class="project-desc">Collaborative systematic literature review examining nature-based solutions (NBS) in the Middle East and Africa region, focusing on climate resilience and public health outcomes. Co-authored with Virginia.</div>
+      <div class="project-tech">
+        <span class="tech-tag">NBS</span>
+        <span class="tech-tag">Climate Resilience</span>
+        <span class="tech-tag">Middle East & Africa</span>
+        <span class="tech-tag">SLR</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <div class="project-status" style="background: rgba(0,229,192,0.07); color: #7a9aaa; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem;">Completed</div>
+      <div class="project-title">MPhil Thesis: Design for Greater Efficiency in Ghana</div>
+      <div class="project-desc">PLS-SEM study (n=238 design professionals) examining Design for Greater Efficiency implementation in Ghana, finding that perceived importance and institutional strategies — not awareness — drive adoption behaviour.</div>
+      <div class="project-tech">
+        <span class="tech-tag">PLS-SEM</span>
+        <span class="tech-tag">SPSS</span>
+        <span class="tech-tag">Smart PLS</span>
+        <span class="tech-tag">Ghana</span>
+        <span class="tech-tag">DfGE</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-text reveal">
+        I welcome collaboration opportunities, peer review invitations, research discussions, and academic partnerships — particularly around digital construction, circular economy, and sustainable built environments. Feel free to reach out.
+      </p>
+      <div class="contact-items">
+        <a href="mailto:samuel.aklashie@knust.edu.gh" class="contact-item reveal">
+          <div class="contact-icon">@</div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">samuel.aklashie@knust.edu.gh</div>
+          </div>
+        </a>
+        <a href="#" class="contact-item reveal">
+          <div class="contact-icon">in</div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">LinkedIn</div>
+            <div class="contact-detail-value">linkedin.com/in/samuel-aklashie</div>
+          </div>
+        </a>
+        <a href="#" class="contact-item reveal">
+          <div class="contact-icon">G</div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">Google Scholar</div>
+            <div class="contact-detail-value">View Publications</div>
+          </div>
+        </a>
+        <div class="contact-item reveal" style="cursor: default;">
+          <div class="contact-icon">&#9679;</div>
+          <div class="contact-detail">
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Kumasi, Ghana</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-input" placeholder="Research collaboration, peer review...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Your message..."></textarea>
+      </div>
+      <button class="btn-primary" style="cursor: pointer; border: none; width: 100%;">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Samuel Aklashie</span> · Built Environment Researcher · KNUST, Ghana</p>
+  <p style="margin-top: 0.5rem; font-size: 0.65rem;">MPhil · MGIOC · Built Environment Researcher</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
