@@ -181,13 +181,6 @@ section.tint .edu-card{background:var(--paper)}
 .edu-card p{font-size:.93rem;color:var(--ink-2)}
 .badge{display:inline-block;font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--brass-soft);color:#6f5214;margin-bottom:10px}
 
-/* Research */
-.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.theme{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);padding:28px;transition:border-color .2s,box-shadow .2s}
-.theme:hover{border-color:#c7d6cd;box-shadow:var(--shadow)}
-.theme h3{font:500 1.28rem/1.25 var(--serif);margin-bottom:8px}
-.theme p{color:var(--ink-2);font-size:.95rem}
-
 /* Publications */
 .tabs{display:flex;gap:6px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:5px;width:max-content;max-width:100%;margin-bottom:28px}
 .tabs button{font:500 .93rem var(--sans);padding:9px 16px;border-radius:8px;border:none;background:transparent;color:var(--ink-2);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
@@ -347,89 +340,171 @@ footer a{color:#d9e6e0}
 .portrait-inner .pp{transform:translateZ(60px)}
 .portrait-inner .portrait-frame{transform:translateZ(0)}
 
+/* ---------- Research themes ---------- */
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.theme{all:unset;box-sizing:border-box;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s;text-align:left}
+.theme:hover{border-color:#b9cdc2;box-shadow:var(--shadow);transform:translateY(-2px)}
+.theme:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.theme .art{display:block;padding:14px 14px 0}
+.theme .art svg{display:block;width:100%;height:auto;border-radius:10px}
+.t-body{display:flex;flex-direction:column;gap:6px;padding:18px 22px 22px;flex:1}
+.t-title{font:500 1.24rem/1.25 var(--serif);color:var(--ink)}
+.t-text{color:var(--ink-2);font-size:.95rem;line-height:1.5}
+.theme .more{margin-top:auto;padding-top:8px;font-weight:600;font-size:.9rem;color:var(--leaf);display:inline-flex;align-items:center;gap:6px}
+.theme .more::after{content:"\2192";transition:transform .2s}
+.theme:hover .more::after{transform:translateX(4px)}
+.theme-dialog{margin:auto;overflow:auto;overscroll-behavior:contain;border:none;padding:0;border-radius:var(--r-lg);width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 48px);box-shadow:0 40px 90px -30px rgba(0,0,0,.55);background:var(--surface);color:var(--ink)}
+.theme-dialog::backdrop{background:rgba(7,35,28,.55);backdrop-filter:blur(3px)}
+.td-inner{position:relative;padding:28px 32px 32px}
+.td-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink)}
+.td-close:hover{background:var(--leaf-soft)}
+.td-art svg{width:100%;max-width:340px;display:block;margin-bottom:14px;border-radius:12px}
+.theme-dialog h3{font:500 1.8rem/1.15 var(--serif);letter-spacing:-.02em;margin-bottom:14px;padding-right:40px}
+.td-sec{margin-top:18px}
+.td-sec h4{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);margin-bottom:6px}
+.td-sec p{color:var(--ink-2);line-height:1.65}
+.td-sec ul{list-style:none;display:grid;gap:8px}
+.td-sec li{font-size:.93rem;padding:10px 12px;border-radius:10px;background:var(--paper);border:1px solid var(--rule-2)}
+.td-sec li a{font-weight:600;text-decoration:none}
+.td-sec li span{display:block;color:var(--muted);font-size:.84rem}
+.td-actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+
 /* ---------- Lab ---------- */
-.lab{background:linear-gradient(180deg,var(--paper),#eaeee8)}
-.lab-shell{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:stretch}
-.viewer{position:relative;min-height:620px;border-radius:var(--r-lg);overflow:hidden;background:radial-gradient(120% 90% at 50% 15%,#1c5646 0%,#0c3328 55%,#07231c 100%);box-shadow:0 30px 60px -30px rgba(12,51,40,.6)}
+.lab{background:linear-gradient(180deg,var(--paper),#e9eee8)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;counter-reset:st}
+.steps button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:10px;align-items:flex-start;width:100%;height:100%;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--rule);transition:border-color .2s,background .2s}
+.steps button:hover{border-color:#b9cdc2}
+.steps button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.steps .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 .82rem var(--sans);background:var(--leaf-soft);color:var(--forest)}
+.steps b{display:block;font:600 .95rem var(--sans);color:var(--ink)}
+.steps small{display:block;font-size:.78rem;color:var(--muted);line-height:1.35;margin-top:2px}
+.steps button[aria-selected="true"]{background:var(--forest);border-color:var(--forest)}
+.steps button[aria-selected="true"] .n{background:var(--brass-2);color:var(--forest)}
+.steps button[aria-selected="true"] b{color:#fff}
+.steps button[aria-selected="true"] small{color:#b8cdc3}
+.lab-shell{display:grid;grid-template-columns:1fr 390px;gap:18px;align-items:stretch}
+.viewer{position:relative;min-height:640px;border-radius:var(--r-lg);overflow:hidden;background:radial-gradient(120% 90% at 50% 12%,#1f5a49 0%,#0c3328 55%,#07231c 100%);box-shadow:0 30px 60px -30px rgba(12,51,40,.6)}
 #labCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
 #labCanvas.dragging{cursor:grabbing}
 #labCanvas.hovering{cursor:pointer}
-.dims{position:absolute;top:16px;left:16px;display:flex;gap:4px;padding:4px;border-radius:12px;background:rgba(7,35,28,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12)}
-.dims button{display:flex;flex-direction:column;align-items:center;min-width:66px;padding:7px 10px;border:none;border-radius:9px;background:transparent;color:#b7ccc2;cursor:pointer;font-family:var(--sans);line-height:1.15;transition:background .2s,color .2s}
-.dims button b{font:600 1.05rem var(--serif);color:#fff}
-.dims button span{font-size:.72rem}
-.dims button:hover{background:rgba(255,255,255,.08)}
-.dims button[aria-selected="true"]{background:var(--brass-2);color:var(--forest)}
-.dims button[aria-selected="true"] b{color:var(--forest)}
-.hud{position:absolute;top:16px;right:16px;width:250px;padding:14px 16px 12px;border-radius:12px;background:rgba(7,35,28,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:#fff}
-.hud-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.8rem;color:#9fb9ad;padding:2px 0}
-.hud-row b{font:500 1.05rem var(--serif);color:#fff;font-variant-numeric:tabular-nums}
-.spark{width:100%;height:54px;margin-top:8px;display:block}
-.spark-key{display:flex;align-items:center;gap:6px;font-size:.7rem;color:#9fb9ad;margin-top:4px}
-.spark-key i{width:10px;height:3px;border-radius:2px;display:inline-block}
-.k-carbon{background:#e2bf6a}.k-cost{background:#7fd1b0;margin-left:6px}
-.mode-note{position:absolute;left:16px;top:86px;max-width:300px;font-size:.82rem;color:#c3d5cc;background:rgba(7,35,28,.55);padding:6px 10px;border-radius:8px}
+.glass-ui{background:rgba(7,35,28,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff}
+.hud{position:absolute;top:14px;right:14px;width:210px;padding:12px 14px}
+.hud-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.78rem;color:#9fb9ad;padding:2px 0}
+.hud-row b{font:500 1.02rem var(--serif);color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hud-row b.warn{color:#f0c46a}
+.mode-note{position:absolute;left:14px;top:14px;max-width:330px;padding:10px 12px;font-size:.82rem;line-height:1.45;color:#dbe7e1}
+.mode-note b{color:var(--brass-2);font-weight:600}
+.legend{position:absolute;left:14px;bottom:14px;display:flex;flex-wrap:wrap;gap:6px 12px;max-width:62%;padding:9px 12px;font-size:.74rem;color:#dbe7e1}
 .legend[hidden]{display:none}
-.legend{position:absolute;left:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:6px 12px;max-width:62%;padding:10px 12px;border-radius:10px;background:rgba(7,35,28,.72);backdrop-filter:blur(8px);font-size:.76rem;color:#dbe7e1}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
 .legend .grad{display:flex;align-items:center;gap:8px;width:100%}
 .legend .bar{flex:1;min-width:140px;height:8px;border-radius:99px}
-.legend span.now{color:var(--brass-2);font-weight:600}
-.view-btns{position:absolute;right:16px;bottom:16px;display:flex;flex-direction:column;gap:6px}
-.view-btns button{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(7,35,28,.72);color:#fff;font:500 1.15rem var(--sans);cursor:pointer}
+.view-btns{position:absolute;right:14px;bottom:14px;display:flex;gap:6px}
+.view-btns button{height:36px;min-width:36px;padding:0 10px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(7,35,28,.74);color:#fff;font:500 .86rem var(--sans);cursor:pointer}
 .view-btns button:hover{background:rgba(255,255,255,.14)}
-.timeline{position:absolute;left:16px;right:70px;bottom:62px;display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;background:rgba(7,35,28,.8);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:#fff}
-.timeline[hidden]{display:none}
-#play{flex-shrink:0;width:40px;height:40px;border-radius:50%;border:none;background:var(--brass-2);color:var(--forest);cursor:pointer;display:grid;place-items:center}
-#play svg{width:20px;height:20px}
-.tl-track{flex:1;min-width:0}
-.tl-track input{width:100%;accent-color:#e2bf6a}
-.tl-stages{position:relative;height:16px;font-size:.68rem;color:#9fb9ad;margin-top:2px}
-.tl-stages span{position:absolute;top:0;white-space:nowrap}
-.tl-stages span::before{content:"";position:absolute;left:0;top:-5px;width:1px;height:4px;background:#9fb9ad}
-.tl-read{flex-shrink:0;text-align:right;min-width:92px}
-.tl-read b{display:block;font:500 1.05rem var(--serif)}
-.tl-read span{font-size:.76rem;color:var(--brass-2)}
+.view-btns button[aria-pressed="true"]{background:var(--brass-2);color:var(--forest);border-color:var(--brass-2)}
+.tip{position:absolute;pointer-events:none;z-index:3;padding:7px 10px;border-radius:8px;background:#fff;color:var(--ink);font-size:.78rem;line-height:1.35;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);max-width:240px}
+.tip b{display:block;font-weight:600}
+.tip span{color:var(--muted)}
 .gl-fallback[hidden]{display:none}
-.gl-fallback{position:absolute;inset:0;display:grid;pointer-events:none;place-items:center;color:#dbe7e1;text-align:center;padding:40px}
+.gl-fallback{position:absolute;inset:0;display:grid;place-items:center;color:#dbe7e1;text-align:center;padding:40px;pointer-events:none}
+.lab-note{margin-top:14px;font-size:.84rem;color:var(--muted);max-width:90ch}
 
-.passport-panel{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:18px;min-height:620px;max-height:720px;overflow:auto}
-.pp-kicker{font-size:.84rem;font-weight:600;color:var(--brass)}
-.passport-panel h3{font:500 1.4rem/1.2 var(--serif)}
-.passport-panel .lead{color:var(--ink-2);font-size:.93rem}
-.pid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:var(--muted);background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:6px 10px;word-break:break-all}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pcell{background:var(--paper);border-radius:10px;padding:10px 12px}
-.pcell small{display:block;font-size:.74rem;color:var(--muted)}
-.pcell b{font:500 1.05rem var(--serif)}
+.panel-lab{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;gap:16px;height:640px;overflow:auto;scrollbar-width:thin}
+.panel-lab h3{font:500 1.38rem/1.2 var(--serif)}
+.pp-kicker{display:block;font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--brass)}
+.panel-lab .lead{color:var(--ink-2);font-size:.9rem;line-height:1.55;margin-top:6px}
+.pid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--muted);background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:7px 10px;line-height:1.55;word-break:break-all}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pcell{background:var(--paper);border-radius:10px;padding:9px 11px}
+.pcell small{display:block;font-size:.72rem;color:var(--muted)}
+.pcell b{font:500 .98rem var(--serif)}
 .pcell.wide{grid-column:1/-1}
-.life{display:flex;justify-content:space-between;position:relative;padding:4px 4px 0}
-.life::before{content:"";position:absolute;left:12px;right:12px;top:11px;height:2px;background:var(--rule)}
-.life span{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:.74rem;color:var(--muted)}
-.life i{width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--rule)}
-.life span.done i{background:var(--leaf);border-color:var(--leaf)}
-.life span.now i{background:var(--brass);border-color:var(--brass);box-shadow:0 0 0 4px var(--brass-soft)}
-.life span.now{color:var(--ink);font-weight:600}
+.stagetbl{width:100%;border-collapse:collapse;font-size:.84rem}
+.stagetbl td{padding:5px 0;border-bottom:1px solid var(--rule-2);vertical-align:middle}
+.stagetbl td:first-child{width:84px;color:var(--ink-2)}
+.stagetbl td:last-child{text-align:right;font-variant-numeric:tabular-nums;width:92px}
+.stagetbl .sb{height:7px;border-radius:99px;background:var(--rule-2);overflow:hidden;margin:0 10px}
+.stagetbl .sb i{display:block;height:100%;border-radius:inherit}
+.stagetbl tr.tot td{font-weight:600;border-bottom:none}
+.chipsr{display:flex;flex-wrap:wrap;gap:6px}
+.adrchip{all:unset;cursor:pointer;white-space:nowrap;font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--leaf-soft);color:var(--forest)}
+.adrchip.flag{background:#fbe7c4;color:#7a4d06}
+.adrchip:focus-visible{outline:2px solid var(--brass)}
 .pbtns{display:flex;gap:8px;flex-wrap:wrap}
-.pbtns .btn{padding:10px 14px;font-size:.88rem}
-.mbars{list-style:none;display:grid;gap:10px}
-.mbars li{font-size:.84rem}
-.mbars .lbl{display:flex;justify-content:space-between;color:var(--ink-2)}
-.mbars .track{height:7px;border-radius:99px;background:var(--rule-2);overflow:hidden;margin-top:4px}
-.mbars .track i{display:block;height:100%;border-radius:inherit}
-.dlog h4{font:500 1.08rem var(--serif);margin-bottom:8px}
-.dlog ol{list-style:none;display:grid;gap:8px}
-.adr{border:1px solid var(--rule);border-left:3px solid var(--brass);border-radius:10px;padding:10px 12px;font-size:.84rem;background:#fffdf7}
-.adr.ok{border-left-color:var(--leaf);background:#f6fbf8}
-.adr b{display:block;font-weight:600;margin-bottom:2px}
-.adr p{color:var(--ink-2)}
-.adr .st{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px}
-.adr .st span{font-weight:600;color:#6f5214}
-.adr.ok .st span{color:var(--leaf)}
-.adr button{font:600 .8rem var(--sans);border:none;border-radius:7px;padding:6px 10px;background:var(--forest);color:#fff;cursor:pointer}
-.empty{font-size:.86rem;color:var(--muted)}
-.lab-note{margin-top:14px;font-size:.84rem;color:var(--muted)}
+.pbtns .btn{padding:9px 14px;font-size:.86rem}
+.sbtn{all:unset;box-sizing:border-box;cursor:pointer;font:600 .84rem var(--sans);padding:8px 12px;border-radius:9px;background:var(--forest);color:#fff;text-align:center}
+.sbtn:hover{background:var(--forest-2)}
+.sbtn.ghost{background:var(--surface);color:var(--forest);border:1px solid var(--rule)}
+.sbtn.ghost:hover{border-color:var(--leaf)}
+.sbtn[disabled]{opacity:.45;cursor:default}
+.dcard{border:1px solid var(--rule);border-radius:12px;padding:12px;background:var(--paper)}
+.dcard.flag{border-color:#e6b764;background:#fffaf0}
+.dcard.focus{box-shadow:0 0 0 3px rgba(226,191,106,.55)}
+.dhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
+.dhead b{font:600 .92rem var(--sans)}
+.dhead .st{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--leaf-soft);color:var(--forest);white-space:nowrap}
+.dcard.flag .dhead .st{background:#fbe7c4;color:#7a4d06}
+.dq{font-size:.8rem;color:var(--muted);margin-bottom:8px}
+.opts{display:grid;gap:6px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;background:var(--surface);border:1px solid var(--rule);font-size:.85rem}
+.opt:hover{border-color:var(--leaf)}
+.opt:focus-visible{outline:2px solid var(--brass)}
+.opt[aria-pressed="true"]{border-color:var(--forest);box-shadow:inset 0 0 0 1px var(--forest)}
+.opt span{display:block}
+.opt small{display:block;color:var(--muted);font-size:.74rem}
+.opt em{font-style:normal;font-weight:600;font-size:.8rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.opt em.dn{color:#1e7a52}.opt em.up{color:#a6461f}.opt em.cur{color:var(--muted);font-weight:500}
+.assm{margin-top:8px;font-size:.78rem;color:var(--ink-2);line-height:1.5;border-top:1px dashed var(--rule);padding-top:8px}
+.assm div{display:flex;justify-content:space-between;gap:8px}
+.assm .bad{color:#a6461f;font-weight:600}
+.impact{border-radius:12px;padding:12px;background:var(--forest);color:#dbe7e1;font-size:.84rem;line-height:1.5}
+.impact b{color:#fff}
+.impact .row{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
+.impact .row span:last-child{font-weight:600;color:#fff}
+.chips2{display:flex;flex-wrap:wrap;gap:6px}
+.chips2 button{all:unset;cursor:pointer;font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-2);background:var(--surface)}
+.chips2 button[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
+.mbars{list-style:none;display:grid;gap:9px}
+.mbars li{font-size:.82rem}
+.mbars .lbl{display:flex;justify-content:space-between;gap:8px;color:var(--ink-2)}
+.mbars .track{height:7px;border-radius:99px;background:var(--rule-2);overflow:hidden;margin-top:4px;display:flex}
+.mbars .track i{display:block;height:100%}
+.stack{display:flex;height:16px;border-radius:6px;overflow:hidden;background:var(--rule-2)}
+.stack i{display:block;height:100%}
+.skey{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.74rem;color:var(--muted);margin-top:6px}
+.skey span{display:inline-flex;align-items:center;gap:5px}
+.skey i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.trig{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--rule);background:var(--paper);font-size:.84rem}
+.trig:hover{border-color:var(--leaf)}
+.trig b{display:block;font-size:.88rem}
+.trig span{display:block;color:var(--muted);font-size:.78rem;line-height:1.4;margin-top:2px}
+.trig[disabled]{opacity:.55;cursor:default}
+.trig[disabled] b::after{content:" \2014 applied";font-weight:500;color:var(--leaf)}
+.evlog{list-style:none;display:grid;gap:8px}
+.evlog li{border-left:3px solid var(--leaf);background:var(--paper);border-radius:8px;padding:9px 11px;font-size:.8rem;line-height:1.5;color:var(--ink-2)}
+.evlog li.flag{border-left-color:#e0a030;background:#fffaf0}
+.evlog li b{color:var(--ink)}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;line-height:1.55;background:#0c2a22;color:#cfe3d9;border-radius:10px;padding:10px 12px;overflow:auto;white-space:pre;max-height:260px}
+.code .k{color:#e2bf6a}.code .c{color:#7f9d91}.code .s{color:#9fd6b8}
+.qsel{width:100%;font:inherit;font-size:.86rem;padding:9px 10px;border-radius:9px;border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
+.qres{list-style:none;display:grid;gap:4px;font-size:.8rem}
+.qres li{display:flex;justify-content:space-between;gap:8px;padding:6px 8px;border-radius:7px;background:var(--paper)}
+.qres button{all:unset;cursor:pointer;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--leaf);font-weight:600}
+.schema{width:100%;height:auto;display:block;background:var(--paper);border-radius:10px;border:1px solid var(--rule-2)}
+.ledger{list-style:none;display:block}
+.blk{position:relative;border:1px solid var(--rule);border-radius:10px;padding:9px 11px;background:var(--paper);font-size:.78rem;line-height:1.45}
+.blk+.blk{margin-top:14px}
+.blk+.blk::before{content:"";position:absolute;left:22px;top:-15px;width:2px;height:14px;background:var(--brass)}
+.blk .bh{display:flex;justify-content:space-between;font-weight:600;color:var(--ink);margin-bottom:3px}
+.blk code{font-size:.72rem;color:var(--muted)}
+.blk ul{list-style:none;margin-top:4px}
+.blk li{color:var(--ink-2)}
+.vstat{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;font-size:.85rem;font-weight:600}
+.vstat.ok{background:#e4f3eb;color:#1e6a47}
+.vstat.bad{background:#f9e2dc;color:#8a2f17}
+.muted{color:var(--muted);font-size:.84rem}
 
 /* ---------- Projects ---------- */
 .projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -447,24 +522,32 @@ footer a{color:#d9e6e0}
 .try{align-self:flex-start;margin-top:auto;color:var(--brass-2);font-weight:600}
 .try:hover{color:#fff}
 
+.edu{grid-template-columns:repeat(2,1fr)!important}
+.awards{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width:1100px){
+  .steps{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;padding-bottom:4px}
+}
 @media (max-width:1040px){
   .lab-shell{grid-template-columns:1fr}
-  .passport-panel{min-height:0;max-height:none}
+  .panel-lab{height:auto;max-height:none}
   .projects{grid-template-columns:1fr}
+  .themes{grid-template-columns:1fr 1fr}
+  .awards{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
-  .viewer{min-height:560px}
-  .dims{left:10px;right:10px;top:10px;justify-content:space-between}
-  .dims button{min-width:0;flex:1}
-  .hud{top:auto;bottom:10px;right:auto;left:10px;width:auto;padding:8px 12px;display:flex;gap:14px}
-  .hud .spark,.hud .spark-key,.hud-row:nth-child(3){display:none}
-  .hud-row{flex-direction:column;align-items:flex-start;padding:0}
-  .mode-note{top:74px;left:10px;right:10px;max-width:none}
+  .themes{grid-template-columns:1fr}
+  .edu,.awards{grid-template-columns:1fr!important}
+  .viewer{min-height:520px}
+  .steps small{display:none}
+  .steps{grid-template-columns:repeat(5,minmax(112px,1fr))}
+  .hud{top:10px;right:10px;left:10px;width:auto;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;padding:7px 11px}
+  .hud-row{font-size:.7rem}.hud-row b{font-size:.88rem}
+  .mode-note{display:none}
   .legend{display:none}
-  .view-btns{right:10px;bottom:10px;flex-direction:row}
-  .view-btns button{width:34px;height:34px}
-  .timeline{left:10px;right:10px;bottom:66px;flex-wrap:wrap;gap:8px}
-  .tl-read{min-width:0}
+  .view-btns{right:10px;bottom:10px}
+  .td-inner{padding:22px 20px 24px}
+  .theme-dialog h3{font-size:1.45rem}
 }
 </style>
 </head>
@@ -603,7 +686,7 @@ footer a{color:#d9e6e0}
         <h3>BSc Construction Technology and Management</h3>
         <div class="where">KNUST, Kumasi</div>
         <span class="badge">First Class Honours, GPA 3.78/4.00</span>
-        <p>Thesis on implementing materials passports in Ghana's construction industry, supervised by Prof. Kofi Agyekum and later published in IJBPA. Mastercard Foundation Scholar.</p>
+        <p>Thesis on implementing materials passports in Ghana's construction industry, supervised by Prof. Kofi Agyekum and later published in IJBPA.</p>
       </div>
       </div>
   </div>
@@ -625,7 +708,7 @@ footer a{color:#d9e6e0}
             <g fill="#fff" stroke="#1e7058" stroke-width="2"><circle cx="100" cy="40" r="6"/><circle cx="128" cy="28" r="6"/><circle cx="130" cy="60" r="7" fill="#b4862a" stroke="#b4862a"/><circle cx="162" cy="44" r="6"/><circle cx="158" cy="88" r="6"/></g>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">Digital product passports and ontologies</span><span class="t-text">: Carbon-integrated passports that make material data machine-readable and searchable.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">Digital product passports and ontologies</span><span class="t-text">Carbon-integrated passports that make material data machine-readable and searchable.</span><span class="more">Read more</span></span>
       </button>
 
       <button type="button" class="theme" data-theme="chain">
@@ -642,7 +725,7 @@ footer a{color:#d9e6e0}
             <path d="M96 106 h8" stroke="#b4862a" stroke-width="2"/>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">Blockchain and digital twins</span><span class="t-text">: Tamper-evident passport records and live building models for traceability and maintenance.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">Blockchain and digital twins</span><span class="t-text">Tamper-evident passport records and live building models for traceability and maintenance.</span><span class="more">Read more</span></span>
       </button>
 
       <button type="button" class="theme" data-theme="carbon">
@@ -655,7 +738,7 @@ footer a{color:#d9e6e0}
             <line x1="20" y1="106" x2="186" y2="106" stroke="#0c3328" stroke-width="2"/>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">Carbon management</span><span class="t-text">: Monitoring, lifecycle carbon and the gap between carbon awareness and practice.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">Carbon management</span><span class="t-text">Monitoring, lifecycle carbon and the gap between carbon awareness and practice.</span><span class="more">Read more</span></span>
       </button>
 
       <button type="button" class="theme" data-theme="circular">
@@ -667,7 +750,7 @@ footer a{color:#d9e6e0}
             <g fill="#b4862a"><circle cx="100" cy="20" r="3.5"/><circle cx="140" cy="60" r="3.5"/><circle cx="100" cy="100" r="3.5"/><circle cx="60" cy="60" r="3.5"/></g>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">Circular design</span><span class="t-text">: Design for greater efficiency, adaptability and deconstruction, and what drives adoption.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">Circular design</span><span class="t-text">Design for greater efficiency, adaptability and deconstruction, and what drives adoption.</span><span class="more">Read more</span></span>
       </button>
 
       <button type="button" class="theme" data-theme="ai">
@@ -680,7 +763,7 @@ footer a{color:#d9e6e0}
             <path d="M152 92 v-34 l16 -12 l16 12 v34z" fill="#fff" stroke="#0c3328" stroke-width="2"/><g fill="#9fb6ab"><rect x="158" y="64" width="6" height="6"/><rect x="172" y="64" width="6" height="6"/><rect x="158" y="76" width="6" height="6"/><rect x="172" y="76" width="6" height="6"/></g>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">AI in the built environment</span><span class="t-text">: How generative AI and machine learning are changing built environment research and practice.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">AI in the built environment</span><span class="t-text">How generative AI and machine learning are changing built environment research and practice.</span><span class="more">Read more</span></span>
       </button>
 
       <button type="button" class="theme" data-theme="nbs">
@@ -694,7 +777,7 @@ footer a{color:#d9e6e0}
             <line x1="18" y1="106" x2="190" y2="106" stroke="#0c3328" stroke-width="2"/>
           </svg>
         </span>
-        <span class="t-body"><span class="t-title">Nature-based solutions</span><span class="t-text">: Health and wellbeing co-benefits of nature-based solutions in Middle Eastern and African cities.</span><span class="more">Read more</span></span>
+        <span class="t-body"><span class="t-title">Nature-based solutions</span><span class="t-text">Health and wellbeing co-benefits of nature-based solutions in Middle Eastern and African cities.</span><span class="more">Read more</span></span>
       </button>
 
     </div>
@@ -715,49 +798,41 @@ footer a{color:#d9e6e0}
 <section class="block lab" id="lab" aria-labelledby="lab-h">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow">Interactive</span><h2 id="lab-h">A building that knows its own carbon</h2>
-      <p>A small digital twin of a four-storey building, where every component carries its own material passport. Move through the construction schedule, switch between cost and embodied carbon, and click any element to open its passport.</p></div>
+      <div><span class="eyebrow">Interactive demonstration</span><h2 id="lab-h">How design decisions shape a carbon passport</h2>
+      <p>A hypothetical four-storey building, not a real project. Every component carries a digital product passport. Each design choice is recorded as an Architectural Decision Record (ADR) that notes the carbon value it relied on and the range that value must stay within. Change a decision and watch the passports update; revise a passport value and see which decisions are flagged for reassessment.</p></div>
     </div>
+
+    <ol class="steps" role="tablist" aria-label="Demonstration steps">
+      <li><button role="tab" aria-selected="true" data-view="decide"><span class="n">1</span><span><b>Decide</b><small>Record design decisions as ADRs</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-view="carbon"><span class="n">2</span><span><b>Passport data</b><small>Carbon by lifecycle stage</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-view="revise"><span class="n">3</span><span><b>Revise and trigger</b><small>New EPD, route or factor</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-view="query"><span class="n">4</span><span><b>Query</b><small>Machine-readable ontology</small></span></button></li>
+      <li><button role="tab" aria-selected="false" data-view="verify"><span class="n">5</span><span><b>Verify</b><small>Tamper-evident ledger</small></span></button></li>
+    </ol>
 
     <div class="lab-shell">
       <div class="viewer" id="viewer">
-        <canvas id="labCanvas" aria-label="Interactive 3D building model. Drag to rotate, click a component to open its material passport."></canvas>
-        <div class="dims" role="tablist" aria-label="Model dimension">
-          <button role="tab" aria-selected="true" data-mode="3d"><b>3D</b><span>Model</span></button>
-          <button role="tab" aria-selected="false" data-mode="4d"><b>4D</b><span>Schedule</span></button>
-          <button role="tab" aria-selected="false" data-mode="5d"><b>5D</b><span>Cost</span></button>
-          <button role="tab" aria-selected="false" data-mode="6d"><b>6D</b><span>Carbon</span></button>
+        <canvas id="labCanvas" aria-label="Interactive 3D model of a hypothetical building. Drag to rotate, scroll or pinch to zoom, select a component to open its passport."></canvas>
+        <p class="mode-note glass-ui" id="modeNote"></p>
+        <div class="hud glass-ui" aria-live="polite">
+          <div class="hud-row"><span>Whole-life, A to C</span><b id="hudWL">0</b></div>
+          <div class="hud-row"><span>Module D</span><b id="hudD">0</b></div>
+          <div class="hud-row"><span>Passports</span><b id="hudN">0</b></div>
+          <div class="hud-row"><span>To reassess</span><b id="hudF">0</b></div>
         </div>
-        <div class="hud" aria-live="polite">
-          <div class="hud-row"><span>Embodied carbon</span><b id="hudCarbon">0</b></div>
-          <div class="hud-row"><span>Capital cost</span><b id="hudCost">0</b></div>
-          <div class="hud-row"><span>Components</span><b id="hudCount">0</b></div>
-          <svg class="spark" id="spark" viewBox="0 0 200 54" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <div class="spark-key"><i class="k-carbon"></i>Carbon <i class="k-cost"></i>Cost, cumulative</div>
-        </div>
-        <p class="mode-note" id="modeNote">Geometry: every element is a separate object with its own passport.</p>
-        <div class="legend" id="legend"></div>
+        <div class="legend glass-ui" id="legend"></div>
         <div class="view-btns">
+          <button type="button" id="explode" aria-pressed="false">Explode</button>
           <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
           <button type="button" id="zoomOut" aria-label="Zoom out">&minus;</button>
           <button type="button" id="resetView" aria-label="Reset view">&#8634;</button>
         </div>
-        <div class="timeline" id="timeline" hidden>
-          <button type="button" id="play" aria-label="Play construction sequence">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="playIcon" d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="tl-track">
-            <input type="range" id="week" min="0" max="56" step="0.1" value="56" aria-label="Construction week">
-            <div class="tl-stages"><span style="left:0%">Base</span><span style="left:14.3%">Frame</span><span style="left:42.9%">Envelope</span><span style="left:73.2%">Fit-out</span><span style="left:100%;transform:translateX(-100%)">Handover</span></div>
-          </div>
-          <div class="tl-read"><b id="weekLbl">Week 56</b><span id="stageLbl">Handover</span></div>
-        </div>
-        <div class="gl-fallback" id="glFallback" hidden>The 3D model needs WebGL, which this browser has turned off.</div>
+        <div class="tip" id="tip" hidden></div>
+        <div class="gl-fallback" id="glFallback" hidden>The 3D model needs WebGL, which this browser has turned off. The passport panel still works.</div>
       </div>
-
-      <aside class="passport-panel" id="panel" aria-live="polite"></aside>
+      <aside class="panel-lab" id="panel" aria-live="polite"></aside>
     </div>
-    <p class="lab-note">Illustrative model. Quantities, costs and carbon factors are indicative values for demonstration, not project data. BIM dimension naming varies; here 6D denotes sustainability and carbon.</p>
+    <p class="lab-note">Hypothetical demonstration. The building, quantities, carbon factors, ranges, identifiers and hashes are illustrative and are not project or supplier data. Stage values follow the EN 15978 module structure in simplified form. The ontology, decision and ledger views illustrate concepts from my research and are not connected to a live database or blockchain network.</p>
   </div>
 </section>
 
@@ -775,8 +850,8 @@ footer a{color:#d9e6e0}
       <article class="project feature">
         <div class="state"><i></i>In development</div>
         <h3>A decision-triggered ontology extension for carbon governance in digital product passports</h3>
-        <p>A design science study that extends an existing passport ontology with decision-record logic, so that when a carbon value is revised (for example, a new EPD for a blended cement) a governed decision is raised, reviewed and recorded. Competency questions and SPARQL queries test whether the trigger behaves for carbon data as it does for structural data.</p>
-        <div class="chips"><span class="chip">Design Science</span><span class="chip">Protégé</span><span class="chip">SPARQL</span><span class="chip">Carbon governance</span></div>
+        <p>A design science study that extends an existing passport ontology with Architectural Decision Record (ADR) logic. Each design decision records the carbon value it relied on and the range that value must stay within, and is linked to the passports it shapes. When a passport value is later revised, for example through a new EPD for a blended cement or a changed end-of-life route, the decisions that depended on it are flagged for reassessment. Competency questions and SPARQL queries test whether this trigger works for carbon as it has been shown to for structural data.</p>
+        <div class="chips"><span class="chip">Design Science</span><span class="chip">ADR</span><span class="chip">Protégé</span><span class="chip">SPARQL</span></div>
         <a class="try" href="#lab" data-try>Try the decision trigger in the 3D model</a>
       </article>
       <article class="project">
@@ -828,7 +903,7 @@ footer a{color:#d9e6e0}
         <div class="venue"><em>Green Finance</em>, 8(1)</div>
         <div class="meta"><a class="doi" href="https://doi.org/10.3934/GF.2026003" target="_blank" rel="noopener">DOI 10.3934/GF.2026003</a></div>
       </div></li>
-      <li class="pub" data-t="journal"><div class="y">2025</div><div>
+      <li class="pub" data-t="journal"><div class="y">2026</div><div>
         <div class="authors"><b>Aklashie, S.</b>, Agyekum, K., Adinyira, E., Gyimah, K. A., Opoku, D., &amp; Twumasi, J. O.</div>
         <h3><a href="https://doi.org/10.1108/BEPAM-10-2025-0337" target="_blank" rel="noopener">Design for greater efficiency awareness: a critical assessment of Ghana's design professionals</a></h3>
         <div class="venue"><em>Built Environment Project and Asset Management</em></div>
@@ -1012,7 +1087,7 @@ footer a{color:#d9e6e0}
     <div class="awards">
       <article class="award"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/></svg></div><h3>Overall Best Published Paper Award</h3><p>3rd Postgraduate Research Conference (PGRC), 2026</p></article>
       <article class="award"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>MPhil research grant</h3><p>Brew-Hammond Energy Centre, College of Engineering, KNUST</p></article>
-      <article class="award"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg></div><h3>Mastercard Foundation Scholar</h3><p>KNUST, September 2019 to November 2023</p></article>
+      
       <article class="award"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9L12 3z"/></svg></div><h3>First Class Honours</h3><p>BSc Construction Technology and Management, KNUST, 2023</p></article>
     </div>
   </div>
@@ -1140,314 +1215,631 @@ footer a{color:#d9e6e0}
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function glOK(){try{var c=document.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')));}catch(e){return false;}}
 var HAS3D=!!window.THREE&&glOK();
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fmt(n,d){d=d||0;return Number(n).toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function sgn(n,d){return (n>0?'+':n<0?'\u2212':'\u00b1')+fmt(Math.abs(n),d);}
+function hex(n){return '#'+('000000'+n.toString(16)).slice(-6);}
 
-/* ---------------- Shared building data ---------------- */
-var MAT={
-  concrete:{name:'Reinforced concrete',color:0xbac2bb,basis:'m3',carbon:340,cost:210,rec:'Crush to recycled aggregate',recPct:62,rev:{f:0.78,src:'Blended cement EPD, version 2'}},
-  sandcrete:{name:'Sandcrete blockwork',color:0xd8c7a0,basis:'m3',carbon:170,cost:110,rec:'Crush for sub-base fill',recPct:45,rev:{f:0.9,src:'Supplier EPD with 30% fly ash'}},
-  steel:{name:'Structural steel',color:0x60717d,basis:'m3',carbon:12200,cost:9400,fill:0.22,rec:'Reclaim for reuse',recPct:90,rev:{f:0.84,src:'EAF recycled-content EPD'}},
-  glass:{name:'Double glazing, aluminium frame',color:0x9fd3df,basis:'m2',carbon:45,cost:160,rec:'Recycle glass and aluminium',recPct:70,rev:{f:0.95,src:'Low-carbon aluminium frame EPD'}},
-  timber:{name:'Treated hardwood',color:0xa9713e,basis:'m3',carbon:120,cost:1100,rec:'Reuse or energy recovery',recPct:80,rev:{f:1.12,src:'Revised EPD including treatment'}},
-  pv:{name:'Photovoltaic module',color:0x1d3a5c,basis:'unit',carbon:380,cost:260,rec:'Specialist PV recycling',recPct:85,rev:{f:0.92,src:'Manufacturer EPD update'}}
+/* =====================================================================
+   RESEARCH THEME DIALOG
+   ===================================================================== */
+var THEMES={
+ dpp:{t:'Digital product passports and ontologies',lab:'query',
+  what:'A digital product passport is a structured record that travels with a product, describing what it is made of, where it came from, its environmental impact and how it can be recovered. For construction, material and product passports make it possible to follow a component from manufacture through use to reuse. An ontology gives that record a formal, machine-readable vocabulary, so data from design models, EPDs and suppliers can be linked and queried consistently rather than kept in incompatible spreadsheets.',
+  why:'The European Ecodesign for Sustainable Products Regulation makes passports a regulatory instrument, and carbon is one of the data categories they are meant to carry. Yet carbon is usually stored as a single fixed number, even though it changes at manufacture, use and end of life. Without a shared structure, a revised carbon figure cannot reliably reach the decisions that depended on it.',
+  focus:'I am developing a carbon-centric ontology for construction material passports. My review of passport technologies found that carbon is named in passport schemas but rarely developed as a governed, updatable value. My current work extends a passport ontology with Architectural Decision Record logic, so that when a carbon value is revised, the design decisions that relied on it are flagged for reassessment.',
+  pubs:[['Implementing materials passports in the construction industry: empirical evidence from Ghana','IJBPA, 2024','https://doi.org/10.1108/IJBPA-01-2024-0007'],['Blockchain-digital twin integration in construction material passports','BEPAM, 2026','https://doi.org/10.1108/BEPAM-07-2025-0188']]},
+ chain:{t:'Blockchain and digital twins',lab:'verify',
+  what:'A blockchain is a shared, append-only ledger. Once a record is written, any later change is visible, because each block carries a cryptographic fingerprint of what came before it. A digital twin is a live virtual model of a building that stays connected to data from the real asset. Together they can hold material records that many parties trust and see in the context of the building.',
+  why:'Passport data passes between manufacturers, designers, contractors, owners and recyclers over decades. Each handover is a point where records can be lost, altered or disputed. Tamper-evident storage and a shared model make the history of a material auditable instead of dependent on one organisation\u2019s database.',
+  focus:'I study how blockchain and digital twins can be integrated to prepare construction material passports for regulated passport implementation, and how facilities managers in Ghana view digital innovation in maintenance. I am also prototyping the registration of ontology-based passport records on a permissioned ledger, with each record anchored by a hash.',
+  pubs:[['Blockchain-digital twin integration in construction material passports: preparing for digital product passport implementation','BEPAM, 2026','https://doi.org/10.1108/BEPAM-07-2025-0188'],['Digital innovation in building maintenance: the perspectives of facilities managers in Ghana','IJBPA, 2025','https://doi.org/10.1108/IJBPA-01-2025-0009']]},
+ carbon:{t:'Carbon management',lab:'carbon',
+  what:'Buildings emit carbon in two ways: operational carbon from energy used in occupation, and embodied carbon from producing, transporting, maintaining and disposing of materials. Lifecycle assessment splits embodied carbon into stages, from product manufacture (A1 to A3) through construction, use and end of life, with potential benefits beyond the building life reported separately.',
+  why:'As operational energy falls, embodied carbon becomes a larger share of a building\u2019s footprint, and most of it is locked in at design. Awareness of carbon reduction is growing across the industry, but awareness does not automatically change what professionals do on projects.',
+  focus:'I examine the socio-technical reasons behind the gap between carbon reduction awareness and practice, which earned the Overall Best Published Paper Award at PGRC 2026. I have also reviewed how the Internet of Things can monitor construction emissions and how digital green finance can support sustainable urban development.',
+  pubs:[['Socio-technical implementation dynamics in carbon reduction awareness-practice gaps','ECAM, 2026','https://doi.org/10.1108/ECAM-08-2025-1280'],['The role of Internet of Things in managing carbon emissions in the construction industry','Intelligent Infrastructure and Construction, 2025','https://doi.org/10.3390/iic1030008'],['Digital green finance models for sustainable urban development','Green Finance, 2026','https://doi.org/10.3934/GF.2026003']]},
+ circular:{t:'Circular design',lab:'decide',
+  what:'Circular design keeps materials in use at their highest value for as long as possible. It includes designing for greater efficiency so less material is needed, designing for adaptability so buildings can change use, and designing for deconstruction so components can be taken apart and reused rather than demolished.',
+  why:'Many circular strategies are well understood in principle but rarely applied on Ghanaian projects. Knowing what drives or blocks their uptake among designers is what turns guidance into practice.',
+  focus:'My MPhil built a structural model of design for greater efficiency implementation among 238 design professionals, drawing on Diffusion of Innovations and the Theory of Planned Behaviour. I have also studied the challenges to design for adaptability and contributed chapters on circular building systems to an Elgar Companion.',
+  pubs:[['Design for greater efficiency awareness: a critical assessment of Ghana\u2019s design professionals','BEPAM, 2026','https://doi.org/10.1108/BEPAM-10-2025-0337'],['Challenges to the implementation of design for adaptability among design professionals in Ghana','IJBPA, 2025','https://doi.org/10.1108/IJBPA-09-2024-0189'],['Circularity and building systems for green buildings','Elgar Companion, 2025',null]]},
+ ai:{t:'AI in the built environment',lab:null,
+  what:'Artificial intelligence covers techniques from machine learning, which finds patterns in data, to generative models that produce text, images and designs. In the built environment these tools are being used for tasks such as literature synthesis, estimating, risk assessment and design exploration.',
+  why:'Adoption is moving faster than evidence about where these tools help, where they mislead and what they mean for research integrity and professional judgement. Construction research needs a clear view of both the opportunity and the limits.',
+  focus:'I co-authored a systematic literature review on the role of generative AI in built environment research, presented at the E-Learning International Conference in Kumasi. I also support student research on the adoption of AI tools in Ghanaian construction practice.',
+  pubs:[['The role of generative AI in built environment research: a systematic literature review','E-Learning International Conference, 2025',null]]},
+ nbs:{t:'Nature-based solutions',lab:null,
+  what:'Nature-based solutions use natural processes, such as urban trees, green roofs, wetlands and permeable landscapes, to address challenges like heat, flooding and air quality while also supporting biodiversity.',
+  why:'Cities in the Middle East and Africa face rising heat and climate risk, and much of the evidence on the health benefits of nature-based solutions comes from other regions. Understanding the health and wellbeing co-benefits locally strengthens the case for investing in them.',
+  focus:'With collaborators at the American University in Cairo and the University of Sharjah, I have reviewed evidence on the health and wellbeing benefits of nature-based solutions for climate mitigation and adaptation in Middle Eastern and African urban environments.',
+  pubs:[['Health and well-being benefits of nature-based solutions for climate mitigation and adaptation in Middle East and African urban environments: a review','Nature-Based Solutions, under review',null]]}
 };
-var STAGES=[['Substructure',0,8],['Frame',8,30],['Envelope',24,41],['Finishes',41,47],['Services',47,53],['Handover',53,56]];
-var MAXW=56;
-
-function buildSpecs(){
-  var S=[],H=3.4,X=[-7.5,-2.5,2.5,7.5],Z=[-5,0,5];
-  function add(o){o.i=S.length;S.push(o);}
-  var k=0;
-  X.forEach(function(x,ix){Z.forEach(function(z,iz){add({t:'Pad footing',m:'concrete',w:1.6,h:0.6,d:1.6,x:x,y:-0.6,z:z,lv:'Foundation',wk:0.6+(ix*3+iz)*0.5,st:'Substructure',code:'FTG'});});});
-  add({t:'Ground bearing slab',m:'concrete',w:15.8,h:0.2,d:10.8,x:0,y:0,z:0,lv:'Ground floor',wk:6.6,st:'Substructure',code:'SLB'});
-  for(var L=0;L<4;L++){
-    var fl=0.2+L*H,lv=L===0?'Ground floor':'Level '+L;
-    k=0;
-    X.forEach(function(x){Z.forEach(function(z){add({t:'Column',m:'concrete',w:0.4,h:H-0.25,d:0.4,x:x,y:fl,z:z,lv:lv,wk:9+L*5.5+(k++)*0.1,st:'Frame',code:'COL'});});});
-    add({t:L===3?'Roof slab':'Floor slab',m:'concrete',w:15.8,h:0.25,d:10.8,x:0,y:fl+H-0.25,z:0,lv:L===3?'Roof':'Level '+(L+1),wk:11.6+L*5.5,st:'Frame',code:'SLB'});
-    [8.3,10.3].forEach(function(x){[-4.6,-2.6].forEach(function(z){add({t:'Stair tower post',m:'steel',w:0.18,h:H,d:0.18,x:x,y:fl,z:z,lv:lv,wk:10+L*5.5,st:'Frame',code:'STL'});});});
-    add({t:'Stair flight',m:'steel',w:1.0,h:0.12,d:Math.hypot(H,1.8),x:9.3,y:fl+H/2,z:-3.6,rx:(L%2?1:-1)*Math.atan2(H,1.8),c:true,lv:lv,wk:10.8+L*5.5,st:'Frame',code:'STR'});
-    add({t:'Landing beam',m:'steel',w:2.2,h:0.16,d:0.16,x:9.3,y:fl+H-0.16,z:-4.6,lv:lv,wk:10.9+L*5.5,st:'Frame',code:'BM'});
-    for(var i=0;i<3;i++){
-      var mx=(X[i]+X[i+1])/2;
-      add({t:'Blockwork wall',m:'sandcrete',w:4.6,h:H-0.25,d:0.2,x:mx,y:fl,z:-5,lv:lv,wk:25+L*2.6+i*0.3,st:'Envelope',code:'WAL'});
-      add({t:'Glazing unit',m:'glass',w:4.6,h:H-0.25,d:0.06,x:mx,y:fl,z:5,lv:lv,wk:33.5+L*1.8+i*0.3,st:'Envelope',code:'GLZ'});
-    }
-    [-7.5,7.5].forEach(function(x){[-2.5,2.5].forEach(function(z,j){add({t:'Blockwork wall',m:'sandcrete',w:0.2,h:H-0.25,d:4.6,x:x,y:fl,z:z,lv:lv,wk:25.5+L*2.6+j*0.3,st:'Envelope',code:'WAL'});});});
+function initThemes(){
+  var dlg=$('themeDialog');if(!dlg)return;
+  var last=null;
+  function open(key,src){
+    var T=THEMES[key];if(!T)return;last=src;
+    $('tdTitle').textContent=T.t;
+    var art=src&&src.querySelector('.art svg');$('tdArt').innerHTML=art?art.outerHTML:'';
+    var h='<div class="td-sec"><h4>What it means</h4><p>'+T.what+'</p></div>'+
+      '<div class="td-sec"><h4>Why it matters</h4><p>'+T.why+'</p></div>'+
+      '<div class="td-sec"><h4>Where my work sits</h4><p>'+T.focus+'</p></div>'+
+      '<div class="td-sec"><h4>Related work</h4><ul>'+T.pubs.map(function(p){return '<li>'+(p[2]?'<a href="'+p[2]+'" target="_blank" rel="noopener">'+esc(p[0])+'</a>':'<b>'+esc(p[0])+'</b>')+'<span>'+esc(p[1])+'</span></li>';}).join('')+'</ul></div>'+
+      '<div class="td-actions">'+(T.lab?'<button type="button" class="btn solid" data-golab="'+T.lab+'">See it in the 3D lab</button>':'')+'<a class="btn outline" href="#publications" data-closedlg>All publications</a></div>';
+    $('tdBody').innerHTML=h;
+    if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
   }
-  var top=0.2+4*H;
-  for(var f=0;f<15;f++)add({t:'Solar shading fin',m:'timber',w:0.08,h:4*H-0.25,d:0.45,x:-7+f,y:0.2,z:5.45,lv:'Front facade',wk:41.5+f*0.3,st:'Finishes',code:'FIN'});
-  for(var a=0;a<5;a++)for(var b=0;b<3;b++)add({t:'PV module',m:'pv',w:2.2,h:0.05,d:1.1,x:-5.6+a*2.8,y:top+0.45,z:-3+b*3,rx:-0.26,c:true,lv:'Roof',wk:47.2+(a+b)*0.5,st:'Services',code:'PV'});
-  var counters={};
-  S.forEach(function(s){
-    var M=MAT[s.m],vol=s.w*s.h*s.d*(M.fill||1);
-    s.qty=M.basis==='m3'?vol:M.basis==='m2'?s.w*s.h:1;
-    s.unit=M.basis==='m3'?'m\u00b3':M.basis==='m2'?'m\u00b2':'unit';
-    s.carbon=s.qty*M.carbon; s.carbon0=s.carbon;
-    s.cost=s.qty*M.cost;
-    counters[s.code]=(counters[s.code]||0)+1;
-    s.id='DPP-GH-KSI-'+s.code+'-'+String(counters[s.code]).padStart(3,'0');
+  function close(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');if(last)last.focus();}
+  document.querySelectorAll('.theme[data-theme]').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.theme,b);});});
+  $('tdClose').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){
+    if(e.target===dlg){close();return;}
+    var g=e.target.closest('[data-golab]');
+    if(g){close();if(window.__labView)window.__labView(g.dataset.golab);$('lab').scrollIntoView({behavior:reduce?'auto':'smooth'});}
+    if(e.target.closest('[data-closedlg]'))close();
+  });
+}
+
+/* =====================================================================
+   HYPOTHETICAL BUILDING, PASSPORTS AND DECISIONS
+   ===================================================================== */
+var H=3.4,GX=[-7.5,-2.5,2.5,7.5],GZ=[-5,0,5],REF=60,TOP=0.2+4*H;
+var ALU=0x6f7d83,DARK=0x3e4a50;
+var MATS={
+  rc_opc:{name:'Reinforced concrete, CEM I',short:'Concrete, CEM I',color:0xbac2bb,unit:'m\u00b3',a13:400,life:60,route:'crush',reusable:true,epd:'Generic ready-mix concrete EPD, CEM I'},
+  rc_bl:{name:'Reinforced concrete, blended cement',short:'Concrete, blended cement',color:0xa3b6aa,unit:'m\u00b3',a13:265,life:60,route:'crush',reusable:true,epd:'Generic blended-cement concrete EPD'},
+  steel:{name:'Structural steel sections',short:'Structural steel',color:0x62737f,unit:'t',a13:1550,dens:7.85,fill:0.2,life:60,route:'recycle',reusable:true,epd:'Generic hot-rolled section EPD'},
+  comp:{name:'Composite slab on steel deck',short:'Composite slab',color:0x9aa8a9,unit:'m\u00b3',a13:320,life:60,route:'recycle',reusable:false,epd:'Generic composite floor EPD'},
+  glulam:{name:'Glued laminated timber',short:'Glulam',color:0xc28c55,unit:'m\u00b3',a13:180,life:60,route:'energy',reusable:true,epd:'Generic glulam EPD, fossil carbon only'},
+  clt:{name:'Cross-laminated timber',short:'CLT',color:0xd5a468,unit:'m\u00b3',a13:190,life:60,route:'energy',reusable:true,epd:'Generic CLT EPD, fossil carbon only'},
+  block:{name:'Sandcrete blockwork',short:'Blockwork',color:0xd9c8a2,unit:'m\u00b3',a13:170,life:60,route:'crush',reusable:false,epd:'Generic sandcrete block EPD'},
+  window:{name:'Window, aluminium frame',short:'Windows',color:0x9fd3df,unit:'m\u00b2',a13:70,life:30,route:'recycle',reusable:false,glass:true,epd:'Generic aluminium window EPD'},
+  curtain:{name:'Curtain wall, aluminium and glass',short:'Curtain wall',color:0x8fcadb,unit:'m\u00b2',a13:105,life:30,route:'recycle',reusable:false,glass:true,epd:'Generic curtain wall EPD'},
+  cladding:{name:'Timber rainscreen cladding',short:'Timber cladding',color:0x9b6536,unit:'m\u00b2',a13:16,life:25,route:'energy',reusable:true,epd:'Generic timber cladding EPD'},
+  stair:{name:'Steel stair assembly',short:'Steel stair',color:0x55636c,unit:'t',a13:1650,dens:7.85,fill:0.3,life:60,route:'recycle',reusable:true,epd:'Generic fabricated steel EPD'},
+  pv:{name:'Photovoltaic module',short:'PV modules',color:0x1f3c5e,unit:'module',a13:380,life:25,route:'recycle',reusable:true,epd:'Generic crystalline PV EPD'}
+};
+var ROUTES={reuse:{label:'Reuse',c:0.02,d:0.55},recycle:{label:'Recycling',c:0.03,d:0.25},crush:{label:'Crushed to recycled aggregate',c:0.04,d:0.05},energy:{label:'Energy recovery',c:0.05,d:0.08}};
+var DECS=[
+ {k:'frame',adr:'ADR-001',title:'Structural frame',q:'Which structural system carries the building?',opts:[
+   {v:'rc_opc',label:'In-situ concrete, CEM I',note:'Familiar and locally available'},
+   {v:'rc_bl',label:'Concrete with blended cement',note:'Lower clinker content'},
+   {v:'steel',label:'Steel frame, composite slabs',note:'Lighter, highly recyclable'},
+   {v:'timber',label:'Glulam frame, CLT slabs',note:'Bio-based structure'}]},
+ {k:'facade',adr:'ADR-002',title:'Facade system',q:'How is the street facade enclosed?',opts:[
+   {v:'block',label:'Blockwork with punched windows',note:'Solid, low glazing ratio'},
+   {v:'curtain',label:'Glazed curtain wall',note:'Full-height glazing with fins'},
+   {v:'timber',label:'Timber rainscreen cladding',note:'Lightweight, replaceable boards'}]},
+ {k:'conn',adr:'ADR-003',title:'Connections and end of life',q:'How are frame members joined?',opts:[
+   {v:'mono',label:'Monolithic and welded joints',note:'Recovered by crushing or melting'},
+   {v:'demount',label:'Bolted, demountable joints',note:'Designed for reuse'}]},
+ {k:'roof',adr:'ADR-004',title:'Roof energy',q:'What goes on the roof?',opts:[
+   {v:'none',label:'Plain roof',note:'No generation'},
+   {v:'pv',label:'Rooftop PV array',note:'Adds 12 passports; operational savings not shown'}]}
+];
+var DEC={frame:'rc_opc',facade:'block',conn:'mono',roof:'none'};
+var REV={mult:{},a45:{},noReuse:false,fired:{}};
+var TAMPER=null;
+function frameMats(dec){return {col:{rc_opc:'rc_opc',rc_bl:'rc_bl',steel:'steel',timber:'glulam'}[dec.frame],slab:{rc_opc:'rc_opc',rc_bl:'rc_bl',steel:'comp',timber:'clt'}[dec.frame]};}
+function glazeMat(dec){return dec.facade==='curtain'?'curtain':'window';}
+function fac(m,rev){return MATS[m].a13*((rev||REV).mult[m]||1);}
+
+function build(dec,rev,opt){
+  opt=opt||{};rev=rev||REV;
+  var S=[],fm=frameMats(dec);
+  var colW={steel:0.26,glulam:0.36}[fm.col]||0.4, beamH={steel:0.36}[fm.col]||0.45, beamW={steel:0.18,glulam:0.24}[fm.col]||0.3, slabT={comp:0.16,clt:0.22}[fm.slab]||0.25;
+  function add(c){c.parts=c.parts||[];S.push(c);return c;}
+  function B(w,h,d,x,y,z,o){var p={w:w,h:h,d:d,x:x,y:y,z:z};if(o)for(var k in o)p[k]=o[k];return p;}
+  // substructure
+  var n=0;
+  GX.forEach(function(x){GZ.forEach(function(z){n++;add({id:'FTG-'+String(n).padStart(2,'0'),name:'Pad footing',sys:'Substructure',lv:'Foundation',li:-1,mat:'rc_opc',adr:[],parts:[B(1.6,0.6,1.6,x,-0.6,z)]});});});
+  add({id:'GS-01',name:'Ground bearing slab',sys:'Substructure',lv:'Ground floor',li:0,mat:'rc_opc',adr:[],parts:[B(15.8,0.2,10.8,0,0,0)]});
+  for(var L=0;L<4;L++){
+    var fl=0.2+L*H,hw=H-slabT,lv=L===0?'Ground floor':'Level '+L,li=L;
+    // columns
+    n=0;
+    GX.forEach(function(x){GZ.forEach(function(z){n++;
+      var parts=[B(colW,hw-beamH*0,colW,x,fl,z)];
+      if(dec.conn==='demount'){parts.push(B(colW+0.22,0.05,colW+0.22,x,fl,z,{col:DARK,aux:1}));parts.push(B(colW+0.22,0.05,colW+0.22,x,fl+hw-0.05,z,{col:DARK,aux:1}));}
+      add({id:'COL-L'+L+'-'+String(n).padStart(2,'0'),name:'Column',sys:'Frame',lv:lv,li:li,mat:fm.col,adr:['frame','conn'],parts:parts});});});
+    // beam grid
+    var bp=[],by=fl+hw-beamH;
+    GZ.forEach(function(z){for(var i=0;i<3;i++){var x0=GX[i]+colW/2,x1=GX[i+1]-colW/2;bp.push(B(x1-x0,beamH,beamW,(x0+x1)/2,by,z));}});
+    GX.forEach(function(x){for(var j=0;j<2;j++){var z0=GZ[j]+colW/2,z1=GZ[j+1]-colW/2;bp.push(B(beamW,beamH,z1-z0,x,by,(z0+z1)/2));}});
+    add({id:'BMG-L'+L,name:'Beam grid',sys:'Frame',lv:lv,li:li,mat:fm.col,adr:['frame','conn'],parts:bp});
+    add({id:L===3?'RF-01':'SLB-L'+(L+1),name:L===3?'Roof slab':'Floor slab',sys:'Frame',lv:L===3?'Roof':'Level '+(L+1),li:li,mat:fm.slab,adr:['frame','conn'],parts:[B(15.8,slabT,10.8,0,fl+hw,0)]});
+    // stair tower
+    var sp=[],sx=9.3;
+    [8.3,10.3].forEach(function(x){[-4.6,-2.6].forEach(function(z){sp.push(B(0.16,H,0.16,x,fl,z));});});
+    var run=1.8,rise=H/2;
+    [[-4.1,1],[-3.1,-1]].forEach(function(f,fi){var ang=Math.atan2(rise,run)*f[1];
+      sp.push(B(0.9,0.1,Math.hypot(rise,run),sx,fl+rise*fi+rise/2,f[0],{c:1,rx:ang,ry:Math.PI/2}));});
+    sp.push(B(2.1,0.1,2.1,sx,fl+rise-0.1,-3.6,{}));
+    add({id:'STR-L'+L,name:'Stair flight and landing',sys:'Frame',lv:lv,li:li,mat:'stair',adr:['conn'],parts:sp});
+    // walls with windows (back), side walls
+    function wallWithWindow(mx,z,side,idw,idn){
+      var wall=[],ow=2.4,sill=0.9,head=2.7,pw=(4.6-ow)/2;
+      wall.push(B(pw,hw,0.2,mx-ow/2-pw/2,fl,z));wall.push(B(pw,hw,0.2,mx+ow/2+pw/2,fl,z));
+      wall.push(B(ow,sill,0.2,mx,fl,z));wall.push(B(ow,hw-head,0.2,mx,fl+head,z));
+      add({id:idw,name:'Blockwork wall bay',sys:'Facade',lv:lv,li:li,mat:'block',adr:['facade'],parts:wall});
+      var win=[B(ow,head-sill,0.04,mx,fl+sill,z)];
+      win.push(B(ow,0.06,0.1,mx,fl+sill,z,{col:ALU}),B(ow,0.06,0.1,mx,fl+head-0.06,z,{col:ALU}),B(0.06,head-sill,0.1,mx-ow/2,fl+sill,z,{col:ALU}),B(0.06,head-sill,0.1,mx+ow/2-0.06,fl+sill,z,{col:ALU}),B(0.05,head-sill,0.1,mx,fl+sill,z,{col:ALU}));
+      add({id:idn,name:'Window',sys:'Facade',lv:lv,li:li,mat:'window',adr:['facade'],parts:win});
+    }
+    for(var i=0;i<3;i++){
+      var mx=(GX[i]+GX[i+1])/2;
+      wallWithWindow(mx,-5,'back','WLB-L'+L+'-'+(i+1),'WNB-L'+L+'-'+(i+1));
+      if(dec.facade==='block')wallWithWindow(mx,5,'front','WLF-L'+L+'-'+(i+1),'WNF-L'+L+'-'+(i+1));
+      else if(dec.facade==='curtain'){
+        var cw=[B(2.25,hw,0.04,mx-1.15,fl,5.05),B(2.25,hw,0.04,mx+1.15,fl,5.05)];
+        [-2.3,0,2.24].forEach(function(dx){cw.push(B(0.06,hw,0.14,mx+dx,fl,5.05,{col:ALU}));});
+        [0,1.1,hw-0.06].forEach(function(dy){cw.push(B(4.6,0.06,0.14,mx,fl+dy,5.05,{col:ALU}));});
+        for(var f=0;f<5;f++)cw.push(B(0.06,hw,0.42,mx-1.84+f*0.92,fl,5.4,{col:0xa9713e,aux:1}));
+        add({id:'CWF-L'+L+'-'+(i+1),name:'Curtain wall unit',sys:'Facade',lv:lv,li:li,mat:'curtain',adr:['facade'],parts:cw});
+      } else {
+        var cl=[],ow2=2.4,s2=0.9,h2=2.7;
+        for(var y=0.02;y<hw-0.1;y+=0.3){var yh=0.24;
+          if(y+yh>s2&&y<h2){cl.push(B(1.1,yh,0.05,mx-1.75,fl+y,5.14));cl.push(B(1.1,yh,0.05,mx+1.75,fl+y,5.14));}
+          else cl.push(B(4.6,yh,0.05,mx,fl+y,5.14));}
+        cl.push(B(4.6,hw,0.12,mx,fl,4.98,{col:0x8e8f84,aux:1}));
+        add({id:'CLF-L'+L+'-'+(i+1),name:'Timber cladding panel',sys:'Facade',lv:lv,li:li,mat:'cladding',adr:['facade'],parts:cl});
+        var win2=[B(ow2,h2-s2,0.04,mx,fl+s2,5.08),B(ow2,0.06,0.1,mx,fl+s2,5.08,{col:ALU}),B(ow2,0.06,0.1,mx,fl+h2-0.06,5.08,{col:ALU}),B(0.05,h2-s2,0.1,mx,fl+s2,5.08,{col:ALU})];
+        add({id:'WNF-L'+L+'-'+(i+1),name:'Window',sys:'Facade',lv:lv,li:li,mat:'window',adr:['facade'],parts:win2});
+      }
+    }
+    [-7.5,7.5].forEach(function(x,si){[-2.5,2.5].forEach(function(z,j){
+      add({id:'WLS-L'+L+'-'+(si*2+j+1),name:'Side wall bay',sys:'Facade',lv:lv,li:li,mat:'block',adr:['facade'],parts:[B(0.2,hw,4.6,x,fl,z)]});});});
+  }
+  // roof
+  add({id:'PAR-01',name:'Roof parapet',sys:'Roof',lv:'Roof',li:4,mat:'rc_opc',adr:[],parts:[B(15.8,0.9,0.2,0,TOP,-5.3),B(15.8,0.9,0.2,0,TOP,5.3),B(0.2,0.9,10.4,-7.8,TOP,0),B(0.2,0.9,10.4,7.8,TOP,0)]});
+  add({id:'PLT-01',name:'Roof plant room',sys:'Roof',lv:'Roof',li:4,mat:'block',adr:['facade'],parts:[B(3.2,2.6,0.2,-4.6,TOP,-3.6),B(3.2,2.6,0.2,-4.6,TOP,-1.0),B(0.2,2.6,2.4,-6.1,TOP,-2.3),B(0.2,2.6,2.4,-3.1,TOP,-2.3)]});
+  if(dec.roof==='pv'){var k=0;for(var a=0;a<4;a++)for(var b=0;b<3;b++){k++;
+    var px=-0.8+a*2.3,pz=-3.4+b*3.1;
+    add({id:'PV-'+String(k).padStart(2,'0'),name:'PV module',sys:'Roof',lv:'Roof',li:4,mat:'pv',adr:['roof'],parts:[B(2.0,0.05,1.1,px,TOP+0.5,pz,{c:1,rx:-0.28}),B(0.06,0.5,0.06,px-0.9,TOP,pz+0.3,{col:ALU,aux:1}),B(0.06,0.5,0.06,px+0.9,TOP,pz+0.3,{col:ALU,aux:1}),B(0.06,0.25,0.06,px-0.9,TOP,pz-0.3,{col:ALU,aux:1}),B(0.06,0.25,0.06,px+0.9,TOP,pz-0.3,{col:ALU,aux:1})]});}}
+  // quantities and staged carbon
+  S.forEach(function(c){
+    var M=MATS[c.mat],main=c.parts.filter(function(p){return !p.col;}),q=0;
+    if(M.unit==='m\u00b2')main.forEach(function(p){q+=p.w*p.h;});
+    else if(M.unit==='module')q=1;
+    else{main.forEach(function(p){q+=p.w*p.h*p.d;});if(M.unit==='t')q=q*M.dens*M.fill;}
+    c.qty=q;
+    var up=(dec.conn==='demount'&&c.sys==='Frame')?1.04:1;
+    var a13=q*fac(c.mat,rev)*up;
+    if(TAMPER&&!opt.clean&&TAMPER===c.id)a13*=0.72;
+    var a45=a13*(rev.a45[c.mat]||0.06),nrep=Math.max(0,Math.ceil(REF/M.life)-1),bb=nrep*(a13+a45);
+    var route=(dec.conn==='demount'&&M.reusable&&!rev.noReuse)?'reuse':M.route;
+    c.route=route;c.nrep=nrep;
+    c.st={a13:a13,a45:a45,b:bb,c:a13*ROUTES[route].c,d:-a13*ROUTES[route].d};
+    c.wl=a13+a45+bb+c.st.c;
   });
   return S;
 }
-var SPECS=buildSpecs();
+function totals(S){var t={a13:0,a45:0,b:0,c:0,d:0,wl:0};S.forEach(function(c){for(var k in c.st)t[k]+=c.st[k];t.wl+=c.wl;});return t;}
 
-function hash(str){var h1=0x811c9dc5,h2=0x1b873593;for(var i=0;i<str.length;i++){h1^=str.charCodeAt(i);h1=Math.imul(h1,16777619);h2=Math.imul(h2^str.charCodeAt(i),2654435761);}return '0x'+(h1>>>0).toString(16).padStart(8,'0')+(h2>>>0).toString(16).padStart(8,'0')+'\u2026'+((h1^h2)>>>0).toString(16).slice(0,4);}
-function fmt(n,d){return n.toLocaleString('en-GB',{maximumFractionDigits:d===undefined?0:d,minimumFractionDigits:d===undefined?0:d});}
-function stageAt(w){for(var i=STAGES.length-1;i>=0;i--)if(w>=STAGES[i][1])return STAGES[i][0];return STAGES[0][0];}
+/* ---------- decision records ---------- */
+var ADR={},ADRHIST=[],LOG=[],CHANGED={},FOCUS=null;
+function assumptions(k,dec,rev){
+  var A=[],fm=frameMats(dec);
+  function a13(m){A.push({kind:'a13',mat:m,val:fac(m,rev),tol:0.10});}
+  if(k==='frame'){a13(fm.col);if(fm.slab!==fm.col)a13(fm.slab);}
+  if(k==='facade'){a13('block');a13(glazeMat(dec));if(dec.facade==='timber')a13('cladding');}
+  if(k==='conn'&&dec.conn==='demount')A.push({kind:'route',val:'reuse',text:'Frame members, stairs and cladding remain reusable at end of life'});
+  if(k==='roof'&&dec.roof==='pv')a13('pv');
+  return A;
+}
+function optOf(k,v){var d=DECS.filter(function(x){return x.k===k;})[0];return d.opts.filter(function(o){return o.v===v;})[0];}
+function recordADR(k,reason){
+  var d=DECS.filter(function(x){return x.k===k;})[0],prev=ADR[k];
+  if(prev){prev.status='Superseded';ADRHIST.push(prev);}
+  ADR[k]={id:d.adr,v:prev?prev.v+1:1,k:k,title:d.title,option:DEC[k],label:optOf(k,DEC[k]).label,A:assumptions(k,DEC,REV),status:'Accepted',reason:reason||'Initial design decision',flags:[]};
+  return ADR[k];
+}
+function checkFlags(){
+  var n=0;
+  DECS.forEach(function(d){var r=ADR[d.k];if(!r)return;r.flags=[];
+    r.A.forEach(function(a){
+      if(a.kind==='a13'){var now=fac(a.mat,REV),dev=now/a.val-1;if(Math.abs(dev)>a.tol)r.flags.push({a:a,now:now,dev:dev});}
+      if(a.kind==='route'&&REV.noReuse)r.flags.push({a:a,now:'not available'});
+    });
+    r.status=r.flags.length?'Flagged for reassessment':'Accepted';if(r.flags.length)n++;});
+  return n;
+}
 
-/* ---------------- Hero wireframe ---------------- */
+/* ---------- ledger ---------- */
+function hash(str){var h1=0x811c9dc5,h2=0x1b873593;for(var i=0;i<str.length;i++){var c=str.charCodeAt(i);h1^=c;h1=Math.imul(h1,16777619);h2=Math.imul(h2^c,2654435761);h2^=h2>>>13;}return ('00000000'+(h1>>>0).toString(16)).slice(-8)+('00000000'+(h2>>>0).toString(16)).slice(-8);}
+function sh(h){return '0x'+h.slice(0,10)+'\u2026';}
+var CHAIN=[],ANCH={},VER={};
+function recStr(c){return c.id+'|'+c.mat+'|'+c.st.a13.toFixed(2)+'|'+c.route;}
+function addBlock(txs){var prev=CHAIN.length?CHAIN[CHAIN.length-1].h:'0'.repeat(16);var h=hash(prev+JSON.stringify(txs));CHAIN.push({n:CHAIN.length,txs:txs,prev:prev,h:h});return CHAIN.length-1;}
+function anchorAll(label){
+  var S=build(DEC,REV,{clean:1}),reg=0,upd=0,ret=0,seen={};CHANGED={};
+  S.forEach(function(c){seen[c.id]=1;var s=recStr(c);
+    if(!(c.id in ANCH)){reg++;VER[c.id]=1;CHANGED[c.id]=1;}
+    else if(ANCH[c.id].s!==s){upd++;VER[c.id]=(VER[c.id]||1)+1;CHANGED[c.id]=1;}
+    ANCH[c.id]={s:s,h:hash(s+'|v'+VER[c.id])};});
+  Object.keys(ANCH).forEach(function(id){if(!seen[id]){ret++;delete ANCH[id];}});
+  var tx=[];if(reg)tx.push(['RegisterPassport',reg]);if(upd)tx.push(['UpdatePassport',upd]);if(ret)tx.push(['RetirePassport',ret]);
+  if(label)tx.unshift(label);
+  return {tx:tx,reg:reg,upd:upd,ret:ret};
+}
+
+/* ---------- state ---------- */
+var COMPS=[],BASE=null,LASTIMPACT=null;
+function refresh(){COMPS=build(DEC,REV);}
+(function init(){
+  DECS.forEach(function(d){recordADR(d.k);});
+  var r=anchorAll(null);
+  var tx=[['RegisterPassport',r.reg]];DECS.forEach(function(d){tx.push(['RecordDecision',ADR[d.k].id+' v1']);});
+  addBlock(tx);CHANGED={};refresh();BASE=totals(COMPS);
+})();
+
+/* =====================================================================
+   HERO WIREFRAME
+   ===================================================================== */
 function initHero(){
-  var cv=document.getElementById('heroCanvas');if(!cv||!HAS3D)return;
+  var cv=$('heroCanvas');if(!cv||!HAS3D)return;
   var hero=cv.parentElement;
   var r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
   r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-  var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(34,1,0.1,400);
-  var g=new THREE.Group();scene.add(g);
-  var lineMat=new THREE.LineBasicMaterial({color:0x8fc7b1,transparent:true,opacity:0.3});
-  var goldMat=new THREE.LineBasicMaterial({color:0xe2bf6a,transparent:true,opacity:0.5});
-  SPECS.forEach(function(s){
-    if(s.code==='FIN'||s.code==='WAL'||s.code==='GLZ')return;
-    var geo=new THREE.EdgesGeometry(new THREE.BoxGeometry(s.w,s.h,s.d));
-    var l=new THREE.LineSegments(geo,s.code==='PV'||s.code==='STR'?goldMat:lineMat);
-    l.position.set(s.x,s.c?s.y:s.y+s.h/2,s.z);if(s.rx)l.rotation.x=s.rx;g.add(l);
-  });
-  // floor grid
+  var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(34,1,0.1,400),g=new THREE.Group();scene.add(g);
+  var lm=new THREE.LineBasicMaterial({color:0x8fc7b1,transparent:true,opacity:0.28}),gm=new THREE.LineBasicMaterial({color:0xe2bf6a,transparent:true,opacity:0.5});
+  build({frame:'rc_opc',facade:'curtain',conn:'demount',roof:'pv'},REV,{clean:1}).forEach(function(c){
+    if(c.sys==='Facade'&&c.mat!=='curtain')return;
+    c.parts.forEach(function(p,i){if(c.mat==='curtain'&&!p.col)return;if(c.mat==='curtain'&&i>7)return;
+      var geo=new THREE.EdgesGeometry(new THREE.BoxGeometry(p.w,p.h,p.d)),l=new THREE.LineSegments(geo,(c.mat==='pv'||c.mat==='stair')?gm:lm);
+      l.position.set(p.x,p.c?p.y:p.y+p.h/2,p.z);if(p.rx)l.rotation.x=p.rx;if(p.ry)l.rotation.y=p.ry;g.add(l);});});
   var grid=new THREE.GridHelper(60,30,0x2c6a57,0x1a4a3d);grid.material.transparent=true;grid.material.opacity=0.35;grid.position.y=-0.6;g.add(grid);
-  // rising data points
-  var N=260,pos=new Float32Array(N*3),spd=[];
-  for(var i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=Math.random()*18;pos[i*3+2]=(Math.random()-.5)*16;spd.push(0.01+Math.random()*0.03);}
-  var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xe2bf6a,size:0.09,transparent:true,opacity:0.7}));g.add(pts);
-  function size(){var w=hero.clientWidth,h=hero.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;
-    // put building to the right on wide screens, centred behind on small
-    var wide=w>1040;cam.position.set(0,wide?10:12,wide?40:62);cam.lookAt(wide?-3.5:0,wide?6.5:9,0);cam.updateProjectionMatrix();}
+  var N=240,pos=new Float32Array(N*3),spd=[];for(var i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*22;pos[i*3+1]=Math.random()*18;pos[i*3+2]=(Math.random()-.5)*16;spd.push(0.01+Math.random()*0.03);}
+  var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));g.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0xe2bf6a,size:0.09,transparent:true,opacity:0.7})));
+  function size(){var w=hero.clientWidth,h=hero.clientHeight,wide=w>1040;r.setSize(w,h,false);cam.aspect=w/h;cam.position.set(0,wide?10:12,wide?40:62);cam.lookAt(wide?-3.5:0,wide?6.5:9,0);cam.updateProjectionMatrix();}
   size();window.addEventListener('resize',size);
-  var visible=true,t0=performance.now(),mx=0,my=0;
-  new IntersectionObserver(function(e){visible=e[0].isIntersecting;}).observe(hero);
+  var vis=true,t0=performance.now(),mx=0,my=0;new IntersectionObserver(function(e){vis=e[0].isIntersecting;}).observe(hero);
   hero.addEventListener('pointermove',function(e){var b=hero.getBoundingClientRect();mx=(e.clientX-b.left)/b.width-.5;my=(e.clientY-b.top)/b.height-.5;});
-  function frame(now){
-    if(visible){var t=(now-t0)/1000;g.rotation.y=-0.5+t*0.06+mx*0.25;g.rotation.x=my*0.06;
-      for(var i=0;i<N;i++){pos[i*3+1]+=spd[i];if(pos[i*3+1]>18)pos[i*3+1]=0;}pg.attributes.position.needsUpdate=true;
-      r.render(scene,cam);}
-    if(!reduce)requestAnimationFrame(frame);
-  }
+  function frame(now){if(vis){var t=(now-t0)/1000;g.rotation.y=-0.5+t*0.06+mx*0.25;g.rotation.x=my*0.06;for(var i=0;i<N;i++){pos[i*3+1]+=spd[i];if(pos[i*3+1]>18)pos[i*3+1]=0;}pg.attributes.position.needsUpdate=true;r.render(scene,cam);}if(!reduce)requestAnimationFrame(frame);}
   if(reduce){g.rotation.y=-0.3;r.render(scene,cam);}else requestAnimationFrame(frame);
-
-  // 3D tilt on portrait card
   var inner=document.querySelector('.portrait-inner');
-  if(inner&&!reduce&&window.matchMedia('(pointer:fine)').matches){
-    var p=inner.parentElement;
-    p.addEventListener('pointermove',function(e){var b=p.getBoundingClientRect();var x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;inner.style.transform='rotateY('+(x*10)+'deg) rotateX('+(-y*10)+'deg)';});
-    p.addEventListener('pointerleave',function(){inner.style.transform='';});
-  }
+  if(inner&&!reduce&&window.matchMedia('(pointer:fine)').matches){var p=inner.parentElement;
+    p.addEventListener('pointermove',function(e){var b=p.getBoundingClientRect();inner.style.transform='rotateY('+(((e.clientX-b.left)/b.width-.5)*10)+'deg) rotateX('+(-((e.clientY-b.top)/b.height-.5)*10)+'deg)';});
+    p.addEventListener('pointerleave',function(){inner.style.transform='';});}
 }
 
-/* ---------------- Lab ---------------- */
+/* =====================================================================
+   LAB UI
+   ===================================================================== */
+var STAGES=[['a13','A1\u2013A3','Product',0x3f8f6e],['a45','A4\u2013A5','Transport and construction',0x7bb89b],['b','B','Replacement in use',0xe2bf6a],['c','C1\u2013C4','End of life',0xb4862a],['d','D','Beyond life (reported separately)',0x6aa9c9]];
+var VIEW='decide',SEL=null,STAGE='wl',QSEL='cq1',QHITS=null,VERIFY=null,SWEEP=-1;
+var NOTES={
+  decide:'<b>Step 1.</b> Choose between options for each decision. Every choice is recorded as an ADR and pushes new values into the passports it touches.',
+  carbon:'<b>Step 2.</b> Each passport stores carbon by lifecycle stage, not as one fixed number. Colour shows the selected stage.',
+  revise:'<b>Step 3.</b> Apply a data revision. Amber elements belong to decisions whose recorded range no longer holds; teal elements were updated.',
+  query:'<b>Step 4.</b> Passports, decisions and revisions are linked in an ontology, so competency questions can be answered by query.',
+  verify:'<b>Step 5.</b> Every passport state and decision is anchored to a hash-linked ledger. Any silent edit breaks the fingerprint.'
+};
+var CQ={
+ cq1:{q:'Which design decisions rely on a carbon value that has been revised outside its range?',sparql:'SELECT ?adr ?product ?assumed ?current\nWHERE {\n  ?adr a ex:ArchitecturalDecisionRecord ;\n       ex:reliesOn ?cv .\n  ?cv ex:assumedValue ?assumed ;\n      ex:acceptableUpper ?hi ; ex:acceptableLower ?lo ;\n      ex:declaredBy ?product .\n  ?product ex:currentA1A3 ?current .\n  FILTER (?current > ?hi || ?current < ?lo)\n}'},
+ cq2:{q:'Which passports are shaped by the structural frame decision (ADR-001)?',sparql:'SELECT ?passport ?component\nWHERE {\n  ex:ADR-001 ex:affects ?passport .\n  ?passport ex:describes ?component .\n}'},
+ cq3:{q:'Which components are eligible for reuse at end of life?',sparql:'SELECT ?component ?route\nWHERE {\n  ?component ex:hasPassport ?p .\n  ?p ex:endOfLifeRoute ?route .\n  FILTER (?route = ex:Reuse)\n}'},
+ cq4:{q:'What is the stage-differentiated carbon of the structural frame?',sparql:'SELECT ?stage (SUM(?v) AS ?total)\nWHERE {\n  ?component ex:partOfSystem ex:Frame ;\n             ex:hasPassport/ex:declaresCarbon ?cv .\n  ?cv ex:lifecycleStage ?stage ; ex:kgCO2e ?v .\n}\nGROUP BY ?stage'},
+ cq5:{q:'Which passports have no linked design decision?',sparql:'SELECT ?passport\nWHERE {\n  ?passport a ex:ProductPassport .\n  FILTER NOT EXISTS { ?adr ex:affects ?passport }\n}'}
+};
+
 function initLab(){
-  var viewer=document.getElementById('viewer');if(!viewer)return;
-  var panel=document.getElementById('panel');
-  var mode='3d',week=MAXW,selected=null,hovered=null,adrs=[],adrN=0;
+  var viewer=$('viewer');if(!viewer)return;
+  var panel=$('panel'),tabs=[].slice.call(document.querySelectorAll('.steps [data-view]'));
 
-  // totals & curves are pure data, work even without WebGL
-  function visibleSpecs(){return SPECS.filter(function(s){return mode!=='4d'||week>=s.wk;});}
-  function updateHUD(){
-    var v=visibleSpecs(),c=0,k=0;v.forEach(function(s){c+=s.carbon;k+=s.cost;});
-    document.getElementById('hudCarbon').textContent=fmt(c/1000,1)+' tCO\u2082e';
-    document.getElementById('hudCost').textContent='$'+fmt(k/1000,0)+'k';
-    document.getElementById('hudCount').textContent=v.length+' / '+SPECS.length;
-    drawSpark();
-  }
-  function drawSpark(){
-    var svg=document.getElementById('spark'),steps=56,tc=0,tk=0;SPECS.forEach(function(s){tc+=s.carbon;tk+=s.cost;});
-    var pc=[],pk=[];
-    for(var i=0;i<=steps;i++){var w=i*MAXW/steps,c=0,k=0;SPECS.forEach(function(s){if(s.wk<=w){c+=s.carbon;k+=s.cost;}});
-      pc.push((i/steps*200).toFixed(1)+','+(52-c/tc*48).toFixed(1));pk.push((i/steps*200).toFixed(1)+','+(52-k/tk*48).toFixed(1));}
-    var mx=(mode==='4d'?week:MAXW)/MAXW*200;
-    svg.innerHTML='<polyline points="'+pk.join(' ')+'" fill="none" stroke="#7fd1b0" stroke-width="1.6" vector-effect="non-scaling-stroke"/>'+
-      '<polyline points="'+pc.join(' ')+'" fill="none" stroke="#e2bf6a" stroke-width="1.8" vector-effect="non-scaling-stroke"/>'+
-      '<line x1="'+mx+'" x2="'+mx+'" y1="0" y2="54" stroke="#fff" stroke-opacity=".5" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>';
-  }
+  function hud(){var t=totals(COMPS),f=checkFlags();
+    $('hudWL').textContent=fmt(t.wl/1000,1)+' tCO\u2082e';$('hudD').textContent=sgn(t.d/1000,1)+' t';
+    $('hudN').textContent=COMPS.length;var hf=$('hudF');hf.textContent=f;hf.className=f?'warn':'';}
 
-  /* Panel */
-  function materialBars(){
-    var by={},tot=0;SPECS.forEach(function(s){by[s.m]=(by[s.m]||0)+s.carbon;tot+=s.carbon;});
-    var keys=Object.keys(by).sort(function(a,b){return by[b]-by[a];});
-    return '<ul class="mbars">'+keys.map(function(m){var p=by[m]/tot*100;return '<li><div class="lbl"><span>'+MAT[m].name+'</span><b>'+fmt(by[m]/1000,1)+' t</b></div><div class="track"><i style="width:'+p.toFixed(1)+'%;background:#'+new THREE.Color(MAT[m].color).getHexString()+'"></i></div></li>';}).join('')+'</ul>';
-  }
-  function logHTML(){
-    if(!adrs.length)return '<p class="empty">No decision records yet. Open a passport and simulate an EPD revision to see the governance trigger at work.</p>';
-    return '<ol>'+adrs.slice().reverse().map(function(a){return '<li class="adr'+(a.ok?' ok':'')+'"><b>'+a.no+': '+a.el+'</b><p>Carbon '+fmt(a.from)+' to '+fmt(a.to)+' kgCO\u2082e ('+(a.pct>0?'+':'')+a.pct.toFixed(0)+'%). Source: '+a.src+'. Change exceeds the 5% governance threshold, so design team review is required.</p><div class="st"><span>'+(a.ok?'Approved and anchored '+a.hash:'Pending review')+'</span>'+(a.ok?'':'<button type="button" data-approve="'+a.no+'">Approve</button>')+'</div></li>';}).join('')+'</ol>';
-  }
-  function renderPanel(){
-    var s=selected;
-    if(!s){
-      panel.innerHTML='<div><span class="pp-kicker">Material passports</span><h3>Select any component</h3></div>'+
-        '<p class="lead">Each of the '+SPECS.length+' elements holds a digital product passport: identity, quantity, embodied carbon, cost, lifecycle stage and recovery route, anchored to a ledger record.</p>'+
-        '<div><span class="pp-kicker">Embodied carbon by material</span></div>'+(HAS3D?materialBars():'')+
-        '<div class="dlog"><h4>Decision log</h4>'+logHTML()+'</div>';
-      return;
-    }
-    var M=MAT[s.m],w=mode==='4d'?week:MAXW,built=w>=s.wk;
-    var life=['Design','Build','Use','Recover'],cur=built?(w>=53?2:1):0;
-    panel.innerHTML='<div><span class="pp-kicker">Digital product passport</span><h3>'+s.t+'</h3><p class="lead">'+s.lv+', '+M.name.toLowerCase()+'</p></div>'+
-      '<div class="pid">'+s.id+'<br>Ledger '+hash(s.id+(s.carbon!==s.carbon0?'r':''))+'</div>'+
+  /* ---------- panel builders ---------- */
+  function stageTable(st,wl){var mx=Math.max(st.a13,st.a45,st.b,st.c,Math.abs(st.d),1);
+    return '<table class="stagetbl">'+STAGES.map(function(s){var v=st[s[0]];return '<tr><td title="'+s[2]+'">'+s[1]+'</td><td><div class="sb"><i style="width:'+(Math.abs(v)/mx*100).toFixed(1)+'%;background:'+hex(s[3])+'"></i></div></td><td>'+(Math.round(v)===0?'0':sgn(v,0).replace('+',''))+' kg</td></tr>';}).join('')+
+    '<tr class="tot"><td>A to C</td><td></td><td>'+fmt(wl,0)+' kg</td></tr></table>';}
+  function adrChips(c){if(!c.adr.length)return '<p class="muted">No design decision is linked to this passport. It is fixed by the brief.</p>';
+    return '<div class="chipsr">'+c.adr.map(function(k){var r=ADR[k];return '<button type="button" class="adrchip'+(r.flags.length?' flag':'')+'" data-adr="'+k+'">'+r.id+' v'+r.v+' \u00b7 '+esc(r.title)+'</button>';}).join('')+'</div>';}
+  function passportHTML(c){
+    var M=MATS[c.mat],rv=REV.mult[c.mat],anc=ANCH[c.id];
+    var h='<div><span class="pp-kicker">Digital product passport</span><h3>'+esc(c.name)+'</h3><p class="lead">'+esc(c.lv)+' \u00b7 '+esc(M.name)+'</p></div>'+
+      '<div class="pid">'+c.id+' \u00b7 version '+(VER[c.id]||1)+'<br>Anchored '+(anc?sh(anc.h):'none')+'</div>'+
+      '<div><span class="pp-kicker">Embodied carbon by stage</span>'+stageTable(c.st,c.wl)+'</div>'+
       '<div class="pgrid">'+
-        '<div class="pcell"><small>Quantity</small><b>'+fmt(s.qty,s.unit==='unit'?0:2)+' '+s.unit+'</b></div>'+
-        '<div class="pcell"><small>Embodied carbon, A1 to A3</small><b>'+fmt(s.carbon)+' kgCO\u2082e</b></div>'+
-        '<div class="pcell"><small>Capital cost</small><b>$'+fmt(s.cost)+'</b></div>'+
-        '<div class="pcell"><small>Installed</small><b>Week '+Math.ceil(s.wk)+'</b></div>'+
-        '<div class="pcell wide"><small>End-of-life route</small><b>'+M.rec+', about '+M.recPct+'% recoverable</b></div>'+
-      '</div>'+
-      '<div class="life">'+life.map(function(n,i){return '<span class="'+(i<cur?'done':i===cur?'now':'')+'"><i></i>'+n+'</span>';}).join('')+'</div>'+
-      '<div class="pbtns"><button class="btn solid" type="button" id="revise"'+(s.carbon!==s.carbon0?' disabled style="opacity:.5;cursor:default"':'')+'>'+(s.carbon!==s.carbon0?'EPD revised':'Simulate EPD revision')+'</button><button class="btn outline" type="button" id="closePP">All passports</button></div>'+
-      '<div class="dlog"><h4>Decision log</h4>'+logHTML()+'</div>';
+       '<div class="pcell"><small>Quantity</small><b>'+fmt(c.qty,M.unit==='module'?0:2)+' '+M.unit+'</b></div>'+
+       '<div class="pcell"><small>A1\u2013A3 factor</small><b>'+fmt(fac(c.mat,REV),0)+' kg/'+M.unit+'</b></div>'+
+       '<div class="pcell"><small>Service life</small><b>'+M.life+' years'+(c.nrep?', '+c.nrep+' replacement':'')+'</b></div>'+
+       '<div class="pcell"><small>Reuse eligible</small><b>'+(c.route==='reuse'?'Yes':'No')+'</b></div>'+
+       '<div class="pcell wide"><small>End-of-life route</small><b>'+ROUTES[c.route].label+'</b></div>'+
+       '<div class="pcell wide"><small>Carbon source</small><b>'+esc(M.epd)+(rv?', revised \u00d7'+rv.toFixed(2):'')+'</b></div>'+
+      '</div><div><span class="pp-kicker">Shaped by decisions</span>'+adrChips(c)+'</div>';
+    if(VIEW==='query')h+='<div><span class="pp-kicker">Machine-readable record</span><pre class="code">'+turtle(c)+'</pre></div>';
+    if(VIEW==='verify'){var ok=anc&&anc.s===recStr(c);h+='<div class="vstat '+(ok?'ok':'bad')+'">'+(ok?'\u2713 Record matches its ledger anchor':'\u2717 Record differs from its ledger anchor')+'</div><div class="pid">Anchored state '+(anc?esc(anc.s):'none')+'<br>Current state '+esc(recStr(c))+'</div>';}
+    h+='<div class="pbtns"><button class="sbtn ghost" type="button" data-back>All passports</button></div>';
+    return h;
   }
+  function turtle(c){var M=MATS[c.mat],id=c.id.replace(/-/g,'_');
+    var s='<span class="c">@prefix ex: &lt;https://example.org/cdpp#&gt; .</span>\n\n<span class="k">ex:'+id+'</span> a ex:ProductPassport ;\n  ex:describes ex:'+esc(c.name.replace(/[^A-Za-z]/g,''))+' ;\n  ex:partOfSystem ex:'+c.sys+' ;\n  ex:material <span class="s">"'+esc(M.name)+'"</span> ;\n  ex:version '+(VER[c.id]||1)+' ;\n';
+    STAGES.forEach(function(st){s+='  ex:declaresCarbon [ ex:lifecycleStage <span class="s">"'+st[1].replace('\u2013','-')+'"</span> ; ex:kgCO2e '+c.st[st[0]].toFixed(1)+' ] ;\n';});
+    s+='  ex:endOfLifeRoute ex:'+ROUTES[c.route].label.replace(/[^A-Za-z]/g,'')+' ;\n';
+    c.adr.forEach(function(k){s+='  ex:affectedBy ex:'+ADR[k].id.replace('-','_')+'_v'+ADR[k].v+' ;\n';});
+    s+='  ex:anchoredAs <span class="s">"'+(ANCH[c.id]?ANCH[c.id].h:'')+'"</span> .';return s;}
+
+  function projected(k,v){var d={};for(var x in DEC)d[x]=DEC[x];d[k]=v;return totals(build(d,REV,{clean:1})).wl;}
+  function decideHTML(){
+    var cur=totals(COMPS).wl;
+    var h='<div><span class="pp-kicker">Step 1 \u00b7 Decide</span><h3>Record design decisions</h3><p class="lead">Each option shows the change in whole-life carbon (A to C) it would cause. Choosing one writes a new ADR version, stores the carbon values it relied on with a \u00b110% range, and updates every linked passport.</p></div>';
+    if(LASTIMPACT)h+=impactHTML(LASTIMPACT);
+    DECS.forEach(function(d){var r=ADR[d.k];
+      h+='<div class="dcard'+(r.flags.length?' flag':'')+(FOCUS===d.k?' focus':'')+'" id="dc-'+d.k+'"><div class="dhead"><b>'+r.id+' \u00b7 '+d.title+'</b><span class="st">'+(r.flags.length?'Reassess':'v'+r.v+' accepted')+'</span></div><div class="dq">'+d.q+'</div><div class="opts">'+
+      d.opts.map(function(o){var on=DEC[d.k]===o.v,delta=on?0:(projected(d.k,o.v)-cur)/1000;
+        return '<button type="button" class="opt" aria-pressed="'+on+'" data-dec="'+d.k+'" data-v="'+o.v+'"><span>'+o.label+'<small>'+o.note+'</small></span><em class="'+(on?'cur':delta<0?'dn':'up')+'">'+(on?'current':sgn(delta,1)+' t')+'</em></button>';}).join('')+
+      '</div>'+assmHTML(r)+'</div>';});
+    return h;
+  }
+  function assmHTML(r){if(!r.A.length)return '<div class="assm">No carbon assumption recorded for this option.</div>';
+    return '<div class="assm">'+r.A.map(function(a){
+      if(a.kind==='route'){var bad=REV.noReuse;return '<div><span>'+a.text+'</span><span class="'+(bad?'bad':'')+'">'+(bad?'no longer holds':'holds')+'</span></div>';}
+      var now=fac(a.mat,REV),bad=Math.abs(now/a.val-1)>a.tol;
+      return '<div><span>'+MATS[a.mat].short+' A1\u2013A3 assumed '+fmt(a.val)+' (range '+fmt(a.val*(1-a.tol))+' to '+fmt(a.val*(1+a.tol))+')</span><span class="'+(bad?'bad':'')+'">now '+fmt(now)+'</span></div>';}).join('')+'</div>';}
+  function impactHTML(I){
+    return '<div class="impact"><b>'+I.title+'</b><div style="margin:4px 0 6px">'+I.sub+'</div>'+
+      [['Whole-life, A to C',I.dwl],['A1\u2013A3',I.d.a13],['B, replacement',I.d.b],['C, end of life',I.d.c],['D, beyond life',I.d.d]].map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>'+sgn(r[1]/1000,2)+' t</span></div>';}).join('')+'</div>';}
+
+  function carbonHTML(){
+    var t=totals(COMPS),keys=STAGES.slice(0,4),sum=t.a13+t.a45+t.b+t.c;
+    var h='<div><span class="pp-kicker">Step 2 \u00b7 Passport data</span><h3>Carbon by lifecycle stage</h3><p class="lead">Carbon changes at manufacture, construction, replacement and end of life, so each passport holds a value per stage. Select a stage to colour the model by it.</p></div>';
+    h+='<div class="chips2">'+[['wl','A to C']].concat(STAGES.map(function(s){return [s[0],s[1]];})).map(function(s){return '<button type="button" data-stage="'+s[0]+'" aria-pressed="'+(STAGE===s[0])+'">'+s[1]+'</button>';}).join('')+'</div>';
+    h+='<div><div class="stack">'+keys.map(function(s){return '<i style="width:'+(t[s[0]]/sum*100).toFixed(1)+'%;background:'+hex(s[3])+'" title="'+s[1]+'"></i>';}).join('')+'</div><div class="skey">'+keys.map(function(s){return '<span><i style="background:'+hex(s[3])+'"></i>'+s[1]+' '+fmt(t[s[0]]/1000,1)+' t</span>';}).join('')+'</div></div>';
+    var sys={};COMPS.forEach(function(c){sys[c.sys]=(sys[c.sys]||0)+(STAGE==='wl'?c.wl:c.st[STAGE]);});
+    var mx=Math.max.apply(null,Object.keys(sys).map(function(k){return Math.abs(sys[k]);}));
+    h+='<div><span class="pp-kicker">By system, '+(STAGE==='wl'?'A to C':STAGES.filter(function(s){return s[0]===STAGE;})[0][1])+'</span><ul class="mbars">'+Object.keys(sys).map(function(k){return '<li><div class="lbl"><span>'+k+'</span><b>'+sgn(sys[k]/1000,1).replace('+','')+' t</b></div><div class="track"><i style="width:'+(Math.abs(sys[k])/mx*100).toFixed(1)+'%;background:var(--leaf)"></i></div></li>';}).join('')+'</ul></div>';
+    h+='<div class="impact"><b>Against the first design</b>'+[['Whole-life, A to C',t.wl-BASE.wl],['Module D',t.d-BASE.d]].map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>'+sgn(r[1]/1000,1)+' t</span></div>';}).join('')+'</div>';
+    h+='<p class="muted">Select any element in the model to open its passport.</p>';
+    return h;
+  }
+
+  var TRIGS=[
+    {id:'T1',t:function(){return 'Revised EPD for '+MATS[frameMats(DEC).col].short.toLowerCase();},s:'The supplier publishes a new EPD. A1\u2013A3 rises 18%.',run:function(){var m=frameMats(DEC).col;REV.mult[m]=(REV.mult[m]||1)*1.18;return MATS[m].short+' A1\u2013A3 factor revised by +18%';}},
+    {id:'T2',t:function(){return 'Correction to the blockwork EPD';},s:'A small correction of +4%, within the recorded range.',run:function(){REV.mult.block=(REV.mult.block||1)*1.04;return 'Blockwork A1\u2013A3 factor revised by +4%';}},
+    {id:'T3',t:function(){return 'Glazing EPD updated';},s:'Aluminium frame data revised. A1\u2013A3 rises 22%.',run:function(){['window','curtain'].forEach(function(m){REV.mult[m]=(REV.mult[m]||1)*1.22;});return 'Window and curtain wall A1\u2013A3 factors revised by +22%';}},
+    {id:'T4',t:function(){return 'Longer transport for the frame product';},s:'Sourcing changes to an imported product. Only A4\u2013A5 changes.',run:function(){var m=frameMats(DEC).col;REV.a45[m]=0.16;return MATS[m].short+' A4\u2013A5 share raised from 6% to 16%';}},
+    {id:'T5',t:function(){return 'Reuse route unavailable at end of life';},s:'No local market takes reclaimed components. Reuse falls back to recycling.',run:function(){REV.noReuse=true;return 'End-of-life reuse route withdrawn';}}
+  ];
+  function reviseHTML(){
+    var h='<div><span class="pp-kicker">Step 3 \u00b7 Revise and trigger</span><h3>Revise passport data</h3><p class="lead">Passport values change after design. Apply a revision: every affected passport is updated on the ledger, and each ADR checks whether the value it relied on is still inside its range. Only decisions that depended on the changed value are flagged.</p></div>';
+    var fl=DECS.filter(function(d){return ADR[d.k].flags.length;});
+    if(fl.length){h+='<div><span class="pp-kicker">Flagged for reassessment</span></div>';
+      fl.forEach(function(d){var r=ADR[d.k];h+='<div class="dcard flag"><div class="dhead"><b>'+r.id+' \u00b7 '+r.title+'</b><span class="st">Reassess</span></div><div class="dq">Decision: '+r.label+'</div>'+assmHTML(r)+
+        '<div class="pbtns" style="margin-top:10px"><button type="button" class="sbtn" data-reaffirm="'+d.k+'">Keep decision, record new value</button><button type="button" class="sbtn ghost" data-reconsider="'+d.k+'">Compare options</button></div></div>';});}
+    h+='<div><span class="pp-kicker">Apply a revision</span></div>';
+    h+='<div style="display:grid;gap:6px">'+TRIGS.map(function(g){return '<button type="button" class="trig" data-trig="'+g.id+'"'+(REV.fired[g.id]?' disabled':'')+'><b>'+g.id+' \u00b7 '+g.t()+'</b><span>'+g.s+'</span></button>';}).join('')+'</div>';
+    if(LOG.length)h+='<div><span class="pp-kicker">Event log</span><ul class="evlog">'+LOG.slice().reverse().slice(0,8).map(function(e){return '<li class="'+(e.flag?'flag':'')+'">'+e.html+'</li>';}).join('')+'</ul></div>';
+    h+='<div class="pbtns"><button type="button" class="sbtn ghost" data-resetrev>Reset revisions</button></div>';
+    return h;
+  }
+
+  function queryHTML(){
+    var h='<div><span class="pp-kicker">Step 4 \u00b7 Query</span><h3>Ask the ontology</h3><p class="lead">Passports, carbon values, decisions and revisions are linked classes, so the questions a designer or auditor needs to ask become queries. Choose a competency question.</p></div>';
+    h+=schemaSVG();
+    h+='<select class="qsel" id="qsel" aria-label="Competency question">'+Object.keys(CQ).map(function(k,i){return '<option value="'+k+'"'+(QSEL===k?' selected':'')+'>CQ'+(i+1)+'. '+CQ[k].q+'</option>';}).join('')+'</select>';
+    h+='<pre class="code">'+esc(CQ[QSEL].sparql).replace(/\b(SELECT|WHERE|FILTER|NOT EXISTS|GROUP BY|SUM|AS|a)\b/g,'<span class="k">$1</span>')+'</pre>';
+    var R=runQuery(QSEL);
+    h+='<div><span class="pp-kicker">'+R.rows.length+' result'+(R.rows.length===1?'':'s')+'</span>'+(R.rows.length?'<ul class="qres">'+R.rows.slice(0,40).map(function(r){return '<li>'+(r.id?'<button type="button" data-pick="'+r.id+'">'+r.id+'</button>':'<b>'+r.a+'</b>')+'<span>'+r.b+'</span></li>';}).join('')+'</ul>':'<p class="muted">'+R.empty+'</p>')+'</div>';
+    return h;
+  }
+  function schemaSVG(){
+    var n=function(x,y,w,t,f){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="26" rx="6" fill="'+(f||'#fff')+'" stroke="#1e7058"/><text x="'+(x+w/2)+'" y="'+(y+17)+'" text-anchor="middle" font-size="10" font-family="Instrument Sans,Arial" fill="#0c3328">'+t+'</text>';};
+    var e=function(x1,y1,x2,y2,t,tx,ty){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#b4862a" stroke-width="1.4" marker-end="url(#ar)"/><text x="'+tx+'" y="'+ty+'" font-size="8.5" font-family="Arial" fill="#6f5214">'+t+'</text>';};
+    return '<svg class="schema" viewBox="0 0 340 176" role="img" aria-label="Ontology schema"><defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b4862a"/></marker></defs>'+
+      e(62,34,62,72,'hasPassport',66,56)+e(118,85,210,85,'declaresCarbon',128,79)+e(270,128,270,99,'revises',274,118)+e(118,143,210,93,'reliesOn',140,128)+e(62,130,62,99,'affects',66,118)+e(118,150,210,150,'hasRange',140,146)+
+      n(8,8,110,'BuildingComponent')+n(8,72,110,'ProductPassport','#e6efe9')+n(210,72,122,'CarbonValue (stage)','#f6ecd2')+n(210,128,122,'RevisionEvent')+n(8,130,110,'Decision (ADR)','#e6efe9')+n(210,150,122,'AcceptableRange')+'</svg>';
+  }
+  function runQuery(k){
+    var rows=[],empty='No results.';
+    if(k==='cq1'){DECS.forEach(function(d){ADR[d.k].flags.forEach(function(f){rows.push({a:ADR[d.k].id,b:f.a.kind==='route'?'reuse route':MATS[f.a.mat].short+' '+fmt(f.a.val)+' \u2192 '+fmt(f.now)});});});empty='No decision relies on a value outside its range. Apply T1, T3 or T5 in step 3.';QHITS=hitIds(function(c){return c.adr.some(function(a){return ADR[a].flags.length;});});}
+    if(k==='cq2'){COMPS.forEach(function(c){if(c.adr.indexOf('frame')>=0)rows.push({id:c.id,b:MATS[c.mat].short});});QHITS=hitIds(function(c){return c.adr.indexOf('frame')>=0;});}
+    if(k==='cq3'){COMPS.forEach(function(c){if(c.route==='reuse')rows.push({id:c.id,b:'Reuse'});});empty='No reuse routes. Choose bolted, demountable joints in step 1.';QHITS=hitIds(function(c){return c.route==='reuse';});}
+    if(k==='cq4'){var t={};STAGES.forEach(function(s){t[s[0]]=0;});COMPS.forEach(function(c){if(c.sys==='Frame')STAGES.forEach(function(s){t[s[0]]+=c.st[s[0]];});});STAGES.forEach(function(s){rows.push({a:s[1],b:sgn(t[s[0]]/1000,2).replace('+','')+' tCO\u2082e'});});QHITS=hitIds(function(c){return c.sys==='Frame';});}
+    if(k==='cq5'){COMPS.forEach(function(c){if(!c.adr.length)rows.push({id:c.id,b:c.name});});QHITS=hitIds(function(c){return !c.adr.length;});}
+    return {rows:rows,empty:empty};
+  }
+  function hitIds(fn){var o={};COMPS.forEach(function(c){if(fn(c))o[c.id]=1;});return o;}
+
+  function verifyHTML(){
+    var bad=VERIFY?VERIFY.bad:null;
+    var h='<div><span class="pp-kicker">Step 5 \u00b7 Verify</span><h3>Check the ledger</h3><p class="lead">Each passport state is hashed and anchored in a block that also carries the fingerprint of the block before it. Recomputing a record and comparing it with its anchor shows whether anything changed outside a recorded transaction.</p></div>';
+    h+='<div class="pbtns"><button type="button" class="sbtn" data-verify>Verify all passports</button><button type="button" class="sbtn ghost" data-tamper'+(TAMPER?' disabled':'')+'>Simulate a silent edit</button>'+(TAMPER?'<button type="button" class="sbtn ghost" data-restore>Restore</button>':'')+'</div>';
+    if(VERIFY)h+=bad.length?'<div class="vstat bad">\u2717 '+bad.length+' record does not match its anchor: '+bad.map(function(id){return '<button type="button" class="adrchip flag" data-pick="'+id+'">'+id+'</button>';}).join(' ')+'</div>':'<div class="vstat ok">\u2713 All '+COMPS.length+' passports match their anchors</div>';
+    h+='<div><span class="pp-kicker">Latest blocks</span><ol class="ledger">'+CHAIN.slice(-6).reverse().map(function(b){return '<li class="blk"><div class="bh"><span>Block '+b.n+'</span><code>'+sh(b.h)+'</code></div><code>prev '+sh(b.prev)+'</code><ul>'+b.txs.map(function(t){return '<li>'+t[0]+(typeof t[1]==='number'?' \u00d7 '+t[1]:' '+esc(t[1]))+'</li>';}).join('')+'</ul></li>';}).join('')+'</ol></div>';
+    return h;
+  }
+
+  function renderPanel(){
+    var c=SEL?COMPS.filter(function(x){return x.id===SEL;})[0]:null;
+    panel.innerHTML=c?passportHTML(c):{decide:decideHTML,carbon:carbonHTML,revise:reviseHTML,query:queryHTML,verify:verifyHTML}[VIEW]();
+    if(VIEW!=='query')QHITS=null;
+    if(!c&&VIEW==='query')runQuery(QSEL);
+    if(FOCUS&&!c&&VIEW==='decide'){var el=$('dc-'+FOCUS);if(el)el.scrollIntoView({block:'nearest'});}
+  }
+
+  /* ---------- actions ---------- */
+  function diffTotals(a,b){var d={};['a13','a45','b','c','d','wl'].forEach(function(k){d[k]=b[k]-a[k];});return d;}
+  function decide(k,v){
+    if(DEC[k]===v)return;
+    var before=totals(COMPS);DEC[k]=v;
+    var r=recordADR(k,'Design team selected '+optOf(k,v).label.toLowerCase());
+    var an=anchorAll(['RecordDecision',r.id+' v'+r.v]);var bn=addBlock(an.tx);
+    refresh();var after=totals(COMPS),d=diffTotals(before,after);
+    LASTIMPACT={title:r.id+' v'+r.v+' recorded: '+r.label,sub:an.upd+' passports updated, '+an.reg+' registered, '+an.ret+' retired. Anchored in block '+bn+'.',d:d,dwl:d.wl};
+    FOCUS=null;SEL=null;if(HAS3D)rebuildScene();update();panel.scrollTop=0;
+  }
+  function trigger(id){
+    var g=TRIGS.filter(function(x){return x.id===id;})[0];if(!g||REV.fired[id])return;
+    var beforeFlags={};DECS.forEach(function(d){beforeFlags[d.k]=ADR[d.k].flags.length;});
+    var txt=g.run();REV.fired[id]=1;
+    var an=anchorAll(['RevisionEvent',id]);refresh();checkFlags();
+    var newly=DECS.filter(function(d){return ADR[d.k].flags.length&&!beforeFlags[d.k];});
+    newly.forEach(function(d){an.tx.push(['FlagDecision',ADR[d.k].id]);});
+    var bn=addBlock(an.tx);
+    LOG.push({flag:newly.length>0,html:'<b>'+id+'.</b> '+txt+'. '+an.upd+' passports updated in block '+bn+'. '+(newly.length?'Flagged: '+newly.map(function(d){return ADR[d.k].id+' ('+d.title.toLowerCase()+')';}).join(', ')+'.':'No decision relied on this value outside its range, so nothing was flagged.')});
+    SEL=null;update();panel.scrollTop=0;
+  }
+  function reaffirm(k){
+    var r=recordADR(k,'Reassessed after revision; decision retained with the revised value');
+    var bn=addBlock([['ResolveDecision',r.id+' v'+r.v]]);checkFlags();
+    LOG.push({flag:false,html:'<b>'+r.id+' v'+r.v+'.</b> Decision retained and the revised carbon value recorded as its new assumption (block '+bn+').'});
+    update();
+  }
+  function setView(v){VIEW=v;SEL=null;tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.view===v);});$('modeNote').innerHTML=NOTES[v];if(v!=='verify'){SWEEP=-1;}update();}
+  window.__labView=setView;
+
   panel.addEventListener('click',function(e){
-    var t=e.target;
-    if(t.id==='closePP'){select(null);}
-    else if(t.id==='revise'&&selected){
-      var s=selected,M=MAT[s.m],from=s.carbon;s.carbon=s.carbon0*M.rev.f;adrN++;
-      adrs.push({no:'ADR-'+String(adrN).padStart(4,'0'),el:s.id,from:from,to:s.carbon,pct:(s.carbon/from-1)*100,src:M.rev.src,ok:false,hash:hash(s.id+'adr'+adrN)});
-      if(s.mesh)s.mesh.userData.revised=true;
-      paint();updateHUD();renderPanel();
-    } else if(t.dataset&&t.dataset.approve){
-      adrs.forEach(function(a){if(a.no===t.dataset.approve)a.ok=true;});renderPanel();
-    }
+    var t=e.target.closest('button');if(!t)return;
+    if(t.dataset.dec){decide(t.dataset.dec,t.dataset.v);return;}
+    if(t.dataset.adr){SEL=null;FOCUS=t.dataset.adr;setView('decide');return;}
+    if(t.hasAttribute('data-back')){SEL=null;update();return;}
+    if(t.dataset.stage){STAGE=t.dataset.stage;update();return;}
+    if(t.dataset.trig){trigger(t.dataset.trig);return;}
+    if(t.dataset.reaffirm){reaffirm(t.dataset.reaffirm);return;}
+    if(t.dataset.reconsider){FOCUS=t.dataset.reconsider;setView('decide');return;}
+    if(t.hasAttribute('data-resetrev')){REV={mult:{},a45:{},noReuse:false,fired:{}};var an=anchorAll(['RevisionEvent','reset']);addBlock(an.tx);refresh();checkFlags();LOG=[];update();return;}
+    if(t.dataset.pick){select(t.dataset.pick);return;}
+    if(t.hasAttribute('data-verify')){runVerify();return;}
+    if(t.hasAttribute('data-tamper')){var cand=COMPS.filter(function(c){var p=c.parts[0];return c.name==='Column'&&p.x>7&&p.z>-1;});TAMPER=cand[(Math.random()*cand.length)|0].id;refresh();VERIFY=null;update();return;}
+    if(t.hasAttribute('data-restore')){TAMPER=null;refresh();VERIFY=null;update();return;}
   });
-  document.querySelectorAll('[data-try]').forEach(function(a){a.addEventListener('click',function(){
-    var target=SPECS.filter(function(s){return s.code==='COL';})[17];setMode('6d');select(target);});});
+  panel.addEventListener('change',function(e){if(e.target.id==='qsel'){QSEL=e.target.value;update();}});
+  tabs.forEach(function(b){b.addEventListener('click',function(){FOCUS=null;setView(b.dataset.view);});});
+  document.querySelectorAll('[data-try]').forEach(function(a){a.addEventListener('click',function(){FOCUS=null;setView('decide');});});
+  function runVerify(){var bad=[];COMPS.forEach(function(c){var a=ANCH[c.id];if(!a||a.s!==recStr(c))bad.push(c.id);});VERIFY={bad:bad};SWEEP=0;update();}
 
-  if(!HAS3D){document.getElementById('glFallback').hidden=false;updateHUD();renderPanel();return;}
-
-  /* Three.js scene */
-  var canvas=document.getElementById('labCanvas');
+  /* ---------- 3D ---------- */
+  if(!HAS3D){$('glFallback').hidden=false;setView('decide');return;}
+  var canvas=$('labCanvas'),tip=$('tip');
   var r=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
-  r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-  r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+  r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
   if(THREE.sRGBEncoding)r.outputEncoding=THREE.sRGBEncoding;
-  var scene=new THREE.Scene();
-  var cam=new THREE.PerspectiveCamera(38,1,0.1,500);
-  scene.add(new THREE.HemisphereLight(0xeaf5ef,0x2a4a3f,0.75));
-  var sun=new THREE.DirectionalLight(0xfff2d9,0.95);sun.position.set(-22,34,26);sun.castShadow=true;
-  sun.shadow.mapSize.set(2048,2048);var sc=sun.shadow.camera;sc.left=-24;sc.right=24;sc.top=24;sc.bottom=-24;sc.near=1;sc.far=100;sun.shadow.bias=-0.0006;scene.add(sun);
-  var ground=new THREE.Mesh(new THREE.CircleGeometry(34,64),new THREE.MeshStandardMaterial({color:0x2d5c4d,roughness:1,transparent:true,opacity:0.55}));
-  ground.rotation.x=-Math.PI/2;ground.position.y=-0.01;ground.receiveShadow=true;scene.add(ground);
-  var grid=new THREE.GridHelper(68,34,0x4b8672,0x3a6d5c);grid.material.transparent=true;grid.material.opacity=0.35;scene.add(grid);
+  var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,0.1,500);
+  scene.add(new THREE.HemisphereLight(0xeaf5ef,0x2a4a3f,0.72));
+  var sun=new THREE.DirectionalLight(0xfff2d9,0.95);sun.position.set(-22,34,26);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);
+  var sc=sun.shadow.camera;sc.left=-26;sc.right=26;sc.top=26;sc.bottom=-26;sc.near=1;sc.far=110;sun.shadow.bias=-0.0006;scene.add(sun);
+  var fill=new THREE.DirectionalLight(0x9fd3c0,0.25);fill.position.set(24,10,-18);scene.add(fill);
+  // site
+  var site=new THREE.Group();scene.add(site);
+  var ground=new THREE.Mesh(new THREE.CircleGeometry(36,64),new THREE.MeshStandardMaterial({color:0x2f5e4f,roughness:1,transparent:true,opacity:0.6}));ground.rotation.x=-Math.PI/2;ground.position.y=-0.02;ground.receiveShadow=true;site.add(ground);
+  var pave=new THREE.Mesh(new THREE.BoxGeometry(24,0.04,17),new THREE.MeshStandardMaterial({color:0x8d968e,roughness:1}));pave.position.set(1,-0.01,0.5);pave.receiveShadow=true;site.add(pave);
+  var grid=new THREE.GridHelper(72,36,0x4b8672,0x3a6d5c);grid.material.transparent=true;grid.material.opacity=0.28;site.add(grid);
+  [[-14,9],[-15,-3],[14,10],[15.5,-7],[-3,13],[6,13.5],[-11,-11],[4,-12]].forEach(function(p,i){
+    var tr=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.2,1.8,8),new THREE.MeshStandardMaterial({color:0x5b4632}));tr.position.set(p[0],0.9,p[1]);tr.castShadow=true;site.add(tr);
+    var cn=new THREE.Mesh(new THREE.SphereGeometry(1.3+(i%3)*0.3,14,10),new THREE.MeshStandardMaterial({color:i%2?0x3e8a5e:0x2f7a52,roughness:0.9}));cn.position.set(p[0],2.6+(i%3)*0.2,p[1]);cn.castShadow=true;site.add(cn);});
   var model=new THREE.Group();scene.add(model);
-  var meshes=[];
-  var edgeMat=new THREE.LineBasicMaterial({color:0x0c3328,transparent:true,opacity:0.28});
-  SPECS.forEach(function(s){
-    var geo=new THREE.BoxGeometry(s.w,s.h,s.d);if(!s.c)geo.translate(0,s.h/2,0);
-    var M=MAT[s.m];
-    var mat=new THREE.MeshStandardMaterial({color:M.color,roughness:s.m==='glass'?0.1:s.m==='steel'?0.45:0.85,metalness:s.m==='steel'||s.m==='pv'?0.35:0.0,transparent:s.m==='glass',opacity:s.m==='glass'?0.5:1});
-    var mesh=new THREE.Mesh(geo,mat);mesh.position.set(s.x,s.y,s.z);if(s.rx)mesh.rotation.x=s.rx;
-    mesh.castShadow=s.m!=='glass';mesh.receiveShadow=true;mesh.userData.s=s;s.mesh=mesh;
-    var e=new THREE.LineSegments(new THREE.EdgesGeometry(geo),edgeMat);mesh.add(e);
-    model.add(mesh);meshes.push(mesh);
-  });
+  var meshes=[],byId={},edgeMat=new THREE.LineBasicMaterial({color:0x0c3328,transparent:true,opacity:0.26});
+  var boxCache={};
+  function rebuildScene(){
+    meshes.forEach(function(m){m.geometry.dispose();m.material.dispose();if(m.children[0])m.children[0].geometry.dispose();model.remove(m);});
+    meshes=[];byId={};
+    COMPS.forEach(function(c){var M=MATS[c.mat];byId[c.id]=[];
+      c.parts.forEach(function(p){
+        var geo=new THREE.BoxGeometry(p.w,p.h,p.d);if(!p.c)geo.translate(0,p.h/2,0);
+        var isGlass=M.glass&&!p.col;
+        var mat=new THREE.MeshStandardMaterial({color:p.col||M.color,roughness:isGlass?0.08:(c.mat==='stair'||p.col===ALU)?0.45:0.85,metalness:(p.col===ALU||p.col===DARK||c.mat==='steel'||c.mat==='stair')?0.4:0,transparent:true,opacity:isGlass?0.45:1});
+        var m=new THREE.Mesh(geo,mat);m.position.set(p.x,p.y,p.z);if(p.rx)m.rotation.x=p.rx;if(p.ry){m.rotation.order='YXZ';m.rotation.y=p.ry;}
+        m.castShadow=!isGlass;m.receiveShadow=true;m.userData={c:c,p:p,glass:isGlass,by:p.y,li:c.li};
+        if(p.w*p.h*p.d>0.02&&!isGlass){m.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo),edgeMat));}
+        model.add(m);meshes.push(m);byId[c.id].push(m);});});
+    applyExplode(true);
+  }
+  window.__rebuild=rebuildScene;
 
-  /* colour modes */
-  var lo={},hi={};['carbon','cost'].forEach(function(key){var v=SPECS.map(function(s){return Math.log(s[key]+1);});lo[key]=Math.min.apply(null,v);hi[key]=Math.max.apply(null,v);});
-  var CAR=[new THREE.Color(0x2f9e6e),new THREE.Color(0xe2bf6a),new THREE.Color(0xb4452a)];
-  var COS=[new THREE.Color(0xe9eef0),new THREE.Color(0x6aa9c9),new THREE.Color(0x1d3f7a)];
-  function ramp(stops,t){t=Math.max(0,Math.min(1,t));var c=new THREE.Color();if(t<0.5)c.copy(stops[0]).lerp(stops[1],t*2);else c.copy(stops[1]).lerp(stops[2],(t-0.5)*2);return c;}
-  var BRASS=new THREE.Color(0xe2bf6a);
+  // colouring
+  var GREY=new THREE.Color(0xa9b4ae),AMBER=new THREE.Color(0xe0a030),TEAL=new THREE.Color(0x35b58a),BRASS=new THREE.Color(0xd49a2a),RED=new THREE.Color(0xd2462a),GOOD=new THREE.Color(0x8fcfaf);
+  var HEAT=[new THREE.Color(0x2f9e6e),new THREE.Color(0xe2bf6a),new THREE.Color(0xb4452a)];
+  function ramp(t){t=Math.max(0,Math.min(1,t));var c=new THREE.Color();return t<0.5?c.copy(HEAT[0]).lerp(HEAT[1],t*2):c.copy(HEAT[1]).lerp(HEAT[2],(t-0.5)*2);}
+  var heatLo=0,heatHi=1;
+  function metric(c){return STAGE==='wl'?c.wl:Math.abs(c.st[STAGE]);}
   function paint(){
+    if(VIEW==='carbon'){var v=COMPS.map(function(c){return Math.log(metric(c)+1);});heatLo=Math.min.apply(null,v);heatHi=Math.max.apply(null,v);}
+    var flagged={};DECS.forEach(function(d){if(ADR[d.k].flags.length)flagged[d.k]=1;});
     meshes.forEach(function(m){
-      var s=m.userData.s,mat=m.material,M=MAT[s.m];
-      if(mode==='5d'||mode==='6d'){var key=mode==='5d'?'cost':'carbon';mat.color.copy(ramp(mode==='5d'?COS:CAR,(Math.log(s[key]+1)-lo[key])/(hi[key]-lo[key])));mat.opacity=s.m==='glass'?0.85:1;}
-      else if(mode==='4d'&&week-s.wk<1.6&&week>=s.wk){mat.color.copy(BRASS);mat.opacity=s.m==='glass'?0.7:1;}
-      else{mat.color.setHex(M.color);mat.opacity=s.m==='glass'?0.5:1;}
-      var em=m===selected_mesh()?0x8a6414:m===hovered?0x3a5a4c:(m.userData.revised&&mode==='6d'?0x2a4a1a:0x000000);
+      var c=m.userData.c,p=m.userData.p,M=MATS[c.mat],mat=m.material,col=null,op=m.userData.glass?0.45:1;
+      if(VIEW==='decide'){col=new THREE.Color(p.col||M.color);if(FOCUS&&c.adr.indexOf(FOCUS)<0){op=0.18;}}
+      else if(VIEW==='carbon'){col=ramp((Math.log(metric(c)+1)-heatLo)/((heatHi-heatLo)||1));op=m.userData.glass?0.8:1;}
+      else if(VIEW==='revise'){var isF=c.adr.some(function(a){return flagged[a];});col=isF?AMBER:CHANGED[c.id]?TEAL:GREY;op=m.userData.glass?0.6:(isF||CHANGED[c.id]?1:0.55);}
+      else if(VIEW==='query'){var hit=QHITS&&QHITS[c.id];col=hit?BRASS:GREY;op=hit?1:0.22;}
+      else if(VIEW==='verify'){var bad=VERIFY&&VERIFY.bad.indexOf(c.id)>=0;col=bad?RED:GOOD;op=m.userData.glass?0.6:1;}
+      mat.color.copy(col);mat.opacity=op;mat.transparent=op<1;mat.depthWrite=op>0.5;
+      if(m.children[0])m.children[0].visible=op>0.5;
+      var em=0x000000;if(SEL===c.id)em=0x7a5a12;else if(HOV===c.id)em=0x2c4a3f;
       mat.emissive.setHex(em);
     });
+    legend();
   }
-  function selected_mesh(){return selected?selected.mesh:null;}
+  function legend(){var el=$('legend'),h='';el.hidden=false;
+    if(VIEW==='decide'){var seen={};COMPS.forEach(function(c){seen[c.mat]=1;});h=Object.keys(seen).map(function(k){return '<span><i style="background:'+hex(MATS[k].color)+'"></i>'+MATS[k].short+'</span>';}).join('');}
+    else if(VIEW==='carbon')h='<div class="grad"><span>Low</span><span class="bar" style="background:linear-gradient(90deg,#2f9e6e,#e2bf6a,#b4452a)"></span><span>High</span></div>';
+    else if(VIEW==='revise')h='<span><i style="background:#e0a030"></i>Decision to reassess</span><span><i style="background:#35b58a"></i>Passport updated</span><span><i style="background:#a9b4ae"></i>Unchanged</span>';
+    else if(VIEW==='query')h='<span><i style="background:#e2bf6a"></i>Query result</span><span><i style="background:#a9b4ae"></i>Not matched</span>';
+    else h='<span><i style="background:#8fcfaf"></i>Matches anchor</span><span><i style="background:#d2462a"></i>Mismatch</span>';
+    el.innerHTML=h;}
 
-  /* 4D growth */
-  function applyWeek(){
-    meshes.forEach(function(m){var s=m.userData.s,t=mode==='4d'?Math.max(0,Math.min(1,(week-s.wk)/1.4)):1;
-      m.visible=t>0.001;var e=t<1?1-Math.pow(1-t,3):1;
-      if(s.c)m.scale.setScalar(Math.max(e,0.001));else{m.scale.set(1,Math.max(e,0.001),1);}});
-    if(mode==='4d'){document.getElementById('weekLbl').textContent='Week '+Math.floor(week);document.getElementById('stageLbl').textContent=stageAt(week);}
-    paint();updateHUD();legend();
-  }
+  // explode
+  var EXP=0,EXPT=0;
+  $('explode').addEventListener('click',function(){EXPT=EXPT?0:1;this.setAttribute('aria-pressed',!!EXPT);if(reduce){EXP=EXPT;applyExplode(true);place();}});
+  function applyExplode(){meshes.forEach(function(m){var off=m.userData.li<0?-1.2:m.userData.li*2.2;m.position.y=m.userData.by+off*EXP;});}
 
-  /* legend + mode note */
-  var NOTES={'3d':'Geometry: every element is a separate object with its own passport.','4d':'Schedule: elements appear in their planned construction week. Newly built items glow gold.','5d':'Cost: colour shows each element\u2019s capital cost.','6d':'Carbon: colour shows embodied carbon (A1 to A3) for each element.'};
-  function legend(){
-    var el=document.getElementById('legend'),h='';el.hidden=false;
-    if(mode==='3d')h=Object.keys(MAT).map(function(k){return '<span><i style="background:#'+new THREE.Color(MAT[k].color).getHexString()+'"></i>'+MAT[k].name.split(',')[0]+'</span>';}).join('');
-    else if(mode==='4d'){el.hidden=true;return;}
-    else{var c=mode==='5d'?['#e9eef0','#6aa9c9','#1d3f7a']:['#2f9e6e','#e2bf6a','#b4452a'];h='<div class="grad"><span>Low</span><span class="bar" style="background:linear-gradient(90deg,'+c.join(',')+')"></span><span>High</span></div>';}
-    el.innerHTML=h;
-  }
-
-  /* mode switching */
-  var tabs=document.querySelectorAll('.dims button');
-  function setMode(m){mode=m;tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.mode===m);});
-    document.getElementById('timeline').hidden=m!=='4d';document.getElementById('modeNote').textContent=NOTES[m];
-    if(m==='4d'){week=Number(document.getElementById('week').value);}else{stopPlay();}
-    applyWeek();renderPanel();}
-  tabs.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.mode);if(b.dataset.mode==='4d'&&week>=MAXW-0.5){document.getElementById('week').value=0;week=0;startPlay();}});});
-  var range=document.getElementById('week');
-  range.addEventListener('input',function(){stopPlay();week=Number(range.value);applyWeek();if(selected)renderPanel();});
-  var playing=false,last=0;
-  function startPlay(){if(week>=MAXW){week=0;}playing=true;document.getElementById('playIcon').setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');last=performance.now();}
-  function stopPlay(){playing=false;document.getElementById('playIcon').setAttribute('d','M8 5v14l11-7z');}
-  document.getElementById('play').addEventListener('click',function(){playing?stopPlay():startPlay();});
-
-  /* camera orbit */
-  var target=new THREE.Vector3(0.8,6.2,0),th=0.7,ph=1.12,rad=54,autoRot=!reduce,dragging=false,moved=0,px=0,py=0,pointers={},pinch=0;
-  function place(){rad=Math.max(22,Math.min(80,rad));ph=Math.max(0.35,Math.min(1.48,ph));
-    cam.position.set(target.x+rad*Math.sin(ph)*Math.sin(th),target.y+rad*Math.cos(ph),target.z+rad*Math.sin(ph)*Math.cos(th));cam.lookAt(target);}
-  function resize(){var w=viewer.clientWidth,h=viewer.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.fov=w<600?50:38;if(w>=600)cam.setViewOffset(w,h,w*0.09,-h*0.03,w,h);else cam.setViewOffset(w,h,0,-h*0.06,w,h);cam.updateProjectionMatrix();}
-  new ResizeObserver(resize).observe(viewer);resize();place();
-  canvas.addEventListener('pointerdown',function(e){canvas.setPointerCapture(e.pointerId);pointers[e.pointerId]=[e.clientX,e.clientY];dragging=true;moved=0;px=e.clientX;py=e.clientY;autoRot=false;canvas.classList.add('dragging');
+  // camera
+  var target=new THREE.Vector3(1,6.6,0),th=0.72,ph=1.12,rad=56,autoRot=!reduce,dragging=false,moved=0,px=0,py=0,pointers={},pinch=0,HOV=null;
+  function place(){rad=Math.max(20,Math.min(90,rad));ph=Math.max(0.3,Math.min(1.5,ph));var R=rad+EXP*18,ty=target.y+EXP*4;cam.position.set(target.x+R*Math.sin(ph)*Math.sin(th),ty+R*Math.cos(ph),target.z+R*Math.sin(ph)*Math.cos(th));cam.lookAt(target.x,ty,target.z);}
+  function resize(){var w=viewer.clientWidth,h=viewer.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.fov=w<600?52:38;cam.clearViewOffset();if(w>=600)cam.setViewOffset(w,h,-w*0.03,-h*0.02,w,h);cam.updateProjectionMatrix();}
+  if(window.ResizeObserver)new ResizeObserver(resize).observe(viewer);else window.addEventListener('resize',resize);resize();place();
+  canvas.addEventListener('pointerdown',function(e){canvas.setPointerCapture(e.pointerId);pointers[e.pointerId]=[e.clientX,e.clientY];dragging=true;moved=0;px=e.clientX;py=e.clientY;autoRot=false;canvas.classList.add('dragging');tip.hidden=true;
     var ids=Object.keys(pointers);if(ids.length===2){var a=pointers[ids[0]],b=pointers[ids[1]];pinch=Math.hypot(a[0]-b[0],a[1]-b[1]);}});
   canvas.addEventListener('pointermove',function(e){
     if(pointers[e.pointerId])pointers[e.pointerId]=[e.clientX,e.clientY];
     var ids=Object.keys(pointers);
     if(ids.length===2){var a=pointers[ids[0]],b=pointers[ids[1]],d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(pinch){rad*=pinch/d;place();}pinch=d;moved+=10;return;}
     if(dragging){var dx=e.clientX-px,dy=e.clientY-py;moved+=Math.abs(dx)+Math.abs(dy);th-=dx*0.006;ph-=dy*0.005;px=e.clientX;py=e.clientY;place();}
-    else pick(e,false);
-  });
-  function up(e){delete pointers[e.pointerId];if(Object.keys(pointers).length<2)pinch=0;
-    if(dragging&&moved<6)pick(e,true);dragging=Object.keys(pointers).length>0;canvas.classList.remove('dragging');}
+    else if(e.pointerType==='mouse')pick(e,false);});
+  function up(e){delete pointers[e.pointerId];if(Object.keys(pointers).length<2)pinch=0;if(dragging&&moved<6)pick(e,true);dragging=Object.keys(pointers).length>0;canvas.classList.remove('dragging');}
   canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',up);
-  canvas.addEventListener('pointerleave',function(){if(hovered){hovered=null;canvas.classList.remove('hovering');paint();}});
-  document.getElementById('zoomIn').onclick=function(){rad*=0.85;autoRot=false;place();};
-  document.getElementById('zoomOut').onclick=function(){rad*=1.18;autoRot=false;place();};
-  document.getElementById('resetView').onclick=function(){th=0.7;ph=1.12;rad=54;place();};
-
+  canvas.addEventListener('pointerleave',function(){tip.hidden=true;if(HOV){HOV=null;canvas.classList.remove('hovering');paint();}});
+  canvas.addEventListener('wheel',function(e){if(!e.ctrlKey&&!e.metaKey&&!document.activeElement.isSameNode(canvas))return;e.preventDefault();rad*=e.deltaY>0?1.08:0.92;autoRot=false;place();},{passive:false});
+  canvas.tabIndex=0;
+  $('zoomIn').onclick=function(){rad*=0.85;autoRot=false;place();};
+  $('zoomOut').onclick=function(){rad*=1.18;autoRot=false;place();};
+  $('resetView').onclick=function(){th=0.72;ph=1.12;rad=56;place();};
   var ray=new THREE.Raycaster(),ndc=new THREE.Vector2();
   function pick(e,click){
-    var b=canvas.getBoundingClientRect();ndc.set((e.clientX-b.left)/b.width*2-1,-(e.clientY-b.top)/b.height*2+1);
-    ray.setFromCamera(ndc,cam);var hit=ray.intersectObjects(meshes.filter(function(m){return m.visible;}),false)[0];
-    var m=hit?hit.object:null;
-    if(click){select(m?m.userData.s:null);}
-    else if(m!==hovered){hovered=m;canvas.classList.toggle('hovering',!!m);paint();}
-  }
-  function select(s){selected=s;paint();renderPanel();if(s&&window.innerWidth<1040)panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});}
-  window.__labSelect=select;window.__labMode=setMode;
+    var b=canvas.getBoundingClientRect();ndc.set((e.clientX-b.left)/b.width*2-1,-(e.clientY-b.top)/b.height*2+1);ray.setFromCamera(ndc,cam);
+    var hit=ray.intersectObjects(meshes.filter(function(m){return m.material.opacity>0.3;}),false)[0],c=hit?hit.object.userData.c:null;
+    if(click){select(c?c.id:null);return;}
+    var id=c?c.id:null;
+    if(id!==HOV){HOV=id;canvas.classList.toggle('hovering',!!c);paint();}
+    if(c){tip.hidden=false;tip.innerHTML='<b>'+esc(c.name)+'</b>'+c.id+'<br><span>'+MATS[c.mat].short+' \u00b7 '+fmt(c.wl,0)+' kgCO\u2082e A to C</span>';
+      var x=e.clientX-b.left+14,y=e.clientY-b.top+14;tip.style.left=Math.min(x,b.width-250)+'px';tip.style.top=Math.min(y,b.height-70)+'px';}
+    else tip.hidden=true;}
+  function select(id){SEL=id;tip.hidden=true;update();if(id&&window.innerWidth<1040)panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});}
+  window.__labSelect=select;
 
-  /* render loop, paused off-screen */
-  var onScreen=true;new IntersectionObserver(function(e){onScreen=e[0].isIntersecting;},{rootMargin:'100px'}).observe(viewer);
+  var onScreen=true;new IntersectionObserver(function(e){onScreen=e[0].isIntersecting;},{rootMargin:'120px'}).observe(viewer);
   function loop(now){
     if(onScreen){
-      if(playing){week+=(now-last)/1000*4.2;last=now;if(week>=MAXW){week=MAXW;stopPlay();}range.value=week;applyWeek();if(selected)renderPanel();}
-      if(autoRot){th+=0.0016;place();}
-      if(selected&&selected.mesh){var k=0.5+0.5*Math.sin(now/260);selected.mesh.material.emissive.setRGB(0.45*k+0.1,0.33*k+0.07,0.05);}
-      r.render(scene,cam);
-    }
-    requestAnimationFrame(loop);
-  }
-  setMode('3d');requestAnimationFrame(loop);
+      if(Math.abs(EXP-EXPT)>0.001){EXP+=(EXPT-EXP)*0.12;applyExplode();place();}
+      if(autoRot){th+=0.0015;place();}
+      if(SEL&&byId[SEL]){var k=0.5+0.5*Math.sin(now/240);byId[SEL].forEach(function(m){m.material.emissive.setRGB(0.42*k+0.12,0.3*k+0.08,0.05);});}
+      if(SWEEP>=0&&VIEW==='verify'){SWEEP+=0.35;var sy=SWEEP-2;meshes.forEach(function(m){var d=Math.abs(m.position.y-sy);if(d<1.2&&m.userData.c.id!==SEL)m.material.emissive.setRGB(0.5*(1-d/1.2),0.42*(1-d/1.2),0.1*(1-d/1.2));else if(m.userData.c.id!==SEL&&m.userData.c.id!==HOV)m.material.emissive.setHex(0);});if(SWEEP>TOP+6){SWEEP=-1;paint();}}
+      r.render(scene,cam);}
+    requestAnimationFrame(loop);}
+  rebuildScene();setView('decide');requestAnimationFrame(loop);
+
+  function update(){checkFlags();hud();renderPanel();if(HAS3D)paint();}
 }
 
-function boot(){try{initHero();}catch(e){console.warn(e);}try{initLab();}catch(e){console.warn(e);var f=document.getElementById('glFallback');if(f)f.hidden=false;}}
+
+function boot(){try{initThemes();}catch(e){console.warn(e);}try{initHero();}catch(e){console.warn(e);}try{initLab();}catch(e){console.warn(e);var f=$('glFallback');if(f)f.hidden=false;}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
+
 </script>
 </body>
 </html>
