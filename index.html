@@ -550,6 +550,16 @@ footer a{color:#d9e6e0}
   .td-inner{padding:22px 20px 24px}
   .theme-dialog h3{font-size:1.45rem}
 }
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,var(--leaf),var(--brass-2));box-shadow:0 0 12px rgba(226,191,106,.6)}
+html.rv-on .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+html.rv-on .rv.in{opacity:1;transform:none}
+.btn.gold{position:relative;overflow:hidden}
+.btn.gold::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn.gold:hover::after{left:140%}
+.hl,.edu-card,.award,.project,.pub,.panel{transition:transform .25s,box-shadow .25s,border-color .25s}
+.hl:hover,.edu-card:hover,.award:hover,.pub:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.hero h1{background:linear-gradient(92deg,#fff 55%,#e9d6a3);-webkit-background-clip:text;background-clip:text;color:transparent}
 </style>
 </head>
 <body>
@@ -567,9 +577,8 @@ footer a{color:#d9e6e0}
       <li><a href="#publications">Publications</a></li>
       <li><a href="#service">Service</a></li>
       <li><a href="practice.html">Practice</a></li>
-      <li><a href="practice.html">Practice</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a class="cv" href="Aklashie_Samuel_CV.pdf" download>Download CV</a></li>
+      <li><a class="cv" href="mailto:aklashiesamuel328@gmail.com?subject=CV%20request&amp;body=Hello%20Samuel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV%20for%20the%20following%20purpose%3A%0A%0A">Request CV</a></li>
     </ul>
   </div>
 </header>
@@ -586,7 +595,7 @@ footer a{color:#d9e6e0}
       <p class="affil">Graduate Teaching and Research Assistant, Department of Construction Technology and Management, Kwame Nkrumah University of Science and Technology (KNUST), Kumasi.</p>
       <div class="actions">
         <a class="btn gold" href="#publications">View publications</a>
-        <a class="btn ghost" href="Aklashie_Samuel_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>Download CV</a>
+        <a class="btn ghost" href="mailto:aklashiesamuel328@gmail.com?subject=CV%20request&amp;body=Hello%20Samuel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV%20for%20the%20following%20purpose%3A%0A%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Request CV</a>
       </div>
       <div class="profiles">
         <a href="https://scholar.google.com/citations?user=VYTg00kAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.3v3.9L12 20l6.8-3.8v-3.9L12 16l-6.8-3.7z"/></svg>Google Scholar</a>
@@ -1143,8 +1152,8 @@ footer a{color:#d9e6e0}
     <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;background:var(--forest);color:#fff;border-radius:var(--r-lg);padding:40px 44px;box-shadow:var(--shadow)" class="prac-band">
       <div>
         <span class="eyebrow" style="color:var(--brass-2)">Practice</span>
-        <h2 id="prac-h" style="font:500 clamp(1.8rem,3vw,2.4rem)/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:12px">Aklashie Build Partners</h2>
-        <p style="color:#c3d5cc;max-width:52ch">Research put into practice: architectural and structural design, construction supervision and verified land in Greater Accra and the Eastern Region, with a passport for every plot and every building.</p>
+        <h2 id="prac-h" style="font:500 clamp(1.8rem,3vw,2.4rem)/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:12px">Nokware <span style="font-size:.55em;color:var(--brass-2);font-style:italic">Twi for truth</span></h2>
+        <p style="color:#c3d5cc;max-width:52ch">Research put into practice: verified land, architectural and structural design and construction supervision in Greater Accra and the Eastern Region, with a 7D project twin and a passport for every plot and every building.</p>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
         <a class="btn gold" href="practice.html">Visit the practice</a>
@@ -1166,7 +1175,7 @@ footer a{color:#d9e6e0}
         <li><a href="https://scholar.google.com/citations?user=VYTg00kAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.8 9.3v3.9L12 20l6.8-3.8v-3.9L12 16l-6.8-3.7z"/></svg><span><small>Google Scholar</small>Publications and citations</span></a></li>
         <li><a href="https://www.linkedin.com/in/samuel-aklashie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.5-2.2 2.9V21h-4V9z"/></svg><span><small>LinkedIn</small>linkedin.com/in/samuel-aklashie</span></a></li>
         <li><a href="practice.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg><span><small>Design, supervision and land</small>Visit the practice</span></a></li>
-        <li><a href="Aklashie_Samuel_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg><span><small>Curriculum vitae</small>Download CV (PDF)</span></a></li>
+        <li><a href="mailto:aklashiesamuel328@gmail.com?subject=CV%20request&amp;body=Hello%20Samuel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV%20for%20the%20following%20purpose%3A%0A%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M9 7h6M9 11h4"/></svg><span><small>Curriculum vitae</small>Available on request</span></a></li>
       </ul>
     </div>
     <form id="contactForm" novalidate>
@@ -1861,6 +1870,22 @@ function boot(){try{initThemes();}catch(e){console.warn(e);}try{initHero();}catc
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
+</script>
+<script>
+(function(){
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var bar=document.createElement('div');bar.className='progress';document.body.appendChild(bar);
+function sp(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+'%';}
+window.addEventListener('scroll',sp,{passive:true});sp();
+if(reduce||!('IntersectionObserver' in window))return;
+document.documentElement.classList.add('rv-on');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('section.block .head,.hl,.prose,.glance,.edu-card,.theme,.steps,.lab-shell,.project,.pub:not([hidden]),.tl>li,.panel,.award,.two>div,.gallery figure,.prac-band').forEach(function(el){el.classList.add('rv');var i=[].indexOf.call(el.parentNode.children,el);el.style.transitionDelay=Math.min(i,5)*70+'ms';io.observe(el);});
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.pub').forEach(function(p){p.classList.add('in');});});});
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,end=parseFloat(el.textContent),dec=(el.textContent.split('.')[1]||'').length,t0=performance.now();
+function f(now){var k=Math.min(1,(now-t0)/1400),v=end*(1-Math.pow(1-k,3));el.textContent=v.toFixed(dec);if(k<1)requestAnimationFrame(f);}requestAnimationFrame(f);});},{threshold:.6});
+document.querySelectorAll('.metric b').forEach(function(b){cio.observe(b);});
+})();
 </script>
 </body>
 </html>
