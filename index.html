@@ -63,7 +63,7 @@ header.site.solid{background:rgba(247,245,240,.94);backdrop-filter:blur(14px);bo
 header.solid .brand{color:var(--ink)}
 header.solid .brand-mark{background:var(--forest);color:var(--brass-2)}
 .menu{display:flex;gap:6px;list-style:none;align-items:center}
-.menu a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:.94rem;font-weight:500;padding:8px 12px;border-radius:8px;transition:color .2s,background .2s}
+.menu a{display:block;color:rgba(255,255,255,.82);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 10px;border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
 .menu a:hover{color:#fff;background:rgba(255,255,255,.08)}
 header.solid .menu a{color:var(--ink-2)}
 header.solid .menu a:hover{color:var(--forest);background:var(--leaf-soft)}
@@ -571,6 +571,106 @@ footer{background:#0c1019}
 .form-msg.ok{color:#1f7a4f}
 .form-msg a{color:inherit;font-weight:600}
 .hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+/* ===== overview player ===== */
+.ex-sec{background:linear-gradient(180deg,#0f1524,#161f33);color:#fff}
+.ex-sec .eyebrow{color:var(--brass-2)}
+.ex-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.ex-copy h2{font:500 clamp(1.9rem,3.3vw,2.6rem)/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:12px}
+.ex-copy p{color:#aab4c4}
+.chap{list-style:none;display:grid;gap:6px;margin:22px 0 16px;counter-reset:c}
+.chap li{counter-increment:c}
+.chap button{all:unset;cursor:pointer;display:flex;gap:12px;align-items:center;width:100%;box-sizing:border-box;padding:9px 12px;border-radius:10px;color:#c5ccd8;font-size:.93rem;transition:background .2s,color .2s}
+.chap button::before{content:counter(c,decimal-leading-zero);font:500 .9rem var(--serif);color:var(--brass-2);opacity:.7}
+.chap button:hover{background:rgba(255,255,255,.06);color:#fff}
+.chap button.on{background:rgba(224,187,122,.12);color:#fff}
+.chap button:focus-visible{outline:2px solid var(--brass-2)}
+.ex-note{font-size:.8rem;color:#7d879a!important}
+.player{border-radius:20px;overflow:hidden;background:#0b101b;box-shadow:0 50px 90px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08)}
+.screen{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0e1422}
+.sc{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.sc.on{opacity:1}
+.sc svg{width:100%;height:100%;display:block}
+.sc .a-up,.sc .a-pop{opacity:0}
+.sc .a-pop{transform-box:fill-box;transform-origin:center}
+.sc .a-draw{stroke-dasharray:var(--len,900);stroke-dashoffset:var(--len,900)}
+.sc .a-grow{stroke-dasharray:500;stroke-dashoffset:500}
+.player.run .sc.on .a-up{animation:exup .7s var(--d,0s) cubic-bezier(.2,.8,.2,1) forwards}
+.player.run .sc.on .a-pop{animation:popin .6s var(--d,0s) cubic-bezier(.2,1.4,.4,1) forwards}
+.player.run .sc.on .a-draw{animation:drawp 1.6s var(--d,0s) cubic-bezier(.6,0,.2,1) forwards}
+.player.run .sc.on .a-grow{animation:drawp 4.4s var(--d,0s) linear forwards}
+.player.hold .sc.on *{animation-play-state:paused!important}
+@keyframes exup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.cap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:min(90%,620px);text-align:center;font-size:.95rem;line-height:1.45;color:#fff;background:rgba(10,14,24,.78);backdrop-filter:blur(6px);padding:8px 14px;border-radius:10px;opacity:0;transition:opacity .3s}
+.cap.on{opacity:1}
+.poster{all:unset;cursor:pointer;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:18px;background:radial-gradient(circle at 50% 50%,rgba(14,20,34,.35),rgba(14,20,34,.8));color:#fff;transition:opacity .4s}
+.poster.gone{opacity:0;pointer-events:none}
+.pbtn{width:84px;height:84px;border-radius:50%;background:var(--brass-2);color:#121826;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(224,187,122,.6);animation:pulse 2.2s infinite}
+.pbtn svg{width:34px;height:34px;margin-left:4px}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(224,187,122,0)}100%{box-shadow:0 0 0 0 rgba(224,187,122,0)}}
+.plbl{font:500 1.4rem var(--serif)}.plbl small{display:block;font:500 .82rem var(--sans);color:#c5ccd8}
+.poster:focus-visible .pbtn{outline:3px solid #fff;outline-offset:4px}
+.ctrl{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#0b101b}
+.ctrl button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.08)}
+.ctrl button:hover{background:rgba(255,255,255,.16)}.ctrl button:focus-visible{outline:2px solid var(--brass-2)}
+.ctrl svg{width:18px;height:18px}
+.prog{flex:1;height:6px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;cursor:pointer}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass-2),#9cc3dd)}
+.tm{font-size:.8rem;color:#aab4c4;font-variant-numeric:tabular-nums;min-width:34px}
+#mute[aria-pressed="true"] #muteI{display:none}
+
+
+@keyframes drawp{to{stroke-dashoffset:0}}@keyframes popin{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.player.run .sc.on g.a-pop{animation-name:fadein}@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (max-width:1040px){.ex-grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:760px){.pbtn{width:62px;height:62px}.plbl{font-size:1.1rem}.cap{font-size:.8rem;bottom:8px}.chap{display:none}}
+
+.menu a.biz{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:linear-gradient(135deg,#2f6f8f,#3f8aa8);color:#fff!important;padding:8px 13px;border-radius:999px;box-shadow:0 6px 18px -8px rgba(47,111,143,.8);position:relative}
+.menu a.biz svg{width:15px;height:15px}
+.menu a.biz .new{font-size:.62rem;white-space:nowrap;font-weight:700;letter-spacing:.04em;background:var(--brass-2);color:#121826;padding:2px 7px;border-radius:999px}
+.menu a.biz:hover{background:linear-gradient(135deg,#3f8aa8,#2f6f8f)!important;transform:translateY(-1px)}
+.menu a.biz::after{content:"";position:absolute;inset:-3px;border-radius:999px;border:2px solid rgba(63,138,168,.55);animation:ring 2.4s infinite}
+@keyframes ring{0%{opacity:1;transform:scale(.96)}100%{opacity:0;transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.menu a.biz::after{animation:none;display:none}}
+@media (max-width:760px){.menu a.biz{justify-content:center;margin-top:4px}}
+.hero .actions .btn svg{width:16px;height:16px}
+@media (max-width:1240px) and (min-width:861px){.menu{gap:2px}.menu a{font-size:.85rem;padding:7px 8px}.biz .new{display:none}}
+/* ===== assistant ===== */
+/* ===== assistant ===== */
+.ask-fab{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:10px;padding:14px 20px 14px 16px;border:none;border-radius:999px;background:linear-gradient(135deg,#1d2638,#2f6f8f);color:#fff;font:600 .95rem var(--sans);cursor:pointer;box-shadow:0 18px 40px -12px rgba(18,24,38,.6);transition:transform .2s}
+.ask-fab:hover{transform:translateY(-2px)}
+.ask-fab svg{width:22px;height:22px}
+.ask-fab .dot{position:absolute;top:8px;left:12px;width:10px;height:10px;border-radius:50%;background:#35c08e;box-shadow:0 0 0 0 rgba(53,192,142,.7);animation:pulse2 2s infinite}
+@keyframes pulse2{70%{box-shadow:0 0 0 10px rgba(53,192,142,0)}100%{box-shadow:0 0 0 0 rgba(53,192,142,0)}}
+.ask-fab[aria-expanded="true"]{display:none}
+.ask{position:fixed;right:22px;bottom:22px;z-index:95;width:min(390px,calc(100vw - 24px));height:min(600px,calc(100vh - 110px));display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:var(--surface);box-shadow:0 40px 90px -30px rgba(0,0,0,.55),0 0 0 1px rgba(18,24,38,.08);animation:askin .35s cubic-bezier(.2,.9,.3,1.2)}
+.ask[hidden]{display:none}
+.ask-h{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:14px 16px;background:linear-gradient(135deg,#121826,#1f3552);color:#fff}
+.ask-h .av{width:40px;height:40px;border-radius:12px;background:var(--brass-2);display:grid;place-items:center}
+.ask-h .av svg{width:24px;height:24px}
+.ask-h b{display:block;font:500 1.05rem var(--serif)}
+.ask-h small{font-size:.74rem;color:#aab4c4;display:flex;gap:6px;align-items:center}
+.ask-h small i{width:7px;height:7px;border-radius:50%;background:#35c08e}
+.ask-h .x{all:unset;cursor:pointer;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;background:rgba(255,255,255,.1)}
+.ask-log{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--paper)}
+.msg{max-width:88%;padding:10px 13px;border-radius:16px;font-size:.9rem;line-height:1.5;animation:exup .35s ease}
+.msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--rule);border-bottom-left-radius:5px;color:var(--ink)}
+.msg.me{align-self:flex-end;background:var(--forest);color:#fff;border-bottom-right-radius:5px}
+.msg.bot b{color:var(--forest)}
+.msg.bot a{font-weight:600}
+.msg.bot ul{margin:6px 0 0 16px}
+.typing{display:flex;gap:4px;padding:12px 14px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9aa5b6;animation:bob 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+.ask-chips{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;background:var(--paper);border-top:1px solid var(--rule-2);scrollbar-width:none}
+.ask-chips button{all:unset;cursor:pointer;flex-shrink:0;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--rule);font-size:.8rem;font-weight:600;color:var(--forest)}
+.ask-chips button:hover{border-color:var(--leaf)}
+.ask-f{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid var(--rule)}
+.ask-f input{flex:1;font:inherit;font-size:.92rem;padding:11px 14px;border-radius:999px;border:1.5px solid var(--rule);background:var(--paper)}
+.ask-f button{width:44px;height:44px;border-radius:50%;border:none;background:var(--forest);color:#fff;cursor:pointer;display:grid;place-items:center}
+.ask-f button svg{width:18px;height:18px}
+@media (max-width:760px){.ask-fab .lbl{display:none}.ask-fab{padding:16px}.ask{right:12px;bottom:12px}}
+
 </style>
 </head>
 <body>
@@ -587,7 +687,7 @@ footer{background:#0c1019}
       <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#service">Service</a></li>
-      <li><a href="practice.html">Practice</a></li>
+      <li><a class="biz" href="practice.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11.5L12 4l8.5 7.5M6 10v10h12V10"/></svg>Build with us<span class="new">Eco-Consult</span></a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="cv" href="mailto:aklashiesamuel328@gmail.com?subject=CV%20request&amp;body=Hello%20Samuel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV%20for%20the%20following%20purpose%3A%0A%0A">Request CV</a></li>
     </ul>
@@ -605,7 +705,8 @@ footer{background:#0c1019}
       <p class="lede">I research how construction materials can carry their own carbon and circularity data through a building's life, and what it takes to make that work in Ghana and the Global South.</p>
       <p class="affil">Graduate Teaching and Research Assistant, Department of Construction Technology and Management, Kwame Nkrumah University of Science and Technology (KNUST), Kumasi.</p>
       <div class="actions">
-        <a class="btn gold" href="#publications">View publications</a>
+        <a class="btn gold" href="#overview" data-watch><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch my 1-minute intro</a>
+        <a class="btn ghost" href="#publications">View publications</a>
         <a class="btn ghost" href="mailto:aklashiesamuel328@gmail.com?subject=CV%20request&amp;body=Hello%20Samuel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV%20for%20the%20following%20purpose%3A%0A%0A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Request CV</a>
       </div>
       <div class="profiles">
@@ -646,6 +747,72 @@ footer{background:#0c1019}
     </div>
   </div>
 </div>
+
+<!-- ================= INTRO PLAYER ================= -->
+<section class="block ex-sec" id="overview" aria-labelledby="ex-h">
+  <div class="wrap ex-grid">
+    <div class="ex-copy">
+      <span class="eyebrow">In one minute</span>
+      <h2 id="ex-h">Meet Samuel, in sixty seconds</h2>
+      <p>A short narrated introduction to my research, publications, the 3D lab and how we can work together.</p>
+      <ol class="chap" id="chap">
+        <li><button type="button" data-s="0">Who I am</button></li>
+        <li><button type="button" data-s="1">What I research</button></li>
+        <li><button type="button" data-s="2">Publications and awards</button></li>
+        <li><button type="button" data-s="3">The 3D lab</button></li>
+        <li><button type="button" data-s="4">Service to the field</button></li>
+        <li><button type="button" data-s="5">Working together</button></li>
+      </ol>
+      <p class="ex-note">Narration plays in your device's built-in voice. Captions are always shown.</p>
+    </div>
+    <div class="player" id="player">
+      <div class="screen" id="screen">
+        <div class="sc on" data-i="0"><svg viewBox="0 0 640 360" aria-hidden="true"><defs><radialGradient id="ag1" cx=".75" cy=".3" r=".9"><stop offset="0" stop-color="#2a3a5c"/><stop offset="1" stop-color="#0e1422"/></radialGradient></defs><rect width="640" height="360" fill="url(#ag1)"/>
+          <g stroke="rgba(255,255,255,.06)"><path d="M0 60h640M0 120h640M0 180h640M0 240h640M0 300h640M80 0v360M160 0v360M240 0v360M320 0v360M400 0v360M480 0v360M560 0v360"/></g>
+          <g class="a-pop" style="--d:.2s" transform="translate(500 160)"><circle r="78" fill="rgba(224,187,122,.12)" stroke="#e0bb7a" stroke-width="3"/><text y="18" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-size="56" fill="#e0bb7a">SA</text></g>
+          <text class="a-up" style="--d:.6s" x="56" y="150" font-family="Newsreader,Georgia,serif" font-size="46" fill="#fff">Samuel Aklashie</text>
+          <text class="a-up" style="--d:1.2s" x="56" y="190" font-family="Arial" font-size="17" fill="#e0bb7a">Built environment researcher, KNUST Ghana</text>
+          <text class="a-up" style="--d:1.8s" x="56" y="222" font-family="Arial" font-size="14" fill="#aab4c4">Digital construction meets sustainability</text></svg></div>
+        <div class="sc" data-i="1"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#f7f5f0"/>
+          <g stroke="#2f6f8f" stroke-width="2.5" fill="none"><path class="a-draw" style="--d:.8s" d="M320 180 L170 90 M320 180 L470 90 M320 180 L170 270 M320 180 L470 270"/></g>
+          <g class="a-pop" style="--d:.2s" transform="translate(320 180)"><rect x="-70" y="-44" width="140" height="88" rx="14" fill="#121826"/><text y="-8" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#e0bb7a" letter-spacing="1">MATERIAL</text><text y="14" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#e0bb7a" letter-spacing="1">PASSPORT</text></g>
+          <g font-family="Arial" font-size="14" font-weight="700" fill="#161a22" text-anchor="middle">
+            <g class="a-pop" style="--d:1.4s"><rect x="100" y="66" width="140" height="48" rx="24" fill="#e9eef3"/><text x="170" y="95">Carbon data</text></g>
+            <g class="a-pop" style="--d:1.9s"><rect x="400" y="66" width="140" height="48" rx="24" fill="#e9eef3"/><text x="470" y="95">Ontologies</text></g>
+            <g class="a-pop" style="--d:2.4s"><rect x="100" y="246" width="140" height="48" rx="24" fill="#f5ebd8"/><text x="170" y="275">Blockchain</text></g>
+            <g class="a-pop" style="--d:2.9s"><rect x="400" y="246" width="140" height="48" rx="24" fill="#f5ebd8"/><text x="470" y="275">Digital twins</text></g></g></svg></div>
+        <div class="sc" data-i="2"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#121826"/>
+          <g font-family="Newsreader,Georgia,serif" fill="#fff" text-anchor="middle">
+            <g class="a-up" style="--d:.3s"><text x="130" y="170" font-size="84" fill="#e0bb7a">15</text><text x="130" y="206" font-family="Arial" font-size="14" fill="#aab4c4">peer-reviewed works</text></g>
+            <g class="a-up" style="--d:1s"><text x="320" y="170" font-size="84" fill="#e0bb7a">3</text><text x="320" y="206" font-family="Arial" font-size="14" fill="#aab4c4">first-author Q1 articles</text></g>
+            <g class="a-up" style="--d:1.7s"><text x="510" y="170" font-size="84" fill="#e0bb7a">54</text><text x="510" y="206" font-family="Arial" font-size="14" fill="#aab4c4">manuscript reviews</text></g></g>
+          <g class="a-pop" style="--d:2.6s"><rect x="150" y="248" width="340" height="50" rx="25" fill="rgba(224,187,122,.14)" stroke="#e0bb7a"/><text x="320" y="279" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#e0bb7a">Best Published Paper Award, PGRC 2026</text></g></svg></div>
+        <div class="sc" data-i="3"><svg viewBox="0 0 640 360" aria-hidden="true"><defs><linearGradient id="ag4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d2638"/><stop offset="1" stop-color="#2f4a72"/></linearGradient></defs><rect width="640" height="360" fill="url(#ag4)"/>
+          <path class="a-draw" style="--d:.2s;--len:1600" d="M180 300 L180 110 L320 60 L460 110 L460 300 Z M180 160 L460 160 M180 210 L460 210 M180 255 L460 255 M320 60 L320 300" fill="none" stroke="#9cc3dd" stroke-width="2.4"/>
+          <rect class="a-pop" style="--d:1.8s" x="330" y="165" width="120" height="40" fill="rgba(224,187,122,.4)" stroke="#e0bb7a" stroke-width="2"/>
+          <g class="a-up" style="--d:2.4s"><rect x="470" y="120" width="140" height="62" rx="10" fill="#fff"/><text x="484" y="144" font-family="Arial" font-size="11" font-weight="700" fill="#a6461f">ADR-001 flagged</text><text x="484" y="164" font-family="Arial" font-size="11" fill="#3d4350">Carbon value revised</text></g>
+          <text x="40" y="44" font-family="Arial" font-size="13" font-weight="700" fill="#e0bb7a" letter-spacing="1.5">INTERACTIVE 3D LAB</text></svg></div>
+        <div class="sc" data-i="4"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#f7f5f0"/>
+          <g class="a-pop" style="--d:.2s"><rect x="90" y="80" width="150" height="200" rx="8" fill="#1d2638" transform="rotate(-6 165 180)"/><rect x="120" y="70" width="150" height="200" rx="8" fill="#2f6f8f" transform="rotate(3 195 170)"/><rect x="150" y="76" width="150" height="200" rx="8" fill="#121826"/><text x="225" y="150" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-size="20" fill="#fff">Construction</text><text x="225" y="176" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-size="20" fill="#fff">Innovation</text><text x="225" y="206" text-anchor="middle" font-family="Arial" font-size="10" fill="#e0bb7a">EDITORIAL REVIEW BOARD</text></g>
+          <text class="a-up" style="--d:1s" x="360" y="160" font-family="Newsreader,Georgia,serif" font-size="30" fill="#161a22">Editorial Review Board</text>
+          <text class="a-up" style="--d:1.6s" x="360" y="196" font-family="Arial" font-size="15" fill="#3d4350">Construction Innovation, Emerald (Q1)</text>
+          <text class="a-up" style="--d:2.2s" x="360" y="226" font-family="Arial" font-size="15" fill="#2f6f8f">54 reviews across six journals</text></svg></div>
+        <div class="sc" data-i="5"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#0e1422"/><circle cx="320" cy="160" r="160" fill="rgba(224,187,122,.07)"/>
+          <text class="a-up" style="--d:.3s" x="320" y="140" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-size="44" fill="#fff">Let's work together</text>
+          <text class="a-up" style="--d:.9s" x="320" y="182" text-anchor="middle" font-family="Arial" font-size="15" fill="#aab4c4">Collaborations · Doctoral opportunities · Reviews · Consulting</text>
+          <g class="a-pop" style="--d:1.5s"><rect x="170" y="210" width="300" height="46" rx="23" fill="#e0bb7a"/><text x="320" y="239" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#121826">aklashiesamuel328@gmail.com</text></g></svg></div>
+        <div class="cap" id="cap" aria-live="polite"></div>
+        <button class="poster" id="poster" type="button" aria-label="Play the one-minute introduction"><span class="pbtn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="plbl">Watch my introduction<small>About one minute, with narration</small></span></button>
+      </div>
+      <div class="ctrl">
+        <button type="button" id="pp" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ppI" d="M8 5v14l11-7z"/></svg></button>
+        <div class="prog" id="prog"><i id="progF"></i></div>
+        <span class="tm" id="tm">0:00</span>
+        <button type="button" id="mute" aria-pressed="false" aria-label="Mute narration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path id="muteI" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= HIGHLIGHTS ================= -->
 <section class="block" aria-labelledby="hl-h">
@@ -1162,12 +1329,12 @@ footer{background:#0c1019}
   <div class="wrap">
     <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;background:var(--forest);color:#fff;border-radius:var(--r-lg);padding:40px 44px;box-shadow:var(--shadow)" class="prac-band">
       <div>
-        <span class="eyebrow" style="color:var(--brass-2)">Practice</span>
+        <span class="eyebrow" style="color:var(--brass-2)">Land, design and construction services</span>
         <h2 id="prac-h" style="font:500 clamp(1.8rem,3vw,2.4rem)/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:12px">Eco-Consult <span style="font-size:.5em;color:var(--brass-2);font-style:italic;letter-spacing:0">Land · Design · Build</span></h2>
         <p style="color:#c5ccd8;max-width:52ch">Research put into practice: verified land, architectural and structural design and construction supervision across all of Ghana, with a 7D project twin and a passport for every plot and every building.</p>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
-        <a class="btn gold" href="practice.html">Visit the practice</a>
+        <a class="btn gold" href="practice.html">Explore Eco-Consult</a>
         <a class="btn ghost" href="practice.html#support">Support the vision</a>
       </div>
     </div>
@@ -1912,6 +2079,114 @@ var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isInt
 function f(now){var k=Math.min(1,(now-t0)/1400),v=end*(1-Math.pow(1-k,3));el.textContent=v.toFixed(dec);if(k<1)requestAnimationFrame(f);}requestAnimationFrame(f);});},{threshold:.6});
 document.querySelectorAll('.metric b').forEach(function(b){cio.observe(b);});
 })();
+</script>
+<script>
+window.PLAYER_SC=[
+ "Samuel Aklashie is a built environment researcher at the Kwame Nkrumah University of Science and Technology in Ghana, working where digital construction meets sustainability.",
+ "His research asks how construction materials can carry their own carbon and circularity data, using digital product passports, ontologies, blockchain and digital twins.",
+ "He has published fifteen peer-reviewed works, including three first-author articles in Q1 journals, and received the Overall Best Published Paper Award at PGRC 2026.",
+ "His interactive 3D lab shows how a design decision is recorded, and how a revised carbon value can flag that decision for reassessment.",
+ "He serves on the Editorial Review Board of Construction Innovation, and has completed fifty-four manuscript reviews across six international journals.",
+ "He welcomes research collaborations, doctoral opportunities and review invitations. Scroll down to get in touch."
+];
+</script>
+<script>
+/* ===== overview player ===== */
+(function(){
+  var pl=document.getElementById('player');if(!pl)return;
+  var SC=window.PLAYER_SC||[
+    "Buying land and building in Ghana should not depend on luck. Eco-Consult makes property something you can verify.",
+    "Before any plot is sold, we check it: the official search, the site plan, the chain of ownership and the path to title. You receive it all in a Land Passport.",
+    "Our designers create modern, efficient homes and buildings, each with a clear cost plan and a carbon summary.",
+    "During construction, we supervise every stage, and money is released only when an inspection confirms the work.",
+    "If you live abroad, you follow your project from anywhere, with weekly photos, videos and inspection reports.",
+    "At handover, you receive a Building Passport, a complete record of what was built. Eco-Consult. Verified land. Accountable buildings."
+  ];
+  var scenes=[].slice.call(pl.querySelectorAll('.sc')),cap=document.getElementById('cap'),poster=document.getElementById('poster'),ppI=document.getElementById('ppI'),progF=document.getElementById('progF'),tm=document.getElementById('tm'),mute=document.getElementById('mute'),chap=[].slice.call(document.querySelectorAll('#chap button'));
+  var synth=window.speechSynthesis,muted=!synth,idx=0,playing=false,t0=0,timer=null,voice=null;
+  var est=SC.map(function(s){return Math.max(5.5,s.split(' ').length/2.5+1.2);}),total=est.reduce(function(a,b){return a+b;},0);
+  function pickVoice(){if(!synth)return;var v=synth.getVoices();var pref=window.PLAYER_VOICES||['Google UK English Male','Microsoft Ryan','Daniel','Google UK English Female','Microsoft Sonia','Google US English'];
+    for(var i=0;i<pref.length;i++){var f=v.filter(function(x){return x.name.indexOf(pref[i])>=0;})[0];if(f){voice=f;return;}}voice=v.filter(function(x){return /^en(-|_)(GB|US|GH|NG)/i.test(x.lang);})[0]||v.filter(function(x){return /^en/i.test(x.lang);})[0]||null;}
+  if(synth){pickVoice();if(synth.onvoiceschanged!==undefined)synth.onvoiceschanged=pickVoice;}
+  if(!synth){mute.setAttribute('aria-pressed','true');mute.disabled=true;mute.title='Narration is not supported in this browser';}
+  function fmtT(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
+  function setScene(i){idx=i;scenes.forEach(function(s,k){s.classList.toggle('on',k===i);});chap.forEach(function(b,k){b.classList.toggle('on',k===i);});
+    scenes[i].querySelectorAll('*').forEach(function(el){if(el.getAnimations)el.getAnimations().forEach(function(a){a.cancel();});});
+    pl.classList.remove('run');void pl.offsetWidth;pl.classList.add('run');cap.textContent=SC[i];cap.classList.add('on');}
+  function after(){clearTimeout(timer);if(!playing)return;if(idx<SC.length-1){timer=setTimeout(function(){go(idx+1);},450);}else{end();}}
+  function go(i){clearTimeout(timer);if(synth)synth.cancel();setScene(i);t0=performance.now();
+    if(!playing)return;
+    if(!muted&&synth){var u=new SpeechSynthesisUtterance(SC[i]);if(voice)u.voice=voice;u.lang=voice?voice.lang:'en-GB';u.rate=0.98;u.pitch=1;var done=false;
+      u.onend=function(){if(done)return;done=true;after();};u.onerror=function(){if(done)return;done=true;timer=setTimeout(after,est[i]*1000);};
+      synth.speak(u);timer=setTimeout(function(){if(!done){done=true;after();}},(est[i]+6)*1000);}
+    else timer=setTimeout(after,est[i]*1000);}
+  function play(){poster.classList.add('gone');playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');document.getElementById('pp').setAttribute('aria-label','Pause');go(idx>=SC.length-1&&!pl.classList.contains('run')?0:idx);}
+  function pause(){playing=false;clearTimeout(timer);if(synth)synth.cancel();pl.classList.add('hold');ppI.setAttribute('d','M8 5v14l11-7z');document.getElementById('pp').setAttribute('aria-label','Play');}
+  function end(){playing=false;ppI.setAttribute('d','M8 5v14l11-7z');progF.style.width='100%';idx=0;setTimeout(function(){poster.classList.remove('gone');cap.classList.remove('on');},2500);}
+  poster.addEventListener('click',function(){idx=0;play();});
+  document.getElementById('pp').addEventListener('click',function(){playing?pause():play();});
+  mute.addEventListener('click',function(){muted=!muted;mute.setAttribute('aria-pressed',muted);mute.setAttribute('aria-label',muted?'Unmute narration':'Mute narration');if(playing)go(idx);});
+  chap.forEach(function(b,k){b.addEventListener('click',function(){poster.classList.add('gone');playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');go(k);});});
+  document.getElementById('prog').addEventListener('click',function(e){var r=this.getBoundingClientRect(),f=(e.clientX-r.left)/r.width,acc=0;for(var i=0;i<est.length;i++){acc+=est[i];if(f*total<=acc){poster.classList.add('gone');if(!playing){playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');}go(i);break;}}});
+  (function tick(){if(playing){var done=0;for(var i=0;i<idx;i++)done+=est[i];var el=Math.min(est[idx],(performance.now()-t0)/1000);progF.style.width=((done+el)/total*100)+'%';tm.textContent=fmtT(done+el);}requestAnimationFrame(tick);})();
+  tm.textContent=fmtT(0);
+  document.querySelectorAll('[data-watch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();document.getElementById('overview').scrollIntoView({behavior:'smooth'});setTimeout(function(){idx=0;play();},650);});});
+  new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&playing)pause();});},{threshold:0}).observe(pl);
+})();
+
+</script>
+<!-- ================= ASSISTANT ================= -->
+<button class="ask-fab" id="askFab" type="button" aria-expanded="false" aria-controls="askBox"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/><path d="M8 10h8M8 13h5"/></svg><span class="lbl">Ask about the research</span></button>
+<div class="ask" id="askBox" role="dialog" aria-label="Research assistant" hidden>
+  <div class="ask-h"><span class="av" style="display:grid;place-items:center;font:500 .95rem var(--serif);color:#121826">SA</span><div><b>Research assistant</b><small><i></i>Online · automated answers</small></div><button type="button" class="x" id="askX" aria-label="Close assistant">&times;</button></div>
+  <div class="ask-log" id="askLog" aria-live="polite"></div>
+  <div class="ask-chips" id="askChips"></div>
+  <form class="ask-f" id="askF"><input id="askIn" type="text" autocomplete="off" placeholder="Ask about research, papers, the 3D lab…" aria-label="Your question"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></button></form>
+</div>
+<script>
+/* ===== assistant ===== */
+(function(){
+  var fab=document.getElementById('askFab');if(!fab)return;
+  var box=document.getElementById('askBox'),log=document.getElementById('askLog'),chips=document.getElementById('askChips'),form=document.getElementById('askF'),input=document.getElementById('askIn'),started=false;
+  var KB=[
+    {k:['hello','hi','hey','good morning','good afternoon','good evening','greetings'],a:'Hello, and welcome. I\u2019m an automated assistant on Samuel Aklashie\u2019s website. I can explain his research, publications, the interactive 3D lab, his service to the field, and how to get in touch or request his CV. What would you like to know?',c:['What does he research?','Show me the publications','Explain the 3D lab','How do I contact him?']},
+    {k:['who','about','background','samuel','aklashie','profile','bio','himself'],a:'<b>Samuel Aklashie</b> is a built environment researcher and Graduate Teaching and Research Assistant in the Department of Construction Technology and Management at <b>KNUST</b>, Ghana, working under Prof. Kofi Agyekum and Prof. Emmanuel Adinyira. He holds an <b>MPhil in Building Technology (Distinction)</b> and a <b>First Class BSc</b> in Construction Technology and Management, and serves on the Editorial Review Board of <i>Construction Innovation</i>.',c:['What does he research?','What are his awards?','How do I contact him?']},
+    {k:['research','work on','focus','area','interest','topic','study','studies'],a:'His research sits where <b>digital construction meets sustainability</b>, with Ghana and the Global South as the empirical context. The main threads are:<ul><li>digital product passports and ontologies</li><li>blockchain and digital twins</li><li>carbon management in construction</li><li>circular design, adaptability and efficiency</li><li>AI in the built environment</li><li>nature-based solutions</li></ul>Open the <a href="#research">research section</a> to read about each one.',c:['Explain digital product passports','Explain the 3D lab','Show me the publications']},
+    {k:['passport','dpp','ontology','ontologies','material passport','protege','sparql','adr','decision record'],a:'A <b>digital product passport</b> makes a building\u2019s materials machine-readable, so carbon and circularity data travel with the material through its life. Samuel\u2019s current work extends a passport ontology with <b>Architectural Decision Record</b> logic: each design decision stores the carbon value it relied on and the range that value must stay within, so when a passport value is revised, the decisions that depended on it are flagged for reassessment. The <a href="#lab">3D lab</a> lets you try that idea.',c:['Explain the 3D lab','Show me the publications']},
+    {k:['lab','3d','demo','interactive','model','simulation','try'],a:'The <a href="#lab">3D lab</a> is a hands-on demonstration on this page. You make design decisions for a hypothetical four-storey building, see the passport data by lifecycle stage, revise a value and watch which decisions get flagged, run ontology queries, then verify the records against a tamper-evident ledger. It is illustrative and not connected to a live database.',c:['Explain digital product passports','What does he research?']},
+    {k:['publication','paper','papers','article','journal','published','read','doi','scholar','citation'],a:'Samuel has peer-reviewed articles in journals including <i>BEPAM</i>, <i>ECAM</i>, <i>IJBPA</i>, <i>Green Finance</i> and <i>Intelligent Infrastructure and Construction</i>, several as first and corresponding author in Q1 journals. The <a href="#publications">publications section</a> lists them with DOI links, and his Google Scholar profile is linked in the header.',c:['What are his awards?','What does he research?']},
+    {k:['award','prize','grant','honour','honor','scholarship','best paper','distinction','first class'],a:'Highlights include the <b>Overall Best Published Paper Award</b> at PGRC 2026, a research grant from the Brew-Hammond Energy Centre for his MPhil work, and <b>First Class Honours</b> with a departmental first position in his BSc. See the <a href="#service">awards and service section</a> for the full picture.',c:['Show me the publications','Who is he?']},
+    {k:['review','reviewer','editorial','board','peer review','service','journal service'],a:'He serves on the <b>Editorial Review Board of <i>Construction Innovation</i></b> (Emerald, Q1) and has completed dozens of manuscript reviews across several journals. If you are an editor looking for a reviewer in digital construction, carbon or circular economy, the <a href="#contact">contact form</a> is the fastest route.',c:['How do I contact him?','What does he research?']},
+    {k:['phd','doctoral','supervisor','position','apply','postgraduate','study with','funding'],a:'He is pursuing doctoral research on carbon-centric ontologies for construction material passports and welcomes conversations with prospective supervisors and research groups. A message through the <a href="#contact">contact form</a> reaches him directly, and he can share his CV and a research statement on request.',c:['Request the CV','How do I contact him?']},
+    {k:['cv','resume','curriculum'],a:'The CV is available on request rather than as a public download. Send a short note through the <a href="#contact">contact form</a> saying who you are and what it is for, and he will reply by email.',c:['How do I contact him?','What does he research?']},
+    {k:['collaborate','collaboration','co-author','project','partner','work together','invite','speak','talk','conference'],a:'Collaboration is very welcome, especially on digital construction, carbon, circular economy and built environment research in the Global South. Tell him what you are working on through the <a href="#contact">contact form</a>, and include a timeline if there is one.',c:['How do I contact him?','What does he research?']},
+    {k:['student','thesis','help me','methodology','pls','sem','spss','smart pls','writing','supervise my'],a:'He supports students and colleagues with research design, methodology and academic writing alongside his own work. If you would like guidance, describe your topic and stage in the <a href="#contact">contact form</a> and he will reply when he can. Please note he cannot write or submit work on anyone\u2019s behalf.',c:['How do I contact him?','What does he research?']},
+    {k:['contact','email','reach','get in touch','message','linkedin','connect'],a:'Use the <a href="#contact">contact form</a> on this page and the message goes straight to his inbox, or connect through the Google Scholar and LinkedIn links in the header. He replies personally.',c:['Request the CV','What does he research?']},
+    {k:['eco','consult','practice','business','build','land','company','house','design service','construction service'],a:'Alongside his research, Samuel founded <b>Eco-Consult</b>, a land, design and construction practice working across Ghana, with verified land, modern design, supervised building and a passport for every plot and building. You can explore it on the <a href="practice.html">Eco-Consult page</a>, where there is also a cost estimator and a free land-buying checklist.',c:['What does he research?','How do I contact him?']},
+    {k:['teaching','teach','lecture','course','knust','department','students'],a:'He is a Graduate Teaching and Research Assistant in the Department of Construction Technology and Management at KNUST in Kumasi, combining teaching duties with research supervision support and his own studies.',c:['Who is he?','What does he research?']},
+    {k:['thank','thanks','great','helpful','nice','awesome','good'],a:'You\u2019re very welcome. Is there anything else you would like to know about the research or the 3D lab?',c:['Show me the publications','Explain the 3D lab']}
+  ];
+  var START=['What does he research?','Show me the publications','Explain the 3D lab','How do I contact him?','Request the CV'];
+  function norm(s){return ' '+s.toLowerCase().replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ')+' ';}
+  function answer(q){var n=norm(q),best=null,bs=0;KB.forEach(function(e){var sc=0;e.k.forEach(function(k){if(n.indexOf(k.length<4?' '+k+' ':k)>=0)sc+=k.length>6?2:1;});if(sc>bs){bs=sc;best=e;}});
+    if(!best)return {a:'That\u2019s a good question, and I want you to get an accurate answer rather than a guess. Please send it through the <a href="#contact">contact form</a> and Samuel will reply by email. In the meantime I can tell you about his research, publications, the 3D lab or how to request his CV.',c:['What does it cost?','How do you verify land?','Why should I trust you?']};
+    return best;}
+  function add(html,who){var d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function setChips(c){chips.innerHTML=c.map(function(x){return '<button type="button">'+x+'</button>';}).join('');}
+  function bot(r){var t=document.createElement('div');t.className='msg bot typing';t.innerHTML='<i></i><i></i><i></i>';log.appendChild(t);log.scrollTop=log.scrollHeight;
+    setTimeout(function(){t.remove();add(r.a,'bot');setChips(r.c||START);},650+Math.min(900,r.a.length*2));}
+  function ask(q){if(!q.trim())return;add(q.replace(/</g,'&lt;'),'me');bot(answer(q));}
+  function open(){box.hidden=false;fab.setAttribute('aria-expanded','true');if(!started){started=true;bot({a:'Hello. I\u2019m an automated assistant on Samuel Aklashie\u2019s website. Ask me about his research, publications, the interactive 3D lab, or how to reach him.',c:START});}setTimeout(function(){input.focus();},200);}
+  function close(){box.hidden=true;fab.setAttribute('aria-expanded','false');fab.focus();}
+  fab.addEventListener('click',open);document.getElementById('askX').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)close();});
+  chips.addEventListener('click',function(e){var b=e.target.closest('button');if(b)ask(b.textContent);});
+  form.addEventListener('submit',function(e){e.preventDefault();var q=input.value;input.value='';ask(q);});
+  log.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a&&window.innerWidth<760)close();});
+  document.querySelectorAll('[data-ask]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();open();});});
+})();
+
+
 </script>
 </body>
 </html>
