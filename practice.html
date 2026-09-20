@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eco-Consult | Verified land. Accountable buildings. Ghana</title>
-<meta name="description" content=" Eco-Consult: research-led architectural and structural design, construction supervision and verified land in Greater Accra and the Eastern Region of Ghana.">
+<meta name="description" content="Eco-Consult: research-led architectural and structural design, construction supervision and verified land across Ghana.">
 <meta property="og:title" content="Eco-Consult | Verified land. Accountable buildings.">
 <meta property="og:description" content="Design, supervision and verified land in Ghana, with a passport for every plot and every building.">
 <meta name="theme-color" content="#121826">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121826'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23e0bb7a'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121826'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23e0bb7a'%3EE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -761,7 +761,7 @@ html.rv-on .rv.in{opacity:1;transform:none}
 .brand-mark.nk{width:40px;height:40px;border-radius:11px;background:var(--brass-2);display:grid;place-items:center}
 .brand-mark.nk svg{width:24px;height:24px}
 header.solid .brand-mark.nk{background:var(--forest)}
-header.solid .brand-mark.nk svg path{stroke:var(--brass-2)}
+header.solid .brand-mark.nk svg path{stroke:var(--brass-2)}header.solid .brand-mark.nk svg path:last-child{fill:var(--brass-2);stroke:none}
 .brand-name small{display:block;font:600 .64rem var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-top:1px}
 
 /* ===== practice hero ===== */
@@ -882,6 +882,113 @@ header.solid .brand-mark.nk svg path{stroke:var(--brass-2)}
 }
 
 header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
+/* ===== services explorer ===== */
+.svc2{background:linear-gradient(180deg,var(--paper),#efece6)}
+.sx{display:grid;grid-template-columns:360px 1fr;gap:22px;align-items:stretch}
+.sx-list{display:flex;flex-direction:column;gap:8px}
+.sx-list button{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:16px 18px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);overflow:hidden;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s}
+.sx-list button:hover{transform:translateX(4px);border-color:#cfd6e0}
+.sx-list button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.sx-list .n{font:500 1.5rem var(--serif);color:var(--brass)}
+.sx-list b{display:block;font:500 1.08rem/1.25 var(--serif);color:var(--ink)}
+.sx-list small{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.sx-list button[aria-selected="true"]{background:var(--forest);border-color:var(--forest);box-shadow:0 18px 40px -20px rgba(18,24,38,.6);transform:translateX(6px)}
+.sx-list button[aria-selected="true"] b{color:#fff}.sx-list button[aria-selected="true"] small{color:#aab4c4}.sx-list button[aria-selected="true"] .n{color:var(--brass-2)}
+.pbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:transparent}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass-2),#9cc3dd)}
+.sx-list button[aria-selected="true"] .pbar i{animation:pfill var(--dur,7s) linear forwards}
+.sx.paused .pbar i{animation-play-state:paused}
+@keyframes pfill{to{width:100%}}
+.sx-stage{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:540px;background:radial-gradient(120% 120% at 85% 0%,#2f4a72 0%,#1a2540 45%,#101725 100%);color:#fff;box-shadow:0 40px 80px -40px rgba(18,24,38,.7)}
+.sx-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%)}
+.sp{position:absolute;inset:0;display:grid;grid-template-columns:1.05fr 1fr;gap:10px;align-items:center;padding:34px 36px;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .5s,transform .5s,visibility .5s}
+.sp.on{opacity:1;visibility:visible;transform:none}
+.sp .art svg{width:100%;height:auto;display:block;overflow:visible}
+.sp .grid path{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.28);stroke-width:1.5}
+.sp .grid path.hl{fill:rgba(224,187,122,.18)}
+.sp .blue path,.sp .blue circle,.sp .blue ellipse{fill:none;stroke:rgba(156,195,221,.2);stroke-width:1.2}
+.sp .draw{stroke-dasharray:900;stroke-dashoffset:900}
+.sp.on .draw{animation:drawp 1.8s .2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes drawp{to{stroke-dashoffset:0}}
+.sp .pop{opacity:0;transform-box:fill-box;transform-origin:center}
+.sp.on .pop{animation:popin .6s 1s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes popin{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.sp .ticks circle{opacity:0}
+.sp.on .ticks circle{animation:popin .4s forwards}
+.sp.on .ticks circle:nth-child(1){animation-delay:1.4s}.sp.on .ticks circle:nth-child(2){animation-delay:1.7s}.sp.on .ticks circle:nth-child(3){animation-delay:2s}.sp.on .ticks circle:nth-child(4){animation-delay:2.3s}
+.sp .fillup{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0)}
+.sp.on .fillup{animation:fillup 2.2s .6s ease forwards}@keyframes fillup{to{transform:scaleY(.72)}}
+.sp .grow{transform-box:fill-box;transform-origin:left;transform:scaleX(0)}
+.sp.on .grow{animation:growx 1.6s 1.2s ease forwards}@keyframes growx{to{transform:scaleX(1)}}
+.sp .bars rect{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0)}
+.sp.on .bars rect{animation:fillup2 .8s ease forwards}.sp.on .bars rect:nth-child(2){animation-delay:.15s}.sp.on .bars rect:nth-child(3){animation-delay:.3s}.sp.on .bars rect:nth-child(4){animation-delay:.45s}
+@keyframes fillup2{to{transform:scaleY(1)}}
+.sp .txt{position:relative;display:flex;flex-direction:column;gap:12px}
+.sp .k{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-2)}
+.sp h3{font:500 clamp(1.6rem,2.4vw,2.1rem)/1.12 var(--serif);letter-spacing:-.015em}
+.sp p{color:#c5ccd8;font-size:.98rem;line-height:1.6}
+.dl{list-style:none;display:grid;gap:8px}
+.dl li{display:flex;gap:10px;align-items:center;font-size:.93rem;color:#e1e5ec}
+.dl li::before{content:"";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(224,187,122,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0bb7a' stroke-width='3.2'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/11px no-repeat}
+.promise{padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:.9rem;color:#fff}
+.promise b{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9cc3dd;margin-bottom:2px}
+.sp .btn{align-self:flex-start;margin-top:4px}
+.rchips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px}
+.rchips span{font-size:.76rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--leaf-soft);color:var(--forest)}
+.region.nation{border-color:var(--forest)}
+
+/* ===== overview player ===== */
+.ex-sec{background:linear-gradient(180deg,#0f1524,#161f33);color:#fff}
+.ex-sec .eyebrow{color:var(--brass-2)}
+.ex-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.ex-copy h2{font:500 clamp(1.9rem,3.3vw,2.6rem)/1.1 var(--serif);letter-spacing:-.02em;margin-bottom:12px}
+.ex-copy p{color:#aab4c4}
+.chap{list-style:none;display:grid;gap:6px;margin:22px 0 16px;counter-reset:c}
+.chap li{counter-increment:c}
+.chap button{all:unset;cursor:pointer;display:flex;gap:12px;align-items:center;width:100%;box-sizing:border-box;padding:9px 12px;border-radius:10px;color:#c5ccd8;font-size:.93rem;transition:background .2s,color .2s}
+.chap button::before{content:counter(c,decimal-leading-zero);font:500 .9rem var(--serif);color:var(--brass-2);opacity:.7}
+.chap button:hover{background:rgba(255,255,255,.06);color:#fff}
+.chap button.on{background:rgba(224,187,122,.12);color:#fff}
+.chap button:focus-visible{outline:2px solid var(--brass-2)}
+.ex-note{font-size:.8rem;color:#7d879a!important}
+.player{border-radius:20px;overflow:hidden;background:#0b101b;box-shadow:0 50px 90px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08)}
+.screen{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0e1422}
+.sc{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.sc.on{opacity:1}
+.sc svg{width:100%;height:100%;display:block}
+.sc .a-up,.sc .a-pop{opacity:0}
+.sc .a-pop{transform-box:fill-box;transform-origin:center}
+.sc .a-draw{stroke-dasharray:var(--len,900);stroke-dashoffset:var(--len,900)}
+.sc .a-grow{stroke-dasharray:500;stroke-dashoffset:500}
+.player.run .sc.on .a-up{animation:exup .7s var(--d,0s) cubic-bezier(.2,.8,.2,1) forwards}
+.player.run .sc.on .a-pop{animation:popin .6s var(--d,0s) cubic-bezier(.2,1.4,.4,1) forwards}
+.player.run .sc.on .a-draw{animation:drawp 1.6s var(--d,0s) cubic-bezier(.6,0,.2,1) forwards}
+.player.run .sc.on .a-grow{animation:drawp 4.4s var(--d,0s) linear forwards}
+.player.hold .sc.on *{animation-play-state:paused!important}
+@keyframes exup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.cap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:min(90%,620px);text-align:center;font-size:.95rem;line-height:1.45;color:#fff;background:rgba(10,14,24,.78);backdrop-filter:blur(6px);padding:8px 14px;border-radius:10px;opacity:0;transition:opacity .3s}
+.cap.on{opacity:1}
+.poster{all:unset;cursor:pointer;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:18px;background:radial-gradient(circle at 50% 50%,rgba(14,20,34,.35),rgba(14,20,34,.8));color:#fff;transition:opacity .4s}
+.poster.gone{opacity:0;pointer-events:none}
+.pbtn{width:84px;height:84px;border-radius:50%;background:var(--brass-2);color:#121826;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(224,187,122,.6);animation:pulse 2.2s infinite}
+.pbtn svg{width:34px;height:34px;margin-left:4px}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(224,187,122,0)}100%{box-shadow:0 0 0 0 rgba(224,187,122,0)}}
+.plbl{font:500 1.4rem var(--serif)}.plbl small{display:block;font:500 .82rem var(--sans);color:#c5ccd8}
+.poster:focus-visible .pbtn{outline:3px solid #fff;outline-offset:4px}
+.ctrl{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#0b101b}
+.ctrl button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.08)}
+.ctrl button:hover{background:rgba(255,255,255,.16)}.ctrl button:focus-visible{outline:2px solid var(--brass-2)}
+.ctrl svg{width:18px;height:18px}
+.prog{flex:1;height:6px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;cursor:pointer}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass-2),#9cc3dd)}
+.tm{font-size:.8rem;color:#aab4c4;font-variant-numeric:tabular-nums;min-width:34px}
+#mute[aria-pressed="true"] #muteI{display:none}
+
+@media (max-width:1040px){.sx{grid-template-columns:1fr}.sx-list{flex-direction:row;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.sx-list button{flex:0 0 250px}.sx-list button:hover,.sx-list button[aria-selected="true"]{transform:none}.ex-grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:760px){.sx-stage{min-height:0}.sp{position:relative;inset:auto;display:none;grid-template-columns:1fr;padding:24px 20px}.sp.on{display:grid}.sx-list button{flex-basis:210px;padding:12px 14px}.sx-list small{display:none}.pbtn{width:62px;height:62px}.plbl{font-size:1.1rem}.cap{font-size:.8rem;bottom:8px}.chap{display:none}}
+
+.sp.on g.pop{animation-name:fadein}.player.run .sc.on g.a-pop{animation-name:fadein}@keyframes fadein{from{opacity:0}to{opacity:1}}
+
 </style>
 </head>
 <body>
@@ -889,7 +996,7 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
 
 <header class="site" id="siteHeader">
   <div class="wrap bar">
-    <a class="brand" href="#top" aria-label="Eco-Consult, home"><span class="brand-mark nk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3.5h14" stroke="#121826" stroke-width="2" stroke-linecap="round"/><path d="M12 3.5v6.5" stroke="#121826" stroke-width="1.6"/><path d="M12 9.5l4.2 5.2L12 21l-4.2-6.3z" stroke="#121826" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="15" r="1.3" fill="#121826"/></svg></span><span class="brand-name">Eco-Consult<small>Land · Design · Build</small></span></a>
+    <a class="brand" href="#top" aria-label="Eco-Consult, home"><span class="brand-mark nk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 11.5L12 4l8.5 7.5" stroke="#121826" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v10h12V10" stroke="#121826" stroke-width="2" stroke-linejoin="round"/><path d="M12 18c0-3.2 2-5.2 5-5.2 0 3.2-2 5.2-5 5.2z" fill="#121826"/></svg></span><span class="brand-name">Eco-Consult<small>Land · Design · Build</small></span></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="menu" id="menu">
       <li><a href="#twin">Project twin</a></li>
@@ -912,12 +1019,12 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
     <div class="intro">
       <span class="stage"><i></i>Now forming, 2026</span>
       <h1>Verified land.<br><span class="grad">Accountable</span> buildings.</h1>
-      <p class="meaning"><b>Eco-Consult</b> Building with sustainability in mind.</p>
-      <p class="lede">A research-led land, design and construction practice in Ghana. See your project in seven dimensions before it is built, and receive a passport for every plot and every building we deliver.</p>
-      <p class="affil">Founded by Samuel Aklashie, built environment researcher at KNUST. Serving Greater Accra, the Eastern Region and clients in the diaspora.</p>
+      <p class="meaning"><b>Eco-Consult</b> Evidence-led, sustainable building and land consultancy.</p>
+      <p class="lede">A research-led land, design and construction practice serving all of Ghana. See your project in seven dimensions before it is built, and receive a passport for every plot and every building we deliver.</p>
+      <p class="affil">Founded by Samuel Aklashie, built environment researcher at KNUST. Serving clients across Ghana and in the diaspora.</p>
       <div class="actions">
         <a class="btn gold" href="#twin">Explore the project twin</a>
-        <a class="btn ghost" href="#enquire">Start a conversation</a>
+        <a class="btn ghost" href="#overview" data-watch><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the 1-minute overview</a>
       </div>
       <div class="trust-row">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Documents checked before sale</span>
@@ -937,9 +1044,82 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
 
 <nav class="subnav" aria-label="On this page">
   <div class="wrap">
-    <a href="#why">Why us</a><a href="#twin">Project twin</a><a href="#services">Services</a><a href="#land">Land</a><a href="#process">How we work</a><a href="#passport">Passport promise</a><a href="#partner">Partner with us</a><a href="#team">Team</a><a href="#support">Support</a><a href="#enquire">Enquire</a>
+    <a href="#overview">Overview</a><a href="#why">Why us</a><a href="#twin">Project twin</a><a href="#services">Services</a><a href="#land">Land</a><a href="#process">How we work</a><a href="#passport">Passport promise</a><a href="#partner">Partner with us</a><a href="#team">Team</a><a href="#support">Support</a><a href="#enquire">Enquire</a>
   </div>
 </nav>
+
+<!-- ================= OVERVIEW PLAYER ================= -->
+<section class="block ex-sec" id="overview" aria-labelledby="ex-h">
+  <div class="wrap ex-grid">
+    <div class="ex-copy">
+      <span class="eyebrow">In one minute</span>
+      <h2 id="ex-h">What Eco-Consult does, in sixty seconds</h2>
+      <p>Press play for a short narrated overview of how we verify land, design, supervise and hand over buildings across Ghana.</p>
+      <ol class="chap" id="chap">
+        <li><button type="button" data-s="0">Why we exist</button></li>
+        <li><button type="button" data-s="1">Verified land</button></li>
+        <li><button type="button" data-s="2">Modern design</button></li>
+        <li><button type="button" data-s="3">Supervised building</button></li>
+        <li><button type="button" data-s="4">Building from abroad</button></li>
+        <li><button type="button" data-s="5">The Building Passport</button></li>
+      </ol>
+      <p class="ex-note">Narration plays in your device's built-in voice. Captions are always shown.</p>
+    </div>
+    <div class="player" id="player">
+      <div class="screen" id="screen">
+        <!-- scene 1 -->
+        <div class="sc on" data-i="0"><svg viewBox="0 0 640 360" aria-hidden="true"><defs><radialGradient id="g1" cx=".7" cy=".3" r=".9"><stop offset="0" stop-color="#2a3a5c"/><stop offset="1" stop-color="#0e1422"/></radialGradient></defs><rect width="640" height="360" fill="url(#g1)"/>
+          <g class="a-up" style="--d:.2s"><text x="56" y="130" font-family="Newsreader,Georgia,serif" font-size="36" fill="#fff">Building in Ghana</text><text x="56" y="176" font-family="Newsreader,Georgia,serif" font-size="36" fill="#fff">should not depend on <tspan fill="#e0bb7a" font-style="italic">luck.</tspan></text></g>
+          <g class="a-pop" style="--d:1.6s" transform="translate(560 150) scale(.8)"><path d="M0 -70 L60 -46 V4 C60 44 30 66 0 76 C-30 66 -60 44 -60 4 V-46 Z" fill="rgba(224,187,122,.14)" stroke="#e0bb7a" stroke-width="3"/><path class="a-draw" style="--d:2.2s" d="M-24 4 L-6 22 L28 -14" fill="none" stroke="#e0bb7a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <text class="a-up" style="--d:2.6s" x="56" y="220" font-family="Arial" font-size="16" fill="#aab4c4">Eco-Consult makes property something you can verify.</text></svg></div>
+        <!-- scene 2 -->
+        <div class="sc" data-i="1"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#f7f5f0"/>
+          <g stroke="#c9c3b6" stroke-width="1.5" fill="#e9e4d8"><path d="M40 90 L170 76 L182 160 L52 176 Z"/><path d="M52 176 L182 160 L194 246 L64 262 Z"/><path d="M170 76 L300 62 L312 146 L182 160 Z"/></g>
+          <path class="a-draw" style="--d:.3s" d="M182 160 L312 146 L324 232 L194 246 Z" fill="rgba(224,187,122,.25)" stroke="#a87a3d" stroke-width="3.5"/>
+          <g class="a-pop" style="--d:.9s" transform="translate(370 22)"><rect width="230" height="250" rx="18" fill="#fff" stroke="#e4e1d9"/><text x="24" y="42" font-family="Arial" font-weight="700" font-size="13" fill="#a87a3d" letter-spacing="1.5">LAND PASSPORT</text>
+            <g font-family="Arial" font-size="15" fill="#161a22"><text x="64" y="92">Official search</text><text x="64" y="138">Site plan</text><text x="64" y="184">Chain of ownership</text><text x="64" y="230">Path to title</text></g>
+            <g fill="#2f8f6a"><circle class="a-pop" style="--d:1.6s" cx="38" cy="87" r="12"/><circle class="a-pop" style="--d:2.4s" cx="38" cy="133" r="12"/><circle class="a-pop" style="--d:3.2s" cx="38" cy="179" r="12"/><circle class="a-pop" style="--d:4s" cx="38" cy="225" r="12"/></g></g></svg></div>
+        <!-- scene 3 -->
+        <div class="sc" data-i="2"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#16243c"/>
+          <g stroke="rgba(156,195,221,.16)"><path d="M0 60h640M0 120h640M0 180h640M0 240h640M0 300h640M80 0v360M160 0v360M240 0v360M320 0v360M400 0v360M480 0v360M560 0v360"/></g>
+          <path class="a-draw" style="--d:.2s;--len:1400" d="M110 290 V170 H300 V110 H530 V290 Z M300 170 V290 M150 290 V230 H210 V290" fill="none" stroke="#fff" stroke-width="3"/>
+          <path class="a-draw" style="--d:1.6s" d="M330 140 h70 v60 h-70z M420 140 h80 v100 h-80z M130 190 h50 v30 h-50z" fill="rgba(156,195,221,.18)" stroke="#9cc3dd" stroke-width="2.5"/>
+          <path class="a-draw" style="--d:2.6s" d="M110 315 H530" stroke="#e0bb7a" stroke-width="2" fill="none"/>
+          <g class="a-up" style="--d:3.2s"><rect x="410" y="36" width="190" height="52" rx="10" fill="#fff"/><text x="424" y="58" font-family="Arial" font-size="12" fill="#6b7280">Cost plan + carbon summary</text><text x="424" y="78" font-family="Arial" font-size="14" font-weight="700" fill="#161a22">Included in every design</text></g></svg></div>
+        <!-- scene 4 -->
+        <div class="sc" data-i="3"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#f7f5f0"/>
+          <line x1="70" y1="200" x2="570" y2="200" stroke="#e4e1d9" stroke-width="10" stroke-linecap="round"/>
+          <line class="a-grow" style="--d:.3s" x1="70" y1="200" x2="570" y2="200" stroke="#2f6f8f" stroke-width="10" stroke-linecap="round"/>
+          <g font-family="Arial" font-size="13" fill="#3d4350" text-anchor="middle"><text x="170" y="245">Foundations</text><text x="320" y="245">Structure</text><text x="470" y="245">Roof and finishes</text></g>
+          <g><circle class="a-pop" style="--d:1.4s" cx="170" cy="200" r="18" fill="#e0bb7a"/><circle class="a-pop" style="--d:2.6s" cx="320" cy="200" r="18" fill="#e0bb7a"/><circle class="a-pop" style="--d:3.8s" cx="470" cy="200" r="18" fill="#e0bb7a"/></g>
+          <g font-family="Arial" font-size="12" font-weight="700" fill="#1e7a52" text-anchor="middle"><text class="a-up" style="--d:1.8s" x="170" y="150">Inspected. Paid.</text><text class="a-up" style="--d:3s" x="320" y="150">Inspected. Paid.</text><text class="a-up" style="--d:4.2s" x="470" y="150">Inspected. Paid.</text></g>
+          <text x="70" y="90" font-family="Newsreader,Georgia,serif" font-size="30" fill="#161a22">No lump sums. No blind transfers.</text></svg></div>
+        <!-- scene 5 -->
+        <div class="sc" data-i="4"><svg viewBox="0 0 640 360" aria-hidden="true"><defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d2638"/><stop offset="1" stop-color="#2f6f8f"/></linearGradient></defs><rect width="640" height="360" fill="url(#g5)"/>
+          <g stroke="rgba(255,255,255,.18)" fill="none" stroke-width="1.5"><circle cx="150" cy="180" r="100"/><ellipse cx="150" cy="180" rx="42" ry="100"/><path d="M50 180h200M62 130h176M62 230h176"/></g>
+          <path class="a-draw" style="--d:.4s" d="M200 110 C 290 30, 380 40, 410 110" stroke="#e0bb7a" stroke-width="3" stroke-dasharray="8 8" fill="none"/>
+          <g transform="translate(400 70)"><rect width="150" height="250" rx="22" fill="#fff"/>
+            <g class="a-up" style="--d:1.2s"><rect x="14" y="30" width="122" height="56" rx="10" fill="#e9eef3"/><text x="26" y="54" font-family="Arial" font-size="11" fill="#6b7280">Week 12</text><text x="26" y="72" font-family="Arial" font-size="12" font-weight="700" fill="#161a22">14 new photos</text></g>
+            <g class="a-up" style="--d:2.2s"><rect x="14" y="96" width="122" height="56" rx="10" fill="#e9eef3"/><text x="26" y="120" font-family="Arial" font-size="11" fill="#6b7280">Video</text><text x="26" y="138" font-family="Arial" font-size="12" font-weight="700" fill="#161a22">Roof slab poured</text></g>
+            <g class="a-up" style="--d:3.2s"><rect x="14" y="162" width="122" height="56" rx="10" fill="#f5ebd8"/><text x="26" y="186" font-family="Arial" font-size="11" fill="#6e4e1f">Inspection</text><text x="26" y="204" font-family="Arial" font-size="12" font-weight="700" fill="#161a22">Gate 3 passed</text></g></g></svg></div>
+        <!-- scene 6 -->
+        <div class="sc" data-i="5"><svg viewBox="0 0 640 360" aria-hidden="true"><rect width="640" height="360" fill="#0e1422"/><circle cx="320" cy="150" r="160" fill="rgba(224,187,122,.08)"/>
+          <g class="a-pop" style="--d:.3s" transform="translate(320 92)"><rect x="-44" y="-44" width="88" height="88" rx="22" fill="#e0bb7a"/><path d="M-24 2 L0 -20 L24 2 M-16 -4 V24 H16 V-4" fill="none" stroke="#121826" stroke-width="5" stroke-linejoin="round"/><path d="M0 18 C0 8 6 2 14 2 C14 12 8 18 0 18Z" fill="#121826"/></g>
+          <text class="a-up" style="--d:.9s" x="320" y="180" text-anchor="middle" font-family="Newsreader,Georgia,serif" font-size="42" fill="#fff">Eco-Consult</text>
+          <text class="a-up" style="--d:1.5s" x="320" y="212" text-anchor="middle" font-family="Arial" font-size="17" fill="#e0bb7a" letter-spacing="1">Verified land. Accountable buildings.</text>
+          <text class="a-up" style="--d:2.1s" x="320" y="238" text-anchor="middle" font-family="Arial" font-size="13" fill="#aab4c4">A Building Passport with every project</text></svg></div>
+        <div class="cap" id="cap" aria-live="polite"></div>
+        <button class="poster" id="poster" type="button" aria-label="Play the one-minute overview"><span class="pbtn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="plbl">Watch the overview<small>About one minute, with narration</small></span></button>
+      </div>
+      <div class="ctrl">
+        <button type="button" id="pp" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="ppI" d="M8 5v14l11-7z"/></svg></button>
+        <div class="prog" id="prog"><i id="progF"></i></div>
+        <span class="tm" id="tm">0:00</span>
+        <button type="button" id="mute" aria-pressed="false" aria-label="Mute narration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path id="muteI" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= WHY ================= -->
 <section class="block" id="why" aria-labelledby="why-h">
@@ -1007,45 +1187,113 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
 </section>
 
 <!-- ================= SERVICES ================= -->
-<section class="block tint" id="services" aria-labelledby="svc-h">
+<section class="block svc2" id="services" aria-labelledby="svc-h">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow">Services</span><h2 id="svc-h">From plot to handover, under one accountable team</h2><p>Use one service or combine them. Every engagement follows the same verification and reporting standards.</p></div></div>
-    <div class="svc">
-      <article>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-        <span class="num">01</span><h3>Verified land</h3>
-        <p>Residential and investment plots in Greater Accra and the Eastern Region, sold with a documented verification record.</p>
-        <ul><li>Document checks before listing</li><li>Site visits and boundary walk</li><li>Support with title processing</li></ul>
-        <span class="edge">Every plot comes with a Land Passport</span>
-      </article>
-      <article>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div>
-        <span class="num">02</span><h3>Architectural and structural design</h3>
-        <p>Homes, commercial and institutional buildings designed for climate, budget and long-term value.</p>
-        <ul><li>Concept, planning and permit drawings</li><li>Structural design and detailing</li><li>Bills of quantities and cost plans</li></ul>
-        <span class="edge">Each design includes a material and carbon summary</span>
-      </article>
-      <article>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/></svg></div>
-        <span class="num">03</span><h3>Construction supervision and management</h3>
-        <p>We act for the client on building and infrastructure projects, holding contractors to quality, cost and time.</p>
-        <ul><li>Quality and safety inspections</li><li>Progress certification</li><li>Cost control and variation management</li></ul>
-        <span class="edge">Payments tied to inspected milestones</span>
-      </article>
-      <article>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <span class="num">04</span><h3>Remote build for the diaspora</h3>
-        <p>A structured package for clients abroad who want to build at home with full visibility and without surprises.</p>
-        <ul><li>Weekly photo and video updates</li><li>Staged payments released against verified progress</li><li>A shared online project record</li></ul>
-        <span class="edge">Build at home, see everything from anywhere</span>
-      </article>
-      <article>
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></div>
-        <span class="num">05</span><h3>Sustainability and advisory</h3>
-        <p>Research-backed advice for developers, institutions and public clients who want lower-carbon, longer-lasting buildings.</p>
-        <ul><li>Embodied carbon and material assessments</li><li>Design for efficiency and adaptability reviews</li><li>Digital material passports for projects</li></ul>
-        <span class="edge">Built on published, peer-reviewed research</span>
-      </article>
+    <div class="head"><div><span class="eyebrow">Services</span><h2 id="svc-h">From plot to handover, one accountable team</h2><p>Five services that work on their own or together. Every engagement follows the same verification and reporting standards.</p></div></div>
+    <div class="sx">
+      <div class="sx-list" role="tablist" aria-label="Services">
+        <button role="tab" aria-selected="true" aria-controls="sp1" data-i="0"><span class="n">01</span><span class="tt"><b>Verified land</b><small>Plots with a documented record</small></span><i class="pbar"><i></i></i></button>
+        <button role="tab" aria-selected="false" aria-controls="sp2" data-i="1"><span class="n">02</span><span class="tt"><b>Architectural and structural design</b><small>Modern, efficient, buildable</small></span><i class="pbar"><i></i></i></button>
+        <button role="tab" aria-selected="false" aria-controls="sp3" data-i="2"><span class="n">03</span><span class="tt"><b>Supervision and project management</b><small>Quality, cost and time, protected</small></span><i class="pbar"><i></i></i></button>
+        <button role="tab" aria-selected="false" aria-controls="sp4" data-i="3"><span class="n">04</span><span class="tt"><b>Remote build for the diaspora</b><small>Build at home from anywhere</small></span><i class="pbar"><i></i></i></button>
+        <button role="tab" aria-selected="false" aria-controls="sp5" data-i="4"><span class="n">05</span><span class="tt"><b>Sustainability and advisory</b><small>Lower carbon, longer life</small></span><i class="pbar"><i></i></i></button>
+      </div>
+      <div class="sx-stage">
+        <!-- 1 -->
+        <article class="sp on" id="sp1" role="tabpanel">
+          <div class="art"><svg viewBox="0 0 400 250" aria-hidden="true">
+            <g class="grid">
+              <path d="M40 60 L150 48 L160 118 L50 130 Z"/><path d="M150 48 L260 36 L270 106 L160 118 Z"/><path d="M50 130 L160 118 L170 190 L60 204 Z"/><path d="M160 118 L270 106 L280 178 L170 190 Z" class="hl"/>
+            </g>
+            <path class="draw" d="M160 118 L270 106 L280 178 L170 190 Z" stroke="#e0bb7a" stroke-width="3" fill="none"/>
+            <g fill="#e0bb7a"><circle cx="160" cy="118" r="5"/><circle cx="270" cy="106" r="5"/><circle cx="280" cy="178" r="5"/><circle cx="170" cy="190" r="5"/></g>
+            <g class="pop" transform="translate(262 40)"><rect width="118" height="150" rx="12" fill="#fff"/><text x="14" y="26" font-size="10" font-weight="700" fill="#a87a3d" font-family="Arial">LAND PASSPORT</text>
+              <g font-size="10" fill="#3d4350" font-family="Arial"><text x="34" y="54">Official search</text><text x="34" y="78">Site plan</text><text x="34" y="102">Ownership</text><text x="34" y="126">Title pathway</text></g>
+              <g class="ticks" fill="#2f8f6a"><circle cx="20" cy="50" r="7"/><circle cx="20" cy="74" r="7"/><circle cx="20" cy="98" r="7"/><circle cx="20" cy="122" r="7"/></g></g>
+          </svg></div>
+          <div class="txt">
+            <span class="k">Service 01</span><h3>Verified land</h3>
+            <p>Residential and investment plots across Ghana, listed only after the documents have been checked, and sold with a clear verification record.</p>
+            <ul class="dl"><li>Document checks before listing</li><li>Site visits and boundary walk</li><li>Support with title processing</li></ul>
+            <div class="promise"><b>The promise</b>Every plot comes with a Land Passport, shared before you pay.</div>
+            <a class="btn gold" href="#enquire" data-topic="Land enquiry">Ask about land</a>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="sp" id="sp2" role="tabpanel">
+          <div class="art"><svg viewBox="0 0 400 250" aria-hidden="true">
+            <g class="blue"><path d="M20 30h360M20 70h360M20 110h360M20 150h360M20 190h360M20 230h360M60 10v240M120 10v240M180 10v240M240 10v240M300 10v240M360 10v240"/></g>
+            <path class="draw" d="M70 200 V110 H190 V70 H330 V200 Z M190 110 V200 M110 200 V160 H150 V200" stroke="#fff" stroke-width="2.4" fill="none"/>
+            <path class="draw" d="M215 95 h45 v40 h-45z M275 95 h40 v70 h-40z M90 130 h30 v22 h-30z" stroke="#9cc3dd" stroke-width="2" fill="rgba(156,195,221,.15)"/>
+            <path class="draw" d="M70 218 H330 M70 212 v12 M330 212 v12" stroke="#e0bb7a" stroke-width="1.6" fill="none"/>
+            <text x="200" y="238" text-anchor="middle" font-size="11" fill="#e0bb7a" font-family="Arial">15 400 mm</text>
+            <g class="pop" transform="translate(300 24)"><circle r="22" fill="none" stroke="#e0bb7a" stroke-width="2"/><path d="M0 -16 L5 0 L0 16 L-5 0Z" fill="#e0bb7a"/></g>
+          </svg></div>
+          <div class="txt">
+            <span class="k">Service 02</span><h3>Architectural and structural design</h3>
+            <p>Modern homes, commercial and institutional buildings designed for Ghana's climate, your budget and long-term value.</p>
+            <ul class="dl"><li>Concept, planning and permit drawings</li><li>Structural design and detailing</li><li>Bills of quantities and cost plans</li></ul>
+            <div class="promise"><b>The promise</b>Each design includes a material and carbon summary.</div>
+            <a class="btn gold" href="#enquire" data-topic="Architectural and structural design">Discuss a design</a>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="sp" id="sp3" role="tabpanel">
+          <div class="art"><svg viewBox="0 0 400 250" aria-hidden="true">
+            <path class="draw" d="M60 225 V40 H250 M60 40 L100 40 M230 40 V70" stroke="#e0bb7a" stroke-width="3" fill="none"/>
+            <path class="draw" d="M40 225 H80 M60 225 L50 60 M60 225 L70 60" stroke="#9aa5b6" stroke-width="2" fill="none"/>
+            <path class="draw" d="M140 225 V110 H300 V225 M140 150 H300 M140 190 H300 M180 110 V225 M220 110 V225 M260 110 V225" stroke="#fff" stroke-width="2.2" fill="none"/>
+            <rect class="pop" x="220" y="70" width="22" height="18" fill="#e0bb7a"/>
+            <g class="pop" transform="translate(40 18)"><rect width="0" height="0"/></g>
+            <g transform="translate(320 60)"><rect width="60" height="160" rx="10" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)"/>
+              <rect class="fill" x="22" y="18" width="16" height="124" rx="8" fill="rgba(255,255,255,.12)"/><rect class="fillup" x="22" y="18" width="16" height="124" rx="8" fill="#2f8f6a"/>
+              <g fill="#e0bb7a"><circle cx="30" cy="112" r="6"/><circle cx="30" cy="80" r="6"/><circle cx="30" cy="48" r="6"/></g></g>
+          </svg></div>
+          <div class="txt">
+            <span class="k">Service 03</span><h3>Supervision and project management</h3>
+            <p>We act for you on building and infrastructure projects anywhere in Ghana, holding contractors to quality, cost and time.</p>
+            <ul class="dl"><li>Quality and safety inspections</li><li>Progress certification</li><li>Cost control and variation management</li></ul>
+            <div class="promise"><b>The promise</b>Payments are released only at inspected milestones.</div>
+            <a class="btn gold" href="#enquire" data-topic="Construction supervision">Get supervision support</a>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="sp" id="sp4" role="tabpanel">
+          <div class="art"><svg viewBox="0 0 400 250" aria-hidden="true">
+            <g class="blue"><circle cx="110" cy="130" r="80"/><ellipse cx="110" cy="130" rx="34" ry="80"/><path d="M30 130h160M42 90h136M42 170h136"/></g>
+            <path class="draw" d="M150 70 C 210 10, 270 20, 300 70" stroke="#e0bb7a" stroke-width="2.4" stroke-dasharray="6 6" fill="none"/>
+            <circle cx="150" cy="70" r="6" fill="#e0bb7a"/>
+            <g class="pop" transform="translate(262 62)"><rect width="100" height="170" rx="16" fill="#fff"/><rect x="10" y="22" width="80" height="62" rx="6" fill="#dbe4ec"/>
+              <path d="M22 76 V52 L50 36 L78 52 V76 Z" fill="none" stroke="#2f6f8f" stroke-width="2.5"/><rect x="10" y="96" width="80" height="8" rx="4" fill="#efece6"/><rect class="grow" x="10" y="96" width="56" height="8" rx="4" fill="#2f8f6a"/>
+              <g font-family="Arial" font-size="8" fill="#6b7280"><text x="10" y="122">Week 14 report</text><text x="10" y="136">12 photos, 2 videos</text><text x="10" y="150">Gate 3 passed</text></g></g>
+          </svg></div>
+          <div class="txt">
+            <span class="k">Service 04</span><h3>Remote build for the diaspora</h3>
+            <p>A structured package for Ghanaians abroad who want to build at home with full visibility and no surprises.</p>
+            <ul class="dl"><li>Weekly photo and video updates</li><li>Staged payments against verified progress</li><li>A shared online project record</li></ul>
+            <div class="promise"><b>The promise</b>Build at home, see everything from anywhere.</div>
+            <a class="btn gold" href="#enquire" data-topic="Remote build from abroad">Plan a remote build</a>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="sp" id="sp5" role="tabpanel">
+          <div class="art"><svg viewBox="0 0 400 250" aria-hidden="true">
+            <g class="blue"><path d="M40 210 H370"/></g>
+            <g class="bars"><rect x="70" y="80" width="40" height="130" rx="4" fill="rgba(255,255,255,.18)"/><rect x="130" y="110" width="40" height="100" rx="4" fill="rgba(255,255,255,.28)"/><rect x="190" y="140" width="40" height="70" rx="4" fill="#9cc3dd"/><rect x="250" y="165" width="40" height="45" rx="4" fill="#2f8f6a"/></g>
+            <path class="draw" d="M90 70 C 150 90, 200 120, 300 150" stroke="#e0bb7a" stroke-width="2.4" fill="none"/>
+            <path class="pop" d="M300 150 l-12 -2 l7 -9z" fill="#e0bb7a"/>
+            <g class="pop" transform="translate(318 44)"><path d="M0 44 C0 14 22 0 52 0 C52 30 36 50 6 50 Z" fill="#2f8f6a"/><path d="M4 46 L40 10" stroke="#fff" stroke-width="2"/></g>
+            <text x="70" y="232" font-size="11" fill="#c5ccd8" font-family="Arial">Embodied carbon, kgCO2e/m2, by design option</text>
+          </svg></div>
+          <div class="txt">
+            <span class="k">Service 05</span><h3>Sustainability and advisory</h3>
+            <p>Research-backed advice for developers, institutions and public clients who want lower-carbon, longer-lasting buildings.</p>
+            <ul class="dl"><li>Embodied carbon and material assessments</li><li>Design for efficiency and adaptability reviews</li><li>Digital material passports for projects</li></ul>
+            <div class="promise"><b>The promise</b>Advice built on published, peer-reviewed research.</div>
+            <a class="btn gold" href="#enquire" data-topic="Sustainability advisory">Request advice</a>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -1053,16 +1301,18 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
 <!-- ================= LAND ================= -->
 <section class="block" id="land" aria-labelledby="land-h">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow">Land</span><h2 id="land-h">Plots you can check, not just trust</h2><p>We are assembling verified plots in two regions. Listings will appear here only once their documents have been checked. Register your interest to hear first.</p></div></div>
+    <div class="head"><div><span class="eyebrow">Land</span><h2 id="land-h">Plots you can check, not just trust</h2><p>We source and verify plots across Ghana. Listings will appear here only once their documents have been checked. Register your interest to hear first.</p></div></div>
     <div class="land">
       <div class="regions">
-        <div class="region">
+        <div class="region nation">
           <div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-          <div><h3>Greater Accra</h3><p>Residential plots in growing communities with road access, suited to family homes and rental investment.</p><span class="status">Plots being verified</span></div>
+          <div><h3>Across all sixteen regions</h3><p>From city plots to rural retreats, we source and verify land wherever you want to build in Ghana.</p>
+            <div class="rchips"><span>Greater Accra</span><span>Ashanti</span><span>Eastern</span><span>Central</span><span>Western</span><span>Western North</span><span>Volta</span><span>Oti</span><span>Bono</span><span>Bono East</span><span>Ahafo</span><span>Northern</span><span>Savannah</span><span>North East</span><span>Upper East</span><span>Upper West</span></div>
+            <span class="status">Plots being verified</span></div>
         </div>
         <div class="region">
-          <div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-          <div><h3>Eastern Region</h3><p>Larger plots with more space and cooler, greener settings, suited to retirement homes, retreats and long-term land holding.</p><span class="status">Plots being verified</span></div>
+          <div class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg></div>
+          <div><h3>For every purpose</h3><p>Family homes, rental investment, retirement homes, commercial sites and long-term land holding.</p></div>
         </div>
         <div class="region" style="background:var(--leaf-soft);border-color:var(--leaf-soft)">
           <div class="pin" style="background:var(--leaf)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div>
@@ -1243,7 +1493,7 @@ header.solid .brand-mark.nk svg circle{fill:var(--brass-2)}
       <p class="intro">Whether you are looking for land, planning a home, supervising a project from abroad or exploring a partnership, start with a message. We reply personally.</p>
       <ul class="channels">
         <li><a href="mailto:aklashiesamuel328@gmail.com?subject=Aklashie%20Build%20Partners%20enquiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small>aklashiesamuel328@gmail.com</span></a></li>
-        <li><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small>Serving</small>Greater Accra, Eastern Region and the diaspora</span></div></li>
+        <li><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small>Serving</small>All sixteen regions of Ghana and the diaspora</span></div></li>
       </ul>
     </div>
     <form id="enqForm" novalidate>
@@ -1703,6 +1953,69 @@ function polish(){
 
 function boot(){try{polish();}catch(e){}try{initHero();}catch(e){console.warn(e);}try{initTwin();}catch(e){console.warn(e);var f=$('tfall');if(f)f.hidden=false;}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+/* ===== services explorer ===== */
+(function(){
+  var sx=document.querySelector('.sx');if(!sx)return;
+  var tabs=[].slice.call(sx.querySelectorAll('.sx-list button')),panes=[].slice.call(sx.querySelectorAll('.sp')),cur=0,timer=null,DUR=7000,user=false;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){cur=i;tabs.forEach(function(b,k){b.setAttribute('aria-selected',k===i);var bar=b.querySelector('.pbar i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';});
+    panes.forEach(function(p,k){p.classList.toggle('on',k===i);if(k===i){[].forEach.call(p.querySelectorAll('*'),function(el){if(el.getAnimations)el.getAnimations().forEach(function(a){a.cancel();a.play();});});}});}
+  function next(){show((cur+1)%tabs.length);}
+  function start(){stop();if(user||reduce)return;timer=setInterval(next,DUR);}
+  function stop(){if(timer)clearInterval(timer);timer=null;}
+  tabs.forEach(function(b,k){b.addEventListener('click',function(){user=true;stop();sx.classList.add('paused');show(k);});
+    b.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();tabs[(k+1)%tabs.length].focus();tabs[(k+1)%tabs.length].click();}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();var j=(k-1+tabs.length)%tabs.length;tabs[j].focus();tabs[j].click();}});});
+  sx.addEventListener('mouseenter',function(){stop();sx.classList.add('paused');});
+  sx.addEventListener('mouseleave',function(){if(!user){sx.classList.remove('paused');start();}});
+  if(reduce||!('IntersectionObserver' in window)){sx.classList.add('paused');return;}
+  new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(cur);start();}else stop();});},{threshold:.35}).observe(sx);
+})();
+
+/* ===== overview player ===== */
+(function(){
+  var pl=document.getElementById('player');if(!pl)return;
+  var SC=[
+    "Buying land and building in Ghana should not depend on luck. Eco-Consult makes property something you can verify.",
+    "Before any plot is sold, we check it: the official search, the site plan, the chain of ownership and the path to title. You receive it all in a Land Passport.",
+    "Our designers create modern, efficient homes and buildings, each with a clear cost plan and a carbon summary.",
+    "During construction, we supervise every stage, and money is released only when an inspection confirms the work.",
+    "If you live abroad, you follow your project from anywhere, with weekly photos, videos and inspection reports.",
+    "At handover, you receive a Building Passport, a complete record of what was built. Eco-Consult. Verified land. Accountable buildings."
+  ];
+  var scenes=[].slice.call(pl.querySelectorAll('.sc')),cap=document.getElementById('cap'),poster=document.getElementById('poster'),ppI=document.getElementById('ppI'),progF=document.getElementById('progF'),tm=document.getElementById('tm'),mute=document.getElementById('mute'),chap=[].slice.call(document.querySelectorAll('#chap button'));
+  var synth=window.speechSynthesis,muted=!synth,idx=0,playing=false,t0=0,timer=null,voice=null;
+  var est=SC.map(function(s){return Math.max(5.5,s.split(' ').length/2.5+1.2);}),total=est.reduce(function(a,b){return a+b;},0);
+  function pickVoice(){if(!synth)return;var v=synth.getVoices();var pref=['Google UK English Male','Microsoft Ryan','Daniel','Google UK English Female','Microsoft Sonia','Google US English'];
+    for(var i=0;i<pref.length;i++){var f=v.filter(function(x){return x.name.indexOf(pref[i])>=0;})[0];if(f){voice=f;return;}}voice=v.filter(function(x){return /^en(-|_)(GB|US|GH|NG)/i.test(x.lang);})[0]||v.filter(function(x){return /^en/i.test(x.lang);})[0]||null;}
+  if(synth){pickVoice();if(synth.onvoiceschanged!==undefined)synth.onvoiceschanged=pickVoice;}
+  if(!synth){mute.setAttribute('aria-pressed','true');mute.disabled=true;mute.title='Narration is not supported in this browser';}
+  function fmtT(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
+  function setScene(i){idx=i;scenes.forEach(function(s,k){s.classList.toggle('on',k===i);});chap.forEach(function(b,k){b.classList.toggle('on',k===i);});
+    scenes[i].querySelectorAll('*').forEach(function(el){if(el.getAnimations)el.getAnimations().forEach(function(a){a.cancel();});});
+    pl.classList.remove('run');void pl.offsetWidth;pl.classList.add('run');cap.textContent=SC[i];cap.classList.add('on');}
+  function after(){clearTimeout(timer);if(!playing)return;if(idx<SC.length-1){timer=setTimeout(function(){go(idx+1);},450);}else{end();}}
+  function go(i){clearTimeout(timer);if(synth)synth.cancel();setScene(i);t0=performance.now();
+    if(!playing)return;
+    if(!muted&&synth){var u=new SpeechSynthesisUtterance(SC[i]);if(voice)u.voice=voice;u.lang=voice?voice.lang:'en-GB';u.rate=0.98;u.pitch=1;var done=false;
+      u.onend=function(){if(done)return;done=true;after();};u.onerror=function(){if(done)return;done=true;timer=setTimeout(after,est[i]*1000);};
+      synth.speak(u);timer=setTimeout(function(){if(!done){done=true;after();}},(est[i]+6)*1000);}
+    else timer=setTimeout(after,est[i]*1000);}
+  function play(){poster.classList.add('gone');playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');document.getElementById('pp').setAttribute('aria-label','Pause');go(idx>=SC.length-1&&!pl.classList.contains('run')?0:idx);}
+  function pause(){playing=false;clearTimeout(timer);if(synth)synth.cancel();pl.classList.add('hold');ppI.setAttribute('d','M8 5v14l11-7z');document.getElementById('pp').setAttribute('aria-label','Play');}
+  function end(){playing=false;ppI.setAttribute('d','M8 5v14l11-7z');progF.style.width='100%';idx=0;setTimeout(function(){poster.classList.remove('gone');cap.classList.remove('on');},2500);}
+  poster.addEventListener('click',function(){idx=0;play();});
+  document.getElementById('pp').addEventListener('click',function(){playing?pause():play();});
+  mute.addEventListener('click',function(){muted=!muted;mute.setAttribute('aria-pressed',muted);mute.setAttribute('aria-label',muted?'Unmute narration':'Mute narration');if(playing)go(idx);});
+  chap.forEach(function(b,k){b.addEventListener('click',function(){poster.classList.add('gone');playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');go(k);});});
+  document.getElementById('prog').addEventListener('click',function(e){var r=this.getBoundingClientRect(),f=(e.clientX-r.left)/r.width,acc=0;for(var i=0;i<est.length;i++){acc+=est[i];if(f*total<=acc){poster.classList.add('gone');if(!playing){playing=true;pl.classList.remove('hold');ppI.setAttribute('d','M7 5h4v14H7zM13 5h4v14h-4z');}go(i);break;}}});
+  (function tick(){if(playing){var done=0;for(var i=0;i<idx;i++)done+=est[i];var el=Math.min(est[idx],(performance.now()-t0)/1000);progF.style.width=((done+el)/total*100)+'%';tm.textContent=fmtT(done+el);}requestAnimationFrame(tick);})();
+  tm.textContent=fmtT(0);
+  document.querySelectorAll('[data-watch]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();document.getElementById('overview').scrollIntoView({behavior:'smooth'});setTimeout(function(){idx=0;play();},650);});});
+  new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting&&playing)pause();});},{threshold:0}).observe(pl);
 })();
 
 </script>
